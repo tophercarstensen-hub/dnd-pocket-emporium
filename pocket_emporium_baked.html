@@ -1394,6 +1394,21 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
 
 <script>
 // ═══════════════════════════════════════════════════════
+// IMAGE HOST
+// Roll20-sourced item art is served via jsDelivr CDN from the companion
+// repo. Items reference art by `imagePath` (just the filename, e.g.
+// "abc123.webp"); itemArtUrl() composes the full URL.
+// Local dev:   "shop_art/"
+// Production:  "https://cdn.jsdelivr.net/gh/tophercarstensen-hub/dnd-pocket-emporium@main/shop_art/"
+const ART_BASE_URL = "https://cdn.jsdelivr.net/gh/tophercarstensen-hub/dnd-pocket-emporium@main/shop_art/";
+function itemArtUrl(it) {
+  if (!it) return null;
+  if (it.imagePath) return ART_BASE_URL + it.imagePath;
+  if (it.imageUrl && it.imageUrl !== "None") return it.imageUrl;
+  return null;
+}
+
+// ═══════════════════════════════════════════════════════
 // DATA TABLES
 // ═══════════════════════════════════════════════════════
 
@@ -3564,7 +3579,8 @@ function exportPlayerView() {
     '  const sell=Math.round((item.basePrice||0)*SM);\n'+
     '  const buy=Math.round((item.basePrice||0)*BM);\n'+
     '  const body=activeDetailBody();\n'+
-    '  let html=(item.imageUrl?\'<img class="dp-img" src="\'+esc(item.imageUrl)+\'" onerror="this.style.display=\\\'none\\\'" alt="\'+esc(item.name)+\'">\':"")+\n'+
+    '  const _artUrl = (typeof itemArtUrl === "function") ? itemArtUrl(item) : (item.imageUrl && item.imageUrl !== "None" ? item.imageUrl : null);\n'+
+    '  let html=(_artUrl?\'<img class="dp-img" src="\'+esc(_artUrl)+\'" onerror="this.style.display=\\\'none\\\'" alt="\'+esc(item.name)+\'">\':"")+\n'+
     '    \'<div class="dp-name" style="color:\'+RC[r]+\'">\'+esc(item.name)+\'</div>\';\n'+
     '  html+=\'<span class="dp-rarity" style="color:\'+RC[r]+\';background:\'+RBG[r]+\'">\'+RN[r]+\'</span>\';\n'+
     '  if(item.stats)html+=\'<div class="dp-stats">\'+esc(item.stats)+\'</div>\';\n'+
@@ -3958,7 +3974,7 @@ function buildStatPanelHTML(item, showEditBtn){
   if(item.cats && item.cats.length) statRows.push(`<div class="sp-stat-blk"><div class="sp-stat-lbl">Category</div><div class="sp-stat-val" style="font-size:11px;line-height:1.3">${esc((item.cats||[]).join(', '))}</div></div>`);
 
   return `
-    ${item.imageUrl ? `<img src="${esc(item.imageUrl)}" alt="${esc(item.name)}" style="width:100%;border-radius:4px;margin-bottom:10px;border:1px solid var(--border-dim)" onerror="this.style.display='none'">` : ''}
+    ${itemArtUrl(item) ? `<img src="${esc(itemArtUrl(item))}" alt="${esc(item.name)}" style="width:100%;border-radius:4px;margin-bottom:10px;border:1px solid var(--border-dim)" onerror="this.style.display='none'">` : ''}
     <div class="sp-name" style="color:${rcol}">${esc(item.name)}</div>
     <div class="sp-meta">
       <span class="sp-rarity" style="color:${rcol};background:${rbg}">${rname}</span>
