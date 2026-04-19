@@ -321,21 +321,37 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .party-bar-toggle-arr{color:var(--text-dim);font-size:10px;transition:transform var(--ease)}
 .party-bar-wrap.collapsed .party-bar-toggle-arr{transform:rotate(180deg)}
 .party-bar-wrap.collapsed .party-bar-toggle{border-bottom:none}
-.party-bar-body{display:grid;grid-template-columns:minmax(240px,1fr) auto;gap:16px;padding:10px 16px 12px;align-items:flex-start}
-.party-bar-wrap.expanded{max-height:260px}
-.pb-effects-col{display:flex;flex-direction:column;gap:6px;min-width:0}
-.pb-effects-hdr{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.1em;font-weight:600;border-bottom:1px solid var(--border-dim);padding-bottom:3px;margin-bottom:2px}
-.pb-effects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:4px 12px;font-family:'JetBrains Mono',monospace;font-size:10px}
-.pb-effect-row{display:flex;gap:8px;align-items:baseline;padding:2px 0}
-.pb-effect-lbl{color:var(--text-dim);flex-shrink:0;min-width:80px}
-.pb-effect-val{color:var(--accent-gold);flex:1;text-align:right;font-weight:600}
-.pb-effect-val.neutral{color:var(--text-secondary)}
-.pb-effect-val.good{color:var(--accent-green)}
-.pb-effect-val.bad{color:var(--accent-red)}
-.pb-effect-val.mild{color:var(--accent-teal)}
-.pb-effect-sub{color:var(--text-dim);font-size:8px;display:block;font-weight:400;text-align:right}
-.pb-effects-tip{font-family:'Crimson Pro',serif;font-style:italic;font-size:10px;color:var(--text-dim);line-height:1.3;margin-top:4px;padding-top:4px;border-top:1px dashed var(--border-dim)}
+.party-bar-body{display:grid;grid-template-columns:minmax(320px,1.1fr) auto;gap:18px;padding:10px 16px 12px;align-items:flex-start}
+.party-bar-wrap.expanded{max-height:280px}
+.pb-effects-col{display:flex;flex-direction:column;gap:8px;min-width:0}
+.pb-effects-hdr{display:flex;align-items:center;gap:8px;font-family:'Cinzel',serif;font-size:10px;color:var(--accent-gold);text-transform:uppercase;letter-spacing:.15em;font-weight:700;padding-bottom:2px}
+.pb-effects-hdr::before{content:"⚙";font-size:11px;color:var(--accent-gold-dim)}
+.pb-effects-hdr::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--accent-gold-dim) 0%,transparent 100%);margin-left:4px}
+.pb-effects-grid{display:grid;grid-template-columns:repeat(4,minmax(110px,1fr));gap:8px}
+.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:7px 10px 6px 14px;display:flex;flex-direction:column;gap:1px;overflow:hidden;transition:border-color var(--ease),transform var(--ease)}
+.pb-stat-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent-amber);opacity:.75}
+.pb-stat-card.good::before{background:var(--accent-green)}
+.pb-stat-card.bad::before{background:var(--accent-red)}
+.pb-stat-card.mild::before{background:var(--accent-teal)}
+.pb-stat-card.locked::before{background:var(--accent-gold);opacity:1}
+.pb-stat-card:hover{border-color:var(--accent-gold-dim)}
+.pb-stat-lbl{display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.pb-stat-lbl .pb-stat-icon{font-size:11px;line-height:1}
+.pb-stat-val{font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--accent-gold);line-height:1.1;margin-top:1px;letter-spacing:.01em}
+.pb-stat-card.good .pb-stat-val{color:var(--accent-green)}
+.pb-stat-card.bad .pb-stat-val{color:var(--accent-red)}
+.pb-stat-card.mild .pb-stat-val{color:var(--accent-teal)}
+.pb-stat-card.neutral .pb-stat-val{color:var(--accent-amber)}
+.pb-stat-val-sm{font-size:13px;font-weight:600}
+.pb-stat-arrow{display:inline-block;margin-right:2px;font-size:11px;vertical-align:middle}
+.pb-stat-sub{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--text-dim);line-height:1.35;margin-top:3px;font-weight:400;letter-spacing:.02em}
+.pb-stat-sub b{color:var(--text-secondary);font-weight:600}
+.pb-effects-tip{font-family:'Crimson Pro',serif;font-style:italic;font-size:10.5px;color:var(--text-dim);line-height:1.3;padding-top:2px;opacity:.85}
+.pb-effects-tip b{color:var(--accent-gold-dim);font-style:normal;font-weight:600}
 .pb-right-col{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+@media (max-width: 1280px){
+  .pb-effects-grid{grid-template-columns:repeat(2,minmax(140px,1fr))}
+}
 /* tier in party bar */
 .pb-tier-wrap{display:flex;flex-direction:column;gap:5px;flex-shrink:0}
 .pb-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase}
@@ -1010,7 +1026,7 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
       <div class="pb-effects-col">
         <div class="pb-effects-hdr">Active Settings · what they do</div>
         <div class="pb-effects-grid" id="pbEffects"></div>
-        <div class="pb-effects-tip" id="pbEffectsTip">Settings auto-combine. Drag the rarity slider or click 🔓 to lock your own range.</div>
+        <div class="pb-effects-tip" id="pbEffectsTip">Settings combine automatically — <b>drag the rarity slider</b> or click <b>🔓</b> to override with your own values.</div>
       </div>
       <!-- RIGHT: party tier, rep, saved parties -->
       <div class="pb-right-col">
@@ -2210,18 +2226,49 @@ function renderEffectsPanel(){
   const buyMult=(BUY[shr]&&BUY[shr][s]?BUY[shr][s]:1)*(WEALTH_BUY_MULT[w]||1)*(1+(MOOD_BUY_DELTA[mood]||0));
   const haggleDC=(BASE_DC[shr]||15)+(MOOD_DC[mood]||0)+(TIER_DC[tier]||0);
 
-  function cls(pct){return pct>0.08?'bad':pct<-0.08?'good':'mild';}
-  function pctStr(m){const p=(m-1)*100;return (p>=0?'+':'')+p.toFixed(0)+'%';}
+  // Classification — player-friendly colour meaning:
+  //   sell price UP = expensive for players (bad for them)
+  //   shop pays MORE = generous to players (good for them)
+  function sellClass(m){const d=m-1;return d>0.08?'bad':d<-0.08?'good':'mild';}
+  function buyClass(m){return m>1.00?'good':m<0.75?'bad':'mild';}
+  const pctStr=m=>{const p=Math.round((m-1)*100);return (p>0?'+':'')+p+'%';};
 
-  const rangeText=`${RNAMES[mn]} → ${RNAMES[mx]}`;
-  const rangeWhy=RARITY_LOCKED?'locked by you':
-    `settlement + wealth${tierCapping?' · T'+tier+' caps max at '+RNAMES[tierCap]:''}`;
+  // Rarity card class: lock overrides colouring
+  const rarCls=RARITY_LOCKED?'locked':(tierCapping?'mild':'neutral');
+  const rarWhy=RARITY_LOCKED?
+    '<b>🔒 locked</b> · click lock to unlock':
+    (tierCapping?
+      `<b>Tier ${tier}</b> caps max at <b>${RNAMES[tierCap]}</b><br>settlement · ${s} + wealth · ${w}`:
+      `settlement · <b>${s}</b> + wealth · <b>${w}</b>`);
+
+  const sellCls=sellClass(sellMult);
+  const sellArrow=sellMult>1.02?'▲':sellMult<0.98?'▼':'●';
+  const buyCls=buyClass(buyMult);
+  const buyArrow=buyMult>1.02?'▲':buyMult<0.98?'▼':'●';
+
+  const dcCls=haggleDC>=25?'bad':haggleDC<=12?'good':'mild';
 
   el.innerHTML=`
-    <div class="pb-effect-row"><span class="pb-effect-lbl">Rarity range</span><span class="pb-effect-val neutral">${rangeText}<span class="pb-effect-sub">${rangeWhy}</span></span></div>
-    <div class="pb-effect-row"><span class="pb-effect-lbl">Item sell price</span><span class="pb-effect-val ${cls(sellMult-1)}">${pctStr(sellMult)}<span class="pb-effect-sub">shrewd ${shr} · ${s} · ${w} · ${mood}</span></span></div>
-    <div class="pb-effect-row"><span class="pb-effect-lbl">Shop buy rate</span><span class="pb-effect-val ${cls(1-buyMult)}">${pctStr(buyMult)}<span class="pb-effect-sub">of item value</span></span></div>
-    <div class="pb-effect-row"><span class="pb-effect-lbl">Haggle DC</span><span class="pb-effect-val neutral">${haggleDC}<span class="pb-effect-sub">base ${BASE_DC[shr]} · T${tier} ${TIER_DC[tier]>=0?'+':''}${TIER_DC[tier]} · mood ${MOOD_DC[mood]>=0?'+':''}${MOOD_DC[mood]}</span></span></div>
+    <div class="pb-stat-card ${rarCls}">
+      <div class="pb-stat-lbl"><span class="pb-stat-icon">💎</span>Rarity</div>
+      <div class="pb-stat-val pb-stat-val-sm">${RNAMES[mn]}<span style="color:var(--text-dim);font-weight:400"> → </span>${RNAMES[mx]}</div>
+      <div class="pb-stat-sub">${rarWhy}</div>
+    </div>
+    <div class="pb-stat-card ${sellCls}">
+      <div class="pb-stat-lbl"><span class="pb-stat-icon">💰</span>You Pay</div>
+      <div class="pb-stat-val"><span class="pb-stat-arrow">${sellArrow}</span>${pctStr(sellMult)}</div>
+      <div class="pb-stat-sub">vs base · shrewd <b>${shr}</b> · mood <b>${mood}</b></div>
+    </div>
+    <div class="pb-stat-card ${buyCls}">
+      <div class="pb-stat-lbl"><span class="pb-stat-icon">🪙</span>You Get</div>
+      <div class="pb-stat-val"><span class="pb-stat-arrow">${buyArrow}</span>${Math.round(buyMult*100)}%</div>
+      <div class="pb-stat-sub">of item value when selling back</div>
+    </div>
+    <div class="pb-stat-card ${dcCls}">
+      <div class="pb-stat-lbl"><span class="pb-stat-icon">🎲</span>Haggle DC</div>
+      <div class="pb-stat-val">${haggleDC}</div>
+      <div class="pb-stat-sub">base <b>${BASE_DC[shr]}</b> · T${tier} <b>${TIER_DC[tier]>=0?'+':''}${TIER_DC[tier]}</b> · mood <b>${MOOD_DC[mood]>=0?'+':''}${MOOD_DC[mood]}</b></div>
+    </div>
   `;
 }
 
