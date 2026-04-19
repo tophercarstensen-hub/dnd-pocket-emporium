@@ -102,6 +102,14 @@ input[type="range"]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;b
 .rarity-disp{font-family:'Crimson Pro',serif;font-size:13px;color:var(--text-secondary);margin-top:3px;text-align:center}
 .rarity-disp span{color:var(--accent-gold)}
 .rarity-auto-note{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent-teal);margin-top:2px;text-align:center}
+.rarity-note-row{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:2px}
+.rarity-note-row .rarity-auto-note{margin-top:0}
+.rarity-lock-btn{background:transparent;border:1px solid var(--border-dim);border-radius:3px;color:var(--text-dim);font-size:10px;padding:1px 5px;cursor:pointer;transition:all var(--ease);line-height:1}
+.rarity-lock-btn:hover{color:var(--accent-gold);border-color:var(--accent-gold-dim)}
+.rarity-lock-btn.locked{color:var(--accent-gold);border-color:var(--accent-gold);background:rgba(201,168,76,.1)}
+.rarity-lock-btn.locked::before{content:"🔒"}
+.rarity-lock-btn.locked{font-size:0}
+.rarity-lock-btn.locked::before{font-size:10px}
 
 /* PARTY TIER TOGGLE */
 .tier-tog{display:flex;gap:4px;margin-top:5px}
@@ -313,7 +321,21 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .party-bar-toggle-arr{color:var(--text-dim);font-size:10px;transition:transform var(--ease)}
 .party-bar-wrap.collapsed .party-bar-toggle-arr{transform:rotate(180deg)}
 .party-bar-wrap.collapsed .party-bar-toggle{border-bottom:none}
-.party-bar-body{display:flex;gap:16px;padding:10px 16px 12px;align-items:flex-start;flex-wrap:wrap}
+.party-bar-body{display:grid;grid-template-columns:minmax(240px,1fr) auto;gap:16px;padding:10px 16px 12px;align-items:flex-start}
+.party-bar-wrap.expanded{max-height:260px}
+.pb-effects-col{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pb-effects-hdr{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.1em;font-weight:600;border-bottom:1px solid var(--border-dim);padding-bottom:3px;margin-bottom:2px}
+.pb-effects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:4px 12px;font-family:'JetBrains Mono',monospace;font-size:10px}
+.pb-effect-row{display:flex;gap:8px;align-items:baseline;padding:2px 0}
+.pb-effect-lbl{color:var(--text-dim);flex-shrink:0;min-width:80px}
+.pb-effect-val{color:var(--accent-gold);flex:1;text-align:right;font-weight:600}
+.pb-effect-val.neutral{color:var(--text-secondary)}
+.pb-effect-val.good{color:var(--accent-green)}
+.pb-effect-val.bad{color:var(--accent-red)}
+.pb-effect-val.mild{color:var(--accent-teal)}
+.pb-effect-sub{color:var(--text-dim);font-size:8px;display:block;font-weight:400;text-align:right}
+.pb-effects-tip{font-family:'Crimson Pro',serif;font-style:italic;font-size:10px;color:var(--text-dim);line-height:1.3;margin-top:4px;padding-top:4px;border-top:1px dashed var(--border-dim)}
+.pb-right-col{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
 /* tier in party bar */
 .pb-tier-wrap{display:flex;flex-direction:column;gap:5px;flex-shrink:0}
 .pb-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase}
@@ -737,7 +759,7 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
         <div class="sec-body">
           <label class="flbl">Shrewdness</label>
           <div class="frow">
-            <select id="shrewdness">
+            <select id="shrewdness" onchange="renderEffectsPanel()">
               <option value="">— Random —</option>
               <option value="naive">Naïve — DC 5</option>
               <option value="inexperienced">Inexperienced — DC 10</option>
@@ -764,7 +786,7 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
           </div>
           <label class="flbl">Mood</label>
           <div class="frow">
-            <select id="mood">
+            <select id="mood" onchange="renderEffectsPanel()">
               <option value="">— Random —</option>
               <option value="positive">Positive / Cheerful / Joyful</option>
               <option value="neutral">Neutral / Fine</option>
@@ -878,7 +900,10 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
               <span style="color:var(--r-legendary)">Legend</span>
             </div>
             <div class="rarity-disp" id="rDisp"><span>Common</span> → <span>Legendary</span></div>
-            <div class="rarity-auto-note" id="rAutoNote">↑ auto-set from settlement + wealth</div>
+            <div class="rarity-note-row">
+              <span class="rarity-auto-note" id="rAutoNote">↑ auto-set from settlement + wealth</span>
+              <button class="rarity-lock-btn" id="rLockBtn" onclick="toggleRarityLock()" title="Lock rarity so settlement / wealth / tier changes don't override it">🔓</button>
+            </div>
           </div>
           <label class="flbl" style="margin-top:10px">Item Count</label>
           <div class="ctog">
@@ -981,37 +1006,43 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
       <span class="party-bar-toggle-arr">▲</span>
     </div>
     <div class="party-bar-body">
-      <!-- Party Tier -->
-      <div class="pb-tier-wrap">
-        <div class="pb-lbl">Party Tier</div>
-        <div class="pb-tier-tog">
-          <div class="pb-tier-opt" id="pb-tier1" onclick="setPartyBarTier(1)">Tier 1<span class="pb-tier-range">Lv 1–4</span></div>
-          <div class="pb-tier-opt" id="pb-tier2" onclick="setPartyBarTier(2)">Tier 2<span class="pb-tier-range">Lv 5–10</span></div>
-          <div class="pb-tier-opt active" id="pb-tier3" onclick="setPartyBarTier(3)">Tier 3<span class="pb-tier-range">Lv 11–14</span></div>
-          <div class="pb-tier-opt" id="pb-tier4" onclick="setPartyBarTier(4)">Tier 4<span class="pb-tier-range">Lv 15–20</span></div>
-        </div>
+      <!-- LEFT: Effects panel — live summary of what settings do -->
+      <div class="pb-effects-col">
+        <div class="pb-effects-hdr">Active Settings · what they do</div>
+        <div class="pb-effects-grid" id="pbEffects"></div>
+        <div class="pb-effects-tip" id="pbEffectsTip">Settings auto-combine. Drag the rarity slider or click 🔓 to lock your own range.</div>
       </div>
-      <!-- Rep Sliders -->
-      <div class="pb-rep-wrap">
-        <div class="pb-lbl">Party Reputation <button class="pb-rep-reset" onclick="resetPartyBarRep()">Reset to 0</button></div>
-        <div class="pb-rep-row"><span class="pb-rep-lbl">Heroes / Saviors</span><input type="range" id="pb-n0" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv0">0</span></div>
-        <div class="pb-rep-row"><span class="pb-rep-lbl">Feared / Violent</span><input type="range" id="pb-n1" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv1">0</span></div>
-        <div class="pb-rep-row"><span class="pb-rep-lbl">Rich / Powerful</span><input type="range" id="pb-n2" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv2">0</span></div>
-        <div class="pb-rep-row"><span class="pb-rep-lbl">Outlaws / Criminals</span><input type="range" id="pb-n3" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv3">0</span></div>
-      </div>
-      <!-- Saved Parties -->
-      <div class="pb-parties-wrap">
-        <div class="pb-lbl">Saved Parties</div>
-        <div class="pb-party-row">
-          <input type="text" class="pb-party-input" id="partyNameInput" placeholder="Party name…">
-          <button class="pb-party-btn primary" onclick="saveParty()">Save</button>
+      <!-- RIGHT: party tier, rep, saved parties -->
+      <div class="pb-right-col">
+        <div class="pb-tier-wrap">
+          <div class="pb-lbl">Party Tier</div>
+          <div class="pb-tier-tog">
+            <div class="pb-tier-opt" id="pb-tier1" onclick="setPartyBarTier(1)">Tier 1<span class="pb-tier-range">Lv 1–4</span></div>
+            <div class="pb-tier-opt" id="pb-tier2" onclick="setPartyBarTier(2)">Tier 2<span class="pb-tier-range">Lv 5–10</span></div>
+            <div class="pb-tier-opt active" id="pb-tier3" onclick="setPartyBarTier(3)">Tier 3<span class="pb-tier-range">Lv 11–14</span></div>
+            <div class="pb-tier-opt" id="pb-tier4" onclick="setPartyBarTier(4)">Tier 4<span class="pb-tier-range">Lv 15–20</span></div>
+          </div>
         </div>
-        <div class="pb-party-row">
-          <select class="pb-party-select" id="partySavedSelect">
-            <option value="">— Saved parties —</option>
-          </select>
-          <button class="pb-party-btn" onclick="loadParty()">Load</button>
-          <button class="pb-party-btn danger" onclick="deleteParty()">Del</button>
+        <div class="pb-rep-wrap">
+          <div class="pb-lbl">Party Reputation <button class="pb-rep-reset" onclick="resetPartyBarRep()">Reset to 0</button></div>
+          <div class="pb-rep-row"><span class="pb-rep-lbl">Heroes / Saviors</span><input type="range" id="pb-n0" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv0">0</span></div>
+          <div class="pb-rep-row"><span class="pb-rep-lbl">Feared / Violent</span><input type="range" id="pb-n1" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv1">0</span></div>
+          <div class="pb-rep-row"><span class="pb-rep-lbl">Rich / Powerful</span><input type="range" id="pb-n2" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv2">0</span></div>
+          <div class="pb-rep-row"><span class="pb-rep-lbl">Outlaws / Criminals</span><input type="range" id="pb-n3" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv3">0</span></div>
+        </div>
+        <div class="pb-parties-wrap">
+          <div class="pb-lbl">Saved Parties</div>
+          <div class="pb-party-row">
+            <input type="text" class="pb-party-input" id="partyNameInput" placeholder="Party name…">
+            <button class="pb-party-btn primary" onclick="saveParty()">Save</button>
+          </div>
+          <div class="pb-party-row">
+            <select class="pb-party-select" id="partySavedSelect">
+              <option value="">— Saved parties —</option>
+            </select>
+            <button class="pb-party-btn" onclick="loadParty()">Load</button>
+            <button class="pb-party-btn danger" onclick="deleteParty()">Del</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1629,6 +1660,10 @@ const SETTLEMENT_STOCK_MULT = {hamlet:0.5,village:0.7,town:0.85,city:1.0,metropo
 
 // ── WEALTH RARITY BONUS ──
 const WEALTH_RARITY_BONUS = {indebted:-1,struggling:0,frugal:0,comfortable:0,affluent:1,rich:1,royally:2};
+// Party tier caps the max rarity — a Tier 1 party won't find Legendary
+// items even in a Metropolis. Tier does NOT push the floor up; only the ceiling.
+const TIER_RARITY_CAP = {1:1, 2:2, 3:3, 4:4}; // T1:Uncommon T2:Rare T3:VeryRare T4:Legendary
+let RARITY_LOCKED = false;
 
 // ── STOCK COUNTS [common, uncommon, rare, vrare, legendary] ──
 const STOCK_N = {
@@ -1857,6 +1892,9 @@ function setPartyBarTier(n) {
     if (el) el.classList.toggle('active', i===n);
   });
   S.partyTier = n;
+  // Tier change influences rarity ceiling unless the DM locked it
+  if (typeof autoRarityFromSettings === 'function') autoRarityFromSettings();
+  if (typeof renderEffectsPanel === 'function') renderEffectsPanel();
   // Update all non-overridden tabs
   Object.keys(shopTabs).forEach(tabId => {
     const t = shopTabs[tabId];
@@ -2076,6 +2114,7 @@ function loadDatabase(file){
   updateRarity();
   setPartyBarTier(3);
   setHaggle('none');
+  renderEffectsPanel();
   // Load saved parties into dropdown
   loadSavedPartyDropdown();
   // Load shops saved to memory from previous sessions
@@ -2119,12 +2158,10 @@ function applyShopPreset(type){
     else if(preset===true){parentCb.checked=true;document.querySelectorAll('.sub-'+b).forEach(c=>c.checked=true);}
     else if(Array.isArray(preset)){document.querySelectorAll('.sub-'+b).forEach(c=>c.checked=preset.includes(c.value));parentCb.checked=preset.length>0;}
   });
-  if(p.rarityOverride){
-    document.getElementById('rMin').value=p.rarityOverride[0];
-    document.getElementById('rMax').value=p.rarityOverride[1];
-    document.getElementById('rAutoNote').textContent='↑ preset for '+p.label;
-    updateRarityUI();
-  }else{autoRarityFromSettings();}
+  // Presets no longer touch rarity — that's settlement + wealth + tier's job.
+  // (The DM can still manually drag the slider, which auto-locks.)
+  autoRarityFromSettings();
+  if(typeof renderEffectsPanel==='function')renderEffectsPanel();
 }
 
 // ── RARITY ──
@@ -2134,19 +2171,79 @@ function onSettlementChange(){
   autoRarityFromSettings();
 }
 function autoRarityFromSettings(){
+  if(RARITY_LOCKED){updateRarityUI();return;}
   const s=document.getElementById('settlement').value||'city';
   const w=document.getElementById('wealth').value||'comfortable';
   const [baseMin,baseMax]=SETTLEMENT_RARITY[s]||[0,3],bonus=WEALTH_RARITY_BONUS[w]||0;
-  const finalMax=Math.min(4,Math.max(baseMin,baseMax+bonus));
-  document.getElementById('rMin').value=baseMin;
+  const tier=(typeof partyBar==='object'&&partyBar?partyBar.tier:3)||3;
+  const tierCap=TIER_RARITY_CAP[tier]??4;
+  const settlementMax=Math.min(4,Math.max(baseMin,baseMax+bonus));
+  const finalMax=Math.min(settlementMax,tierCap);
+  const finalMin=Math.min(baseMin,finalMax);
+  document.getElementById('rMin').value=finalMin;
   document.getElementById('rMax').value=finalMax;
-  document.getElementById('rAutoNote').textContent='↑ auto-set from settlement + wealth';
+  const tierNote=settlementMax>tierCap?` · capped by T${tier}`:'';
+  document.getElementById('rAutoNote').textContent='↑ auto-set from settlement + wealth'+tierNote;
   updateRarityUI();
+  if(typeof renderEffectsPanel==='function')renderEffectsPanel();
+}
+
+function renderEffectsPanel(){
+  const el=document.getElementById('pbEffects');
+  if(!el)return;
+  const sEl=document.getElementById('settlement');
+  const wEl=document.getElementById('wealth');
+  const shrEl=document.getElementById('shrewdness');
+  const moodEl=document.getElementById('mood');
+  const s=(sEl&&sEl.value)||'city';
+  const w=(wEl&&wEl.value)||'comfortable';
+  const shr=(shrEl&&shrEl.value)||'average';
+  const mood=(moodEl&&moodEl.value)||'neutral';
+  const tier=(typeof partyBar==='object'&&partyBar?partyBar.tier:3)||3;
+  const mn=parseInt(document.getElementById('rMin').value);
+  const mx=parseInt(document.getElementById('rMax').value);
+  const settlementMax=Math.min(4,Math.max((SETTLEMENT_RARITY[s]||[0,3])[0],(SETTLEMENT_RARITY[s]||[0,3])[1]+(WEALTH_RARITY_BONUS[w]||0)));
+  const tierCap=TIER_RARITY_CAP[tier]??4;
+  const tierCapping=settlementMax>tierCap;
+
+  const sellMult=(SELL[shr]&&SELL[shr][s]?SELL[shr][s]:1)*(WEALTH_SELL_MULT[w]||1)*(1+(MOOD_SELL_DELTA[mood]||0));
+  const buyMult=(BUY[shr]&&BUY[shr][s]?BUY[shr][s]:1)*(WEALTH_BUY_MULT[w]||1)*(1+(MOOD_BUY_DELTA[mood]||0));
+  const haggleDC=(BASE_DC[shr]||15)+(MOOD_DC[mood]||0)+(TIER_DC[tier]||0);
+
+  function cls(pct){return pct>0.08?'bad':pct<-0.08?'good':'mild';}
+  function pctStr(m){const p=(m-1)*100;return (p>=0?'+':'')+p.toFixed(0)+'%';}
+
+  const rangeText=`${RNAMES[mn]} → ${RNAMES[mx]}`;
+  const rangeWhy=RARITY_LOCKED?'locked by you':
+    `settlement + wealth${tierCapping?' · T'+tier+' caps max at '+RNAMES[tierCap]:''}`;
+
+  el.innerHTML=`
+    <div class="pb-effect-row"><span class="pb-effect-lbl">Rarity range</span><span class="pb-effect-val neutral">${rangeText}<span class="pb-effect-sub">${rangeWhy}</span></span></div>
+    <div class="pb-effect-row"><span class="pb-effect-lbl">Item sell price</span><span class="pb-effect-val ${cls(sellMult-1)}">${pctStr(sellMult)}<span class="pb-effect-sub">shrewd ${shr} · ${s} · ${w} · ${mood}</span></span></div>
+    <div class="pb-effect-row"><span class="pb-effect-lbl">Shop buy rate</span><span class="pb-effect-val ${cls(1-buyMult)}">${pctStr(buyMult)}<span class="pb-effect-sub">of item value</span></span></div>
+    <div class="pb-effect-row"><span class="pb-effect-lbl">Haggle DC</span><span class="pb-effect-val neutral">${haggleDC}<span class="pb-effect-sub">base ${BASE_DC[shr]} · T${tier} ${TIER_DC[tier]>=0?'+':''}${TIER_DC[tier]} · mood ${MOOD_DC[mood]>=0?'+':''}${MOOD_DC[mood]}</span></span></div>
+  `;
+}
+
+function toggleRarityLock(){
+  RARITY_LOCKED=!RARITY_LOCKED;
+  const btn=document.getElementById('rLockBtn');
+  if(btn)btn.classList.toggle('locked',RARITY_LOCKED);
+  if(!RARITY_LOCKED)autoRarityFromSettings();
+  const note=document.getElementById('rAutoNote');
+  if(note&&RARITY_LOCKED)note.textContent='🔒 locked by you';
+  if(typeof renderEffectsPanel==='function')renderEffectsPanel();
 }
 function onRaritySlider(){
   let mn=parseInt(document.getElementById('rMin').value),mx=parseInt(document.getElementById('rMax').value);
   if(mn>mx){if(event.target.id==='rMin'){document.getElementById('rMin').value=mx;mn=mx;}else{document.getElementById('rMax').value=mn;mx=mn;}}
-  document.getElementById('rAutoNote').textContent='↑ manually set';updateRarityUI();
+  // Manual drag implies the DM wants this exact range — auto-engage the lock
+  RARITY_LOCKED=true;
+  const lockBtn=document.getElementById('rLockBtn');
+  if(lockBtn)lockBtn.classList.add('locked');
+  document.getElementById('rAutoNote').textContent='🔒 manually set (locked)';
+  updateRarityUI();
+  if(typeof renderEffectsPanel==='function')renderEffectsPanel();
 }
 function updateRarityUI(){
   const mn=parseInt(document.getElementById('rMin').value),mx=parseInt(document.getElementById('rMax').value);
@@ -2177,9 +2274,9 @@ function weightedPick(table){
   for(const [val,w] of table){roll-=w;if(roll<=0)return val;}
   return table[table.length-1][0];
 }
-function rollShrewdness(){document.getElementById('shrewdness').value=weightedPick(SHREWD_WEIGHTS);}
+function rollShrewdness(){document.getElementById('shrewdness').value=weightedPick(SHREWD_WEIGHTS);if(typeof renderEffectsPanel==='function')renderEffectsPanel();}
 function rollWealth(){document.getElementById('wealth').value=weightedPick(WEALTH_WEIGHTS);autoRarityFromSettings();}
-function rollMood(){document.getElementById('mood').value=pick(MOODS);}
+function rollMood(){document.getElementById('mood').value=pick(MOODS);if(typeof renderEffectsPanel==='function')renderEffectsPanel();}
 
 function rollAllUnlocked(){
   if(!document.getElementById('mName').value.trim())rollName();
