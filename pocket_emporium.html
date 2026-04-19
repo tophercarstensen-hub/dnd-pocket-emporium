@@ -314,21 +314,26 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 /* ══ PARTY BAR ══ */
 .party-bar-wrap{flex-shrink:0;background:var(--bg-panel);border-bottom:1px solid var(--border-dim);overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
 .party-bar-wrap.collapsed{max-height:32px}
-.party-bar-wrap.expanded{max-height:200px}
-.party-bar-toggle{display:flex;align-items:center;gap:8px;padding:6px 14px;cursor:pointer;user-select:none;border-bottom:1px solid var(--border-dim);transition:background var(--ease)}
-.party-bar-toggle:hover{background:var(--bg-hover)}
-.party-bar-toggle-lbl{font-family:'Cinzel',serif;font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--text-secondary);text-transform:uppercase;flex:1}
-.party-bar-toggle-arr{color:var(--text-dim);font-size:10px;transition:transform var(--ease)}
-.party-bar-wrap.collapsed .party-bar-toggle-arr{transform:rotate(180deg)}
-.party-bar-wrap.collapsed .party-bar-toggle{border-bottom:none}
-.party-bar-body{display:grid;grid-template-columns:minmax(320px,1.1fr) auto;gap:18px;padding:10px 16px 12px;align-items:flex-start}
-.party-bar-wrap.expanded{max-height:280px}
-.pb-effects-col{display:flex;flex-direction:column;gap:8px;min-width:0}
-.pb-effects-hdr{display:flex;align-items:center;gap:8px;font-family:'Cinzel',serif;font-size:10px;color:var(--accent-gold);text-transform:uppercase;letter-spacing:.15em;font-weight:700;padding-bottom:2px}
-.pb-effects-hdr::before{content:"⚙";font-size:11px;color:var(--accent-gold-dim)}
-.pb-effects-hdr::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--accent-gold-dim) 0%,transparent 100%);margin-left:4px}
-.pb-effects-grid{display:grid;grid-template-columns:repeat(4,minmax(110px,1fr));gap:8px}
-.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:7px 10px 6px 14px;display:flex;flex-direction:column;gap:1px;overflow:hidden;transition:border-color var(--ease),transform var(--ease)}
+.party-bar-wrap.expanded{max-height:420px}
+.party-bar-toggle{display:none}
+.party-bar-toggle-lbl,.party-bar-toggle-arr{display:none}
+/* two-section split inside the party bar */
+.pb-sections{display:grid;grid-template-columns:1fr 2fr;gap:1px;background:var(--border-dim);height:100%}
+.pb-section{background:var(--bg-panel);display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.pb-sec-hdr{display:flex;align-items:center;gap:8px;padding:7px 14px;cursor:pointer;user-select:none;border-bottom:1px solid var(--border-dim);transition:background var(--ease);flex-shrink:0}
+.pb-sec-hdr:hover{background:var(--bg-hover)}
+.pb-sec-hdr .pb-sec-icon{font-size:12px;color:var(--accent-gold-dim)}
+.pb-sec-hdr .pb-sec-lbl{font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:.15em;color:var(--accent-gold);text-transform:uppercase;flex:1}
+.pb-sec-hdr .pb-sec-arr{color:var(--text-dim);font-size:10px;transition:transform var(--ease)}
+.pb-section.collapsed .pb-sec-hdr{border-bottom:none}
+.pb-section.collapsed .pb-sec-arr{transform:rotate(180deg)}
+.pb-section.collapsed .pb-sec-body{display:none}
+.pb-sec-body{padding:10px 14px 12px;display:flex;flex-direction:column;gap:12px;overflow-y:auto;flex:1;min-height:0}
+.party-bar-body{display:none}
+.pb-effects-col{display:none}
+.pb-effects-hdr{display:none}
+.pb-effects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:10px 12px 10px 18px;display:flex;flex-direction:column;gap:2px;overflow:hidden;transition:border-color var(--ease),transform var(--ease);min-height:88px}
 .pb-stat-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent-amber);opacity:.75}
 .pb-stat-card.good::before{background:var(--accent-green)}
 .pb-stat-card.bad::before{background:var(--accent-red)}
@@ -346,12 +351,21 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .pb-stat-arrow{display:inline-block;margin-right:2px;font-size:11px;vertical-align:middle}
 .pb-stat-sub{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--text-dim);line-height:1.35;margin-top:3px;font-weight:400;letter-spacing:.02em}
 .pb-stat-sub b{color:var(--text-secondary);font-weight:600}
-.pb-effects-tip{font-family:'Crimson Pro',serif;font-style:italic;font-size:10.5px;color:var(--text-dim);line-height:1.3;padding-top:2px;opacity:.85}
+.pb-effects-tip{font-family:'Crimson Pro',serif;font-style:italic;font-size:11px;color:var(--text-dim);line-height:1.35;padding:6px 0 0;opacity:.85}
 .pb-effects-tip b{color:var(--accent-gold-dim);font-style:normal;font-weight:600}
-.pb-right-col{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
-@media (max-width: 1280px){
-  .pb-effects-grid{grid-template-columns:repeat(2,minmax(140px,1fr))}
-}
+.pb-right-col{display:none}
+/* Rarity card: embedded settlement dropdown */
+.pb-stat-card.rarity-card{padding-bottom:8px}
+.pb-inline-selector{margin-top:6px;display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.pb-inline-selector label{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em}
+.pb-inline-selector select{background:var(--bg-input);border:1px solid var(--border-dim);color:var(--text-secondary);font-family:'Crimson Pro',serif;font-size:11px;padding:2px 16px 2px 6px;border-radius:2px;cursor:pointer;outline:none;min-width:0;flex:1}
+.pb-inline-selector select:hover{border-color:var(--accent-gold-dim)}
+.pb-inline-selector select:focus{border-color:var(--accent-gold)}
+/* Generate button inside effects section */
+.pb-gen-btn{margin-top:2px;width:100%}
+.pb-not-set-warn{grid-column:1/-1;display:flex;align-items:center;gap:8px;padding:8px 12px;background:linear-gradient(90deg,rgba(201,144,48,.12),transparent);border:1px dashed rgba(201,144,48,.4);border-radius:3px;font-family:'Crimson Pro',serif;font-size:11.5px;color:var(--accent-amber);line-height:1.3}
+.pb-not-set-warn::before{content:"⚠";font-size:14px;line-height:1}
+.pb-not-set-warn b{color:var(--accent-gold);font-weight:700}
 /* tier in party bar */
 .pb-tier-wrap{display:flex;flex-direction:column;gap:5px;flex-shrink:0}
 .pb-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase}
@@ -753,16 +767,7 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
           <span class="sec-icon">🏰</span><span class="sec-lbl">Location</span><span class="sec-arr">▶</span>
         </div>
         <div class="sec-body">
-          <label class="flbl">Settlement Size</label>
-          <select id="settlement" onchange="onSettlementChange()">
-            <option value="">— Select Settlement —</option>
-            <option value="hamlet">Hamlet — 100% surcharge</option>
-            <option value="village">Village — 50% surcharge</option>
-            <option value="town">Town — 20% surcharge</option>
-            <option value="city">City — base price</option>
-            <option value="metropolis">Metropolis — 10% cheaper</option>
-            <option value="megalopolis">Megalopolis — 20% cheaper</option>
-          </select>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);font-style:italic;padding:4px 0">Settlement → moved to the Active Settings panel (top bar) so you can see how it affects rarity + prices in real time.</div>
           <div id="settlementWarn" style="display:none;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent-amber);margin-top:4px">⚠ Settlement size required before generating.</div>
         </div>
       </div>
@@ -1004,9 +1009,8 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
       </div>
     </div><!-- /scroll -->
 
-    <div class="sidebar-footer">
-      <button class="gen-btn" onclick="generateShop()">⚜ Generate Shop</button>
-    </div>
+    <!-- Generate Shop moved to the Active Settings section in the top bar -->
+    <div class="sidebar-footer" style="display:none"></div>
   </div>
 </div>
 
@@ -1015,52 +1019,98 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
 
   <!-- ══ PARTY BAR (inside layout, right of sidebar) ══ -->
   <div class="party-bar-wrap expanded" id="partyBarWrap">
-    <div class="party-bar-toggle" onclick="togglePartyBar()">
-      <span style="font-size:12px">⚔</span>
-      <span class="party-bar-toggle-lbl">Party</span>
-      <span id="partyBarSummary" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);flex:1;text-align:right;padding-right:10px"></span>
-      <span class="party-bar-toggle-arr">▲</span>
-    </div>
-    <div class="party-bar-body">
-      <!-- LEFT: Effects panel — live summary of what settings do -->
-      <div class="pb-effects-col">
-        <div class="pb-effects-hdr">Active Settings · what they do</div>
-        <div class="pb-effects-grid" id="pbEffects"></div>
-        <div class="pb-effects-tip" id="pbEffectsTip">Settings combine automatically — <b>drag the rarity slider</b> or click <b>🔓</b> to override with your own values.</div>
-      </div>
-      <!-- RIGHT: party tier, rep, saved parties -->
-      <div class="pb-right-col">
-        <div class="pb-tier-wrap">
-          <div class="pb-lbl">Party Tier</div>
-          <div class="pb-tier-tog">
-            <div class="pb-tier-opt" id="pb-tier1" onclick="setPartyBarTier(1)">Tier 1<span class="pb-tier-range">Lv 1–4</span></div>
-            <div class="pb-tier-opt" id="pb-tier2" onclick="setPartyBarTier(2)">Tier 2<span class="pb-tier-range">Lv 5–10</span></div>
-            <div class="pb-tier-opt active" id="pb-tier3" onclick="setPartyBarTier(3)">Tier 3<span class="pb-tier-range">Lv 11–14</span></div>
-            <div class="pb-tier-opt" id="pb-tier4" onclick="setPartyBarTier(4)">Tier 4<span class="pb-tier-range">Lv 15–20</span></div>
+    <div class="pb-sections">
+
+      <!-- ─── LEFT: Party (1/3 width) — tier on top, rep, saved parties at bottom ─── -->
+      <section class="pb-section expanded" id="pbPartySection">
+        <div class="pb-sec-hdr" onclick="togglePbSection('pbPartySection')">
+          <span class="pb-sec-icon">⚔</span>
+          <span class="pb-sec-lbl">Party</span>
+          <span id="partyBarSummary" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);font-weight:400;text-transform:none;letter-spacing:0"></span>
+          <span class="pb-sec-arr">▲</span>
+        </div>
+        <div class="pb-sec-body">
+          <div class="pb-tier-wrap">
+            <div class="pb-lbl">Party Tier</div>
+            <div class="pb-tier-tog">
+              <div class="pb-tier-opt" id="pb-tier1" onclick="setPartyBarTier(1)">Tier 1<span class="pb-tier-range">Lv 1–4</span></div>
+              <div class="pb-tier-opt" id="pb-tier2" onclick="setPartyBarTier(2)">Tier 2<span class="pb-tier-range">Lv 5–10</span></div>
+              <div class="pb-tier-opt active" id="pb-tier3" onclick="setPartyBarTier(3)">Tier 3<span class="pb-tier-range">Lv 11–14</span></div>
+              <div class="pb-tier-opt" id="pb-tier4" onclick="setPartyBarTier(4)">Tier 4<span class="pb-tier-range">Lv 15–20</span></div>
+            </div>
+          </div>
+          <div class="pb-rep-wrap">
+            <div class="pb-lbl">Party Reputation <button class="pb-rep-reset" onclick="resetPartyBarRep()">Reset to 0</button></div>
+            <div class="pb-rep-row"><span class="pb-rep-lbl">Heroes / Saviors</span><input type="range" id="pb-n0" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv0">0</span></div>
+            <div class="pb-rep-row"><span class="pb-rep-lbl">Feared / Violent</span><input type="range" id="pb-n1" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv1">0</span></div>
+            <div class="pb-rep-row"><span class="pb-rep-lbl">Rich / Powerful</span><input type="range" id="pb-n2" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv2">0</span></div>
+            <div class="pb-rep-row"><span class="pb-rep-lbl">Outlaws / Criminals</span><input type="range" id="pb-n3" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv3">0</span></div>
+          </div>
+          <div class="pb-parties-wrap">
+            <div class="pb-lbl">Saved Parties</div>
+            <div class="pb-party-row">
+              <input type="text" class="pb-party-input" id="partyNameInput" placeholder="Party name…">
+              <button class="pb-party-btn primary" onclick="saveParty()">Save</button>
+            </div>
+            <div class="pb-party-row">
+              <select class="pb-party-select" id="partySavedSelect">
+                <option value="">— Saved parties —</option>
+              </select>
+              <button class="pb-party-btn" onclick="loadParty()">Load</button>
+              <button class="pb-party-btn danger" onclick="deleteParty()">Del</button>
+            </div>
           </div>
         </div>
-        <div class="pb-rep-wrap">
-          <div class="pb-lbl">Party Reputation <button class="pb-rep-reset" onclick="resetPartyBarRep()">Reset to 0</button></div>
-          <div class="pb-rep-row"><span class="pb-rep-lbl">Heroes / Saviors</span><input type="range" id="pb-n0" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv0">0</span></div>
-          <div class="pb-rep-row"><span class="pb-rep-lbl">Feared / Violent</span><input type="range" id="pb-n1" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv1">0</span></div>
-          <div class="pb-rep-row"><span class="pb-rep-lbl">Rich / Powerful</span><input type="range" id="pb-n2" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv2">0</span></div>
-          <div class="pb-rep-row"><span class="pb-rep-lbl">Outlaws / Criminals</span><input type="range" id="pb-n3" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv3">0</span></div>
+      </section>
+
+      <!-- ─── RIGHT: Active Settings (2/3 width) — stat cards + Generate button ─── -->
+      <section class="pb-section expanded" id="pbEffectsSection">
+        <div class="pb-sec-hdr" onclick="togglePbSection('pbEffectsSection')">
+          <span class="pb-sec-icon">⚙</span>
+          <span class="pb-sec-lbl">Active Settings · What They Do</span>
+          <span class="pb-sec-arr">▲</span>
         </div>
-        <div class="pb-parties-wrap">
-          <div class="pb-lbl">Saved Parties</div>
-          <div class="pb-party-row">
-            <input type="text" class="pb-party-input" id="partyNameInput" placeholder="Party name…">
-            <button class="pb-party-btn primary" onclick="saveParty()">Save</button>
+        <div class="pb-sec-body">
+          <div class="pb-effects-grid" id="pbEffects">
+            <div class="pb-stat-card rarity-card neutral" id="pbCardRarity">
+              <div class="pb-stat-lbl"><span class="pb-stat-icon">💎</span>Rarity</div>
+              <div class="pb-stat-val pb-stat-val-sm" id="pbValRarity">—</div>
+              <div class="pb-stat-sub" id="pbSubRarity">—</div>
+              <div class="pb-inline-selector">
+                <label>Settlement</label>
+                <select id="settlement" onchange="onSettlementChange()">
+                  <option value="">— Select —</option>
+                  <option value="hamlet">Hamlet</option>
+                  <option value="village">Village</option>
+                  <option value="town">Town</option>
+                  <option value="city">City</option>
+                  <option value="metropolis">Metropolis</option>
+                  <option value="megalopolis">Megalopolis</option>
+                </select>
+              </div>
+            </div>
+            <div class="pb-stat-card mild" id="pbCardPay">
+              <div class="pb-stat-lbl"><span class="pb-stat-icon">💰</span>Party Pays</div>
+              <div class="pb-stat-val" id="pbValPay">—</div>
+              <div class="pb-stat-sub" id="pbSubPay">—</div>
+            </div>
+            <div class="pb-stat-card mild" id="pbCardGet">
+              <div class="pb-stat-lbl"><span class="pb-stat-icon">🪙</span>Shop Pays Party</div>
+              <div class="pb-stat-val" id="pbValGet">—</div>
+              <div class="pb-stat-sub" id="pbSubGet">—</div>
+            </div>
+            <div class="pb-stat-card mild" id="pbCardDC">
+              <div class="pb-stat-lbl"><span class="pb-stat-icon">🎲</span>Haggle DC</div>
+              <div class="pb-stat-val" id="pbValDC">—</div>
+              <div class="pb-stat-sub" id="pbSubDC">—</div>
+            </div>
+            <div class="pb-not-set-warn" id="pbNotSetWarn" style="display:none"></div>
           </div>
-          <div class="pb-party-row">
-            <select class="pb-party-select" id="partySavedSelect">
-              <option value="">— Saved parties —</option>
-            </select>
-            <button class="pb-party-btn" onclick="loadParty()">Load</button>
-            <button class="pb-party-btn danger" onclick="deleteParty()">Del</button>
-          </div>
+          <div class="pb-effects-tip" id="pbEffectsTip">Settings combine automatically — <b>drag the rarity slider</b> or click <b>🔓</b> to override with your own range.</div>
+          <button class="gen-btn pb-gen-btn" onclick="generateShop()">⚜ Generate Shop</button>
         </div>
-      </div>
+      </section>
+
     </div>
   </div>
 
@@ -1883,11 +1933,14 @@ let ieListPanelOpen = true;
 // PARTY BAR
 // ═══════════════════════════════════════════════════════
 function togglePartyBar() {
-  const wrap = document.getElementById('partyBarWrap');
-  const isExpanded = wrap.classList.contains('expanded');
-  wrap.classList.toggle('expanded', !isExpanded);
-  wrap.classList.toggle('collapsed', isExpanded);
-  updatePartyBarSummary();
+  // legacy — kept for any external caller; forwards to the party section toggle
+  togglePbSection('pbPartySection');
+}
+function togglePbSection(id){
+  const el=document.getElementById(id);if(!el)return;
+  const isExpanded=el.classList.contains('expanded');
+  el.classList.toggle('expanded',!isExpanded);
+  el.classList.toggle('collapsed',isExpanded);
 }
 function updatePartyBarSummary() {
   const el = document.getElementById('partyBarSummary');
@@ -2205,71 +2258,102 @@ function autoRarityFromSettings(){
 }
 
 function renderEffectsPanel(){
-  const el=document.getElementById('pbEffects');
-  if(!el)return;
+  const rCard=document.getElementById('pbCardRarity');
+  if(!rCard)return;  // DOM not ready yet
   const sEl=document.getElementById('settlement');
   const wEl=document.getElementById('wealth');
   const shrEl=document.getElementById('shrewdness');
   const moodEl=document.getElementById('mood');
-  const s=(sEl&&sEl.value)||'city';
-  const w=(wEl&&wEl.value)||'comfortable';
-  const shr=(shrEl&&shrEl.value)||'average';
-  const mood=(moodEl&&moodEl.value)||'neutral';
+  const sRaw=sEl?sEl.value:'';
+  const wRaw=wEl?wEl.value:'';
+  const shrRaw=shrEl?shrEl.value:'';
+  const moodRaw=moodEl?moodEl.value:'';
+  const s=sRaw||'city';
+  const w=wRaw||'comfortable';
+  const shr=shrRaw||'average';
+  const mood=moodRaw||'neutral';
   const tier=(typeof partyBar==='object'&&partyBar?partyBar.tier:3)||3;
   const mn=parseInt(document.getElementById('rMin').value);
   const mx=parseInt(document.getElementById('rMax').value);
   const settlementMax=Math.min(4,Math.max((SETTLEMENT_RARITY[s]||[0,3])[0],(SETTLEMENT_RARITY[s]||[0,3])[1]+(WEALTH_RARITY_BONUS[w]||0)));
   const tierCap=TIER_RARITY_CAP[tier]??4;
   const tierCapping=settlementMax>tierCap;
-
   const sellMult=(SELL[shr]&&SELL[shr][s]?SELL[shr][s]:1)*(WEALTH_SELL_MULT[w]||1)*(1+(MOOD_SELL_DELTA[mood]||0));
   const buyMult=(BUY[shr]&&BUY[shr][s]?BUY[shr][s]:1)*(WEALTH_BUY_MULT[w]||1)*(1+(MOOD_BUY_DELTA[mood]||0));
   const haggleDC=(BASE_DC[shr]||15)+(MOOD_DC[mood]||0)+(TIER_DC[tier]||0);
 
-  // Classification — player-friendly colour meaning:
-  //   sell price UP = expensive for players (bad for them)
-  //   shop pays MORE = generous to players (good for them)
-  function sellClass(m){const d=m-1;return d>0.08?'bad':d<-0.08?'good':'mild';}
-  function buyClass(m){return m>1.00?'good':m<0.75?'bad':'mild';}
-  const pctStr=m=>{const p=Math.round((m-1)*100);return (p>0?'+':'')+p+'%';};
+  function setCls(el, cls){
+    ['good','bad','mild','neutral','locked'].forEach(c=>el.classList.remove(c));
+    el.classList.add(cls);
+  }
 
-  // Rarity card class: lock overrides colouring
+  // ─── Rarity card ───
   const rarCls=RARITY_LOCKED?'locked':(tierCapping?'mild':'neutral');
+  setCls(rCard,rarCls);
+  document.getElementById('pbValRarity').innerHTML=
+    `${RNAMES[mn]}<span style="color:var(--text-dim);font-weight:400"> → </span>${RNAMES[mx]}`;
   const rarWhy=RARITY_LOCKED?
-    '<b>🔒 locked</b> · click lock to unlock':
-    (tierCapping?
-      `<b>Tier ${tier}</b> caps max at <b>${RNAMES[tierCap]}</b><br>settlement · ${s} + wealth · ${w}`:
-      `settlement · <b>${s}</b> + wealth · <b>${w}</b>`);
+    '<b>🔒 locked</b> · click the lock to let settings drive it':
+    (!sRaw?'<b>Pick a settlement</b> below to tighten the range':
+      (tierCapping?
+        `<b>Tier ${tier}</b> caps max at <b>${RNAMES[tierCap]}</b><br>settlement · <b>${s}</b> + wealth · <b>${w}</b>`:
+        `settlement · <b>${s}</b> + wealth · <b>${w}</b>`));
+  document.getElementById('pbSubRarity').innerHTML=rarWhy;
 
-  const sellCls=sellClass(sellMult);
-  const sellArrow=sellMult>1.02?'▲':sellMult<0.98?'▼':'●';
-  const buyCls=buyClass(buyMult);
-  const buyArrow=buyMult>1.02?'▲':buyMult<0.98?'▼':'●';
+  // Merchant-details-not-set state (shrewdness / mood unset)
+  const merchantUnset=(!shrRaw||!moodRaw);
 
-  const dcCls=haggleDC>=25?'bad':haggleDC<=12?'good':'mild';
+  // ─── Party Pays card (items cost in shop) ───
+  function sellClass(m){const d=m-1;return d>0.08?'bad':d<-0.08?'good':'mild';}
+  const pctStr=m=>{const p=Math.round((m-1)*100);return (p>0?'+':'')+p+'%';};
+  const payCard=document.getElementById('pbCardPay');
+  if(merchantUnset){
+    setCls(payCard,'mild');
+    document.getElementById('pbValPay').innerHTML=`<span style="color:var(--text-dim);font-family:'Crimson Pro',serif;font-size:13px;font-style:italic;font-weight:500">not set yet</span>`;
+    document.getElementById('pbSubPay').innerHTML=`roll or pick <b>Shrewdness</b> and <b>Mood</b> to see pricing`;
+  } else {
+    setCls(payCard,sellClass(sellMult));
+    const sellArrow=sellMult>1.02?'▲':sellMult<0.98?'▼':'●';
+    document.getElementById('pbValPay').innerHTML=`<span class="pb-stat-arrow">${sellArrow}</span>${pctStr(sellMult)}`;
+    document.getElementById('pbSubPay').innerHTML=`what the shop charges your party<br>shrewd <b>${shr}</b> · mood <b>${mood}</b>`;
+  }
 
-  el.innerHTML=`
-    <div class="pb-stat-card ${rarCls}">
-      <div class="pb-stat-lbl"><span class="pb-stat-icon">💎</span>Rarity</div>
-      <div class="pb-stat-val pb-stat-val-sm">${RNAMES[mn]}<span style="color:var(--text-dim);font-weight:400"> → </span>${RNAMES[mx]}</div>
-      <div class="pb-stat-sub">${rarWhy}</div>
-    </div>
-    <div class="pb-stat-card ${sellCls}">
-      <div class="pb-stat-lbl"><span class="pb-stat-icon">💰</span>You Pay</div>
-      <div class="pb-stat-val"><span class="pb-stat-arrow">${sellArrow}</span>${pctStr(sellMult)}</div>
-      <div class="pb-stat-sub">vs base · shrewd <b>${shr}</b> · mood <b>${mood}</b></div>
-    </div>
-    <div class="pb-stat-card ${buyCls}">
-      <div class="pb-stat-lbl"><span class="pb-stat-icon">🪙</span>You Get</div>
-      <div class="pb-stat-val"><span class="pb-stat-arrow">${buyArrow}</span>${Math.round(buyMult*100)}%</div>
-      <div class="pb-stat-sub">of item value when selling back</div>
-    </div>
-    <div class="pb-stat-card ${dcCls}">
-      <div class="pb-stat-lbl"><span class="pb-stat-icon">🎲</span>Haggle DC</div>
-      <div class="pb-stat-val">${haggleDC}</div>
-      <div class="pb-stat-sub">base <b>${BASE_DC[shr]}</b> · T${tier} <b>${TIER_DC[tier]>=0?'+':''}${TIER_DC[tier]}</b> · mood <b>${MOOD_DC[mood]>=0?'+':''}${MOOD_DC[mood]}</b></div>
-    </div>
-  `;
+  // ─── Shop Pays Party card (buyback rate) ───
+  function buyClass(m){return m>1.00?'good':m<0.75?'bad':'mild';}
+  const getCard=document.getElementById('pbCardGet');
+  if(merchantUnset){
+    setCls(getCard,'mild');
+    document.getElementById('pbValGet').innerHTML=`<span style="color:var(--text-dim);font-family:'Crimson Pro',serif;font-size:13px;font-style:italic;font-weight:500">not set yet</span>`;
+    document.getElementById('pbSubGet').innerHTML=`roll or pick <b>Shrewdness</b> and <b>Mood</b> to see buyback`;
+  } else {
+    setCls(getCard,buyClass(buyMult));
+    const buyArrow=buyMult>1.02?'▲':buyMult<0.98?'▼':'●';
+    document.getElementById('pbValGet').innerHTML=`<span class="pb-stat-arrow">${buyArrow}</span>${Math.round(buyMult*100)}%`;
+    document.getElementById('pbSubGet').innerHTML=`what shop offers when party sells items back`;
+  }
+
+  // ─── Haggle DC card ───
+  const dcCard=document.getElementById('pbCardDC');
+  if(merchantUnset){
+    setCls(dcCard,'mild');
+    document.getElementById('pbValDC').innerHTML=`<span style="color:var(--text-dim);font-family:'Crimson Pro',serif;font-size:13px;font-style:italic;font-weight:500">not set yet</span>`;
+    document.getElementById('pbSubDC').innerHTML=`roll or pick <b>Shrewdness</b> and <b>Mood</b>`;
+  } else {
+    setCls(dcCard,haggleDC>=25?'bad':haggleDC<=12?'good':'mild');
+    document.getElementById('pbValDC').textContent=haggleDC;
+    document.getElementById('pbSubDC').innerHTML=`base <b>${BASE_DC[shr]}</b> · T${tier} <b>${TIER_DC[tier]>=0?'+':''}${TIER_DC[tier]}</b> · mood <b>${MOOD_DC[mood]>=0?'+':''}${MOOD_DC[mood]}</b>`;
+  }
+
+  // ─── Warning banner for missing merchant details ───
+  const warn=document.getElementById('pbNotSetWarn');
+  if(warn){
+    if(merchantUnset){
+      warn.style.display='';
+      warn.innerHTML=`<span><b>Merchant details not set yet.</b> Pricing and haggle DC will use sensible defaults (shrewd · <i>average</i>, mood · <i>neutral</i>) until you roll or choose them in the sidebar.</span>`;
+    } else {
+      warn.style.display='none';
+    }
+  }
 }
 
 function toggleRarityLock(){
