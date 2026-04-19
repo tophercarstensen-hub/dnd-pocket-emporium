@@ -320,7 +320,7 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 /* ══ PARTY BAR ══ */
 .party-bar-wrap{flex-shrink:0;background:var(--bg-panel);border-bottom:1px solid var(--border-dim);overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
 .party-bar-wrap.collapsed{max-height:34px}
-.party-bar-wrap.expanded{max-height:480px}
+.party-bar-wrap.expanded{max-height:432px}
 .party-bar-toggle{display:none}
 .party-bar-toggle-lbl,.party-bar-toggle-arr{display:none}
 /* Single master header spans the full width; clicking it collapses both sections together */
@@ -805,17 +805,6 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
         </div>
       </div>
 
-      <!-- LOCATION -->
-      <div class="section open" id="sec-loc">
-        <div class="sec-hdr" onclick="toggleSec('sec-loc')">
-          <span class="sec-icon">🏰</span><span class="sec-lbl">Location</span><span class="sec-arr">▶</span>
-        </div>
-        <div class="sec-body">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);font-style:italic;padding:4px 0">Settlement → moved to the Active Settings panel (top bar) so you can see how it affects rarity + prices in real time.</div>
-          <div id="settlementWarn" style="display:none;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent-amber);margin-top:4px">⚠ Settlement size required before generating.</div>
-        </div>
-      </div>
-
       <!-- MERCHANT -->
       <div class="section open" id="sec-merch">
         <div class="sec-hdr" onclick="toggleSec('sec-merch')">
@@ -1119,7 +1108,6 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
             <div class="pb-not-set-warn" id="pbNotSetWarn" style="display:none"></div>
           </div>
           <div class="pb-effects-tip" id="pbEffectsTip">Settings combine automatically — <b>drag the rarity slider</b> or click <b>🔓</b> to override with your own range.</div>
-          <button class="gen-btn pb-gen-btn" onclick="generateShop()">⚜ Generate Shop</button>
         </div>
       </section>
 
@@ -1158,6 +1146,8 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
               <button class="pb-party-btn danger" onclick="deleteParty()" title="Delete selected party">✕</button>
             </div>
           </div>
+          <!-- Generate Shop lives at the bottom of the Party panel — click-ready anchor -->
+          <button class="gen-btn pb-gen-btn" onclick="generateShop()" style="margin-top:auto">⚜ Generate Shop</button>
         </div>
       </section>
 
@@ -2288,8 +2278,8 @@ function applyShopPreset(type){
 
 // ── RARITY ──
 function onSettlementChange(){
-  document.getElementById('settlementWarn').style.display='none';
-  document.getElementById('settlement').style.borderColor='';
+  const sel=document.getElementById('settlement');
+  if(sel)sel.style.borderColor='';
   autoRarityFromSettings();
 }
 function autoRarityFromSettings(){
@@ -3541,13 +3531,12 @@ function applyRandomPreset() {
 }
 
 function generateShop() {
-  const settl=document.getElementById('settlement').value;
-  const warn=document.getElementById('settlementWarn');
   const sel=document.getElementById('settlement');
+  const settl=sel?sel.value:'';
   if(!settl){
-    warn.style.display='block';
-    sel.style.borderColor='var(--accent-amber)';
-    sel.focus();
+    // The Rarity card in the top bar already pulses amber when settlement is
+    // unset (via .req-settlement class). Just focus it and scroll into view.
+    if(sel){sel.focus();sel.scrollIntoView({behavior:'smooth',block:'center'});}
     return;
   }
   warn.style.display='none';
