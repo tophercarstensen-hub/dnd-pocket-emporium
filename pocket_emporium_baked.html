@@ -352,11 +352,11 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .pb-effects-hdr{display:none}
 /* 3 columns: Rarity spans 2 (row 1 = Rarity + Party Pays), Shop Pays + Haggle + Item Count fill row 2 */
 .pb-effects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:12px 14px 12px 20px;display:flex;flex-direction:column;gap:4px;overflow:hidden;transition:border-color var(--ease),transform var(--ease);min-height:170px}
+.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:10px 12px 10px 18px;display:flex;flex-direction:column;gap:3px;overflow:hidden;transition:border-color var(--ease),transform var(--ease);min-height:140px}
 .pb-effects-grid{align-items:stretch}
 /* Rarity card spans 2 columns since it now holds the slider + settlement.
    Taller min-height to accommodate the slider + settlement dropdown. */
-.pb-stat-card.wide-card{grid-column:span 2;min-height:220px}
+.pb-stat-card.wide-card{grid-column:span 2;min-height:200px}
 /* Controls at bottom of a card (item-count toggle / manual input) */
 .pb-card-controls{margin-top:auto;padding-top:8px;display:flex;flex-direction:column;gap:6px}
 .pb-card-controls .ctog{display:flex;gap:4px}
@@ -434,6 +434,14 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .pb-party-btn.primary{border-color:var(--border-gold);color:var(--accent-gold)}
 .pb-party-btn.danger{border-color:rgba(192,64,64,.4);color:var(--accent-red)}
 .pb-party-btn.danger:hover{background:rgba(192,64,64,.1)}
+/* Action chips — Save / Load / Delete on their own row below the inputs */
+.pb-party-chips{display:flex;gap:6px}
+.pb-chip{flex:1;padding:6px 10px;background:var(--bg-input);border:1px solid var(--border-dim);border-radius:3px;color:var(--text-secondary);font-family:'Cinzel',serif;font-size:10px;font-weight:600;letter-spacing:.08em;cursor:pointer;white-space:nowrap;transition:all var(--ease);text-transform:uppercase;text-align:center}
+.pb-chip:hover{color:var(--accent-gold);border-color:var(--accent-gold-dim);background:var(--bg-hover)}
+.pb-chip-primary{border-color:var(--border-gold);color:var(--accent-gold)}
+.pb-chip-primary:hover{background:rgba(201,168,76,.1)}
+.pb-chip-danger{border-color:rgba(192,64,64,.35);color:var(--accent-red)}
+.pb-chip-danger:hover{background:rgba(192,64,64,.08);border-color:var(--accent-red)}
 select.pb-party-select{flex:1;background:var(--bg-input);border:1px solid var(--border-dim);border-radius:3px;color:var(--text-primary);font-family:'Crimson Pro',serif;font-size:13px;padding:4px 24px 4px 7px;outline:none;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235a5568'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 7px center;transition:border-color var(--ease);min-width:0}
 select.pb-party-select option{background:var(--bg-deep)}
 
@@ -1107,7 +1115,6 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
             </div>
             <div class="pb-not-set-warn" id="pbNotSetWarn" style="display:none"></div>
           </div>
-          <div class="pb-effects-tip" id="pbEffectsTip">Settings combine automatically — <b>drag the rarity slider</b> or click <b>🔓</b> to override with your own range.</div>
         </div>
       </section>
 
@@ -1136,14 +1143,16 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
           </div>
           <div class="pb-parties-wrap">
             <div class="pb-lbl">Saved Parties</div>
-            <div class="pb-party-row">
-              <input type="text" class="pb-party-input" id="partyNameInput" placeholder="New party name…" style="flex:1.1">
-              <button class="pb-party-btn primary" onclick="saveParty()" title="Save current party settings">💾</button>
+            <div class="pb-party-row" style="margin-bottom:6px">
+              <input type="text" class="pb-party-input" id="partyNameInput" placeholder="New party name…" style="flex:1">
               <select class="pb-party-select" id="partySavedSelect" style="flex:1">
                 <option value="">— Load saved —</option>
               </select>
-              <button class="pb-party-btn" onclick="loadParty()" title="Load selected party">↑</button>
-              <button class="pb-party-btn danger" onclick="deleteParty()" title="Delete selected party">✕</button>
+            </div>
+            <div class="pb-party-chips">
+              <button class="pb-chip pb-chip-primary" onclick="saveParty()" title="Save current tier + rep under the name above">💾 Save</button>
+              <button class="pb-chip" onclick="loadParty()" title="Load the selected saved party">↑ Load</button>
+              <button class="pb-chip pb-chip-danger" onclick="deleteParty()" title="Delete the selected saved party">✕ Delete</button>
             </div>
           </div>
           <!-- Generate Shop lives at the bottom of the Party panel — click-ready anchor -->
@@ -3424,10 +3433,10 @@ function unsaveShop(tabId) {
 function loadSavedShops() {
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem(MEMORY_KEY)||'{}'); } catch(e) {}
-  const entries = Object.values(saved);
+  const entries = Object.entries(saved);
   if (!entries.length) return;
-  entries.sort((a,b)=>(a.savedAt||'').localeCompare(b.savedAt||''));
-  entries.forEach(entry => {
+  entries.sort((a,b)=>((a[1].savedAt||'').localeCompare(b[1].savedAt||'')));
+  entries.forEach(([_oldId, entry]) => {
     if (!entry.merchant || !entry.stock) return;
     const rep = entry.rep || [0,0,0,0];
     const repOverride = entry.repOverride || false;
@@ -3447,6 +3456,22 @@ function loadSavedShops() {
       if (tabEl) tabEl.classList.add('is-saved');
     }
   });
+  // Re-sync localStorage with the NEW tabIds — old-session tab ids like shop-1/2
+  // don't carry over; without this, unsaveShop(newId) couldn't find the entry
+  // to delete (it was stored under the old id).
+  const fresh = {};
+  Object.keys(shopTabs).forEach(tid => {
+    const t = shopTabs[tid];
+    if (!t.savedToMemory) return;
+    fresh[tid] = {
+      merchant: t.merchant, stock: t.stock, haggle: t.haggle,
+      partyTier: t.partyTier, shopType: t.shopType,
+      rep: t.rep, repOverride: t.repOverride,
+      luckyFind: t.luckyFind,
+      savedAt: new Date().toISOString(),
+    };
+  });
+  localStorage.setItem(MEMORY_KEY, JSON.stringify(fresh));
   switchTab('generator');
 }
 
