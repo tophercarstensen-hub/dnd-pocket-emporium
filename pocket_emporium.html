@@ -327,7 +327,7 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .pb-master-hdr .pb-m-arr{color:var(--text-dim);font-size:11px;transition:transform var(--ease)}
 .party-bar-wrap.collapsed .pb-m-arr{transform:rotate(180deg)}
 /* Two-section split inside the bar — Active Settings LEFT (2fr), Party RIGHT (1fr). */
-.pb-sections{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:var(--border-dim);align-items:start}
+.pb-sections{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:var(--border-dim);align-items:stretch}
 .pb-section{background:var(--bg-panel);display:flex;flex-direction:column;overflow:hidden;min-width:0}
 /* Per-section sub-header (no longer clickable / collapsible) */
 .pb-sec-hdr{display:flex;align-items:center;gap:8px;padding:6px 14px;user-select:none;border-bottom:1px solid var(--border-dim);flex-shrink:0;background:var(--bg-deep)}
@@ -345,8 +345,16 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .pb-effects-col{display:none}
 .pb-effects-hdr{display:none}
 .pb-effects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px}
-.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:12px 14px 12px 20px;display:flex;flex-direction:column;gap:3px;overflow:hidden;transition:border-color var(--ease),transform var(--ease);height:150px}
+.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:12px 14px 12px 20px;display:flex;flex-direction:column;gap:3px;overflow:hidden;transition:border-color var(--ease),transform var(--ease);height:180px}
 .pb-effects-grid{align-items:stretch}
+/* Controls at bottom of a card (item-count toggle / manual input) */
+.pb-card-controls{margin-top:auto;padding-top:8px;display:flex;flex-direction:column;gap:6px}
+.pb-card-controls .ctog{display:flex;gap:4px}
+.pb-card-controls .copt{flex:1;padding:5px 6px;font-size:9.5px;background:var(--bg-input);border:1px solid var(--border-dim);border-radius:3px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;font-weight:600;letter-spacing:.08em;text-align:center;cursor:pointer;transition:all var(--ease);text-transform:uppercase}
+.pb-card-controls .copt:hover{color:var(--accent-gold);border-color:var(--accent-gold-dim)}
+.pb-card-controls .copt.active{color:var(--accent-gold);border-color:var(--accent-gold);background:rgba(201,168,76,.1)}
+.pb-card-controls .manual-row input[type="number"]{background:var(--bg-input);border:1px solid var(--border-dim);border-radius:3px;color:var(--accent-gold);font-family:'Cinzel',serif;font-size:13px;font-weight:700;outline:none;text-align:center}
+.pb-card-controls .manual-row input[type="number"]:focus{border-color:var(--accent-gold)}
 .pb-stat-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent-amber);opacity:.75}
 .pb-stat-card.good::before{background:var(--accent-green)}
 .pb-stat-card.bad::before{background:var(--accent-red)}
@@ -382,14 +390,6 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 @keyframes pbPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,144,48,.35)}50%{box-shadow:0 0 0 4px rgba(201,144,48,0)}}
 /* Generate button inside effects section */
 .pb-gen-btn{margin-top:2px;width:100%}
-/* Item count row: compact horizontal layout inside Active Settings */
-.pb-itemcount-row{display:flex;align-items:center;gap:10px;padding:4px 0}
-.pb-itemcount-row .ctog{display:flex;gap:4px}
-.pb-itemcount-row .copt{padding:6px 12px;font-size:10px}
-.pb-itemcount-row .manual-row{display:flex;align-items:center;gap:6px}
-.pb-itemcount-row .manual-row.vis{display:flex}
-.pb-itemcount-row .manual-row input[type="number"]{background:var(--bg-input);border:1px solid var(--border-dim);border-radius:3px;color:var(--text-primary);font-family:'Cinzel',serif;font-size:13px;font-weight:600;padding:4px 6px;outline:none;text-align:center}
-.pb-itemcount-row .manual-row input[type="number"]:focus{border-color:var(--accent-gold)}
 .pb-not-set-warn{grid-column:1/-1;display:flex;align-items:center;gap:8px;padding:8px 12px;background:linear-gradient(90deg,rgba(201,144,48,.12),transparent);border:1px dashed rgba(201,144,48,.4);border-radius:3px;font-family:'Crimson Pro',serif;font-size:11.5px;color:var(--accent-amber);line-height:1.3}
 .pb-not-set-warn::before{content:"⚠";font-size:14px;line-height:1}
 .pb-not-set-warn b{color:var(--accent-gold);font-weight:700}
@@ -1066,12 +1066,12 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
                 <label>Settlement</label>
                 <select id="settlement" onchange="onSettlementChange()">
                   <option value="">— Select —</option>
-                  <option value="hamlet">Hamlet</option>
-                  <option value="village">Village</option>
-                  <option value="town">Town</option>
-                  <option value="city">City</option>
-                  <option value="metropolis">Metropolis</option>
-                  <option value="megalopolis">Megalopolis</option>
+                  <option value="hamlet">Hamlet — +100% surcharge</option>
+                  <option value="village">Village — +50% surcharge</option>
+                  <option value="town">Town — +20% surcharge</option>
+                  <option value="city">City — base price</option>
+                  <option value="metropolis">Metropolis — −10% cheaper</option>
+                  <option value="megalopolis">Megalopolis — −20% cheaper</option>
                 </select>
               </div>
             </div>
@@ -1090,20 +1090,24 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
               <div class="pb-stat-val" id="pbValDC">—</div>
               <div class="pb-stat-sub" id="pbSubDC">—</div>
             </div>
+            <!-- 5th card: Item Count (moved from sidebar, occupies the grid slot) -->
+            <div class="pb-stat-card count-card neutral" id="pbCardCount">
+              <div class="pb-stat-lbl"><span class="pb-stat-icon">📦</span>Item Count</div>
+              <div class="pb-stat-val pb-stat-val-sm" id="pbValCount">—</div>
+              <div class="pb-stat-sub" id="pbSubCount">—</div>
+              <div class="pb-card-controls">
+                <div class="ctog">
+                  <div class="copt active" id="cauto" onclick="setCountMode('auto')">Auto</div>
+                  <div class="copt" id="cmanual" onclick="setCountMode('manual')">Manual</div>
+                </div>
+                <div class="manual-row" id="manualRow" style="padding:0;display:none;align-items:center;gap:6px">
+                  <input type="number" id="manualN" value="12" min="1" max="200" oninput="renderEffectsPanel()" style="width:100%;padding:4px 6px">
+                </div>
+              </div>
+            </div>
             <div class="pb-not-set-warn" id="pbNotSetWarn" style="display:none"></div>
           </div>
           <div class="pb-effects-tip" id="pbEffectsTip">Settings combine automatically — <b>drag the rarity slider</b> or click <b>🔓</b> to override with your own range.</div>
-          <!-- Item count moved from sidebar — compact row above Generate -->
-          <div class="pb-itemcount-row">
-            <span class="pb-lbl" style="margin:0;white-space:nowrap">Item Count</span>
-            <div class="ctog" style="flex:1">
-              <div class="copt active" id="cauto" onclick="setCountMode('auto')">Auto from Wealth</div>
-              <div class="copt" id="cmanual" onclick="setCountMode('manual')">Manual</div>
-            </div>
-            <div class="manual-row" id="manualRow" style="padding:0;display:none;align-items:center;gap:6px">
-              <input type="number" id="manualN" value="12" min="1" max="200" style="width:64px;padding:4px 6px">
-            </div>
-          </div>
           <button class="gen-btn pb-gen-btn" onclick="generateShop()">⚜ Generate Shop</button>
         </div>
       </section>
@@ -2248,7 +2252,10 @@ function syncBucket(b){const par=document.getElementById('cb-'+b);document.query
 function setCountMode(m){
   document.getElementById('cauto').classList.toggle('active',m==='auto');
   document.getElementById('cmanual').classList.toggle('active',m==='manual');
-  document.getElementById('manualRow').classList.toggle('vis',m==='manual');
+  const manRow=document.getElementById('manualRow');
+  manRow.classList.toggle('vis',m==='manual');
+  manRow.style.display=m==='manual'?'flex':'none';
+  if(typeof renderEffectsPanel==='function')renderEffectsPanel();
 }
 
 function applyShopPreset(type){
@@ -2378,6 +2385,32 @@ function renderEffectsPanel(){
     setCls(dcCard,haggleDC>=25?'bad':haggleDC<=12?'good':'mild');
     document.getElementById('pbValDC').textContent=haggleDC;
     document.getElementById('pbSubDC').innerHTML=`base <b>${BASE_DC[shr]}</b> · T${tier} <b>${TIER_DC[tier]>=0?'+':''}${TIER_DC[tier]}</b> · mood <b>${MOOD_DC[mood]>=0?'+':''}${MOOD_DC[mood]}</b>`;
+  }
+
+  // ─── Item Count card ───
+  const countCard=document.getElementById('pbCardCount');
+  if(countCard){
+    const isManual=document.getElementById('cmanual').classList.contains('active');
+    let countVal,countSub;
+    if(isManual){
+      countVal=+document.getElementById('manualN').value||12;
+      countSub=`manual override`;
+      setCls(countCard,'neutral');
+    } else if(!sRaw){
+      countVal=`—`;
+      countSub=`pick a <b>settlement</b> to compute`;
+      setCls(countCard,'mild');
+    } else {
+      const counts=STOCK_N[w]||[0,0,0,0,0];
+      const settlMult=SETTLEMENT_STOCK_MULT[s]||1.0;
+      let total=0;
+      for(let ri=mn;ri<=mx;ri++)total+=(counts[ri]||0);
+      countVal=`~${Math.max(5,Math.floor(total*0.45*settlMult))}`;
+      countSub=`wealth · <b>${w}</b> × settlement · <b>${s}</b>`;
+      setCls(countCard,'neutral');
+    }
+    document.getElementById('pbValCount').innerHTML=countVal;
+    document.getElementById('pbSubCount').innerHTML=countSub;
   }
 
   // ─── Warning banner for missing merchant details ───
