@@ -314,7 +314,7 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 /* ══ PARTY BAR ══ */
 .party-bar-wrap{flex-shrink:0;background:var(--bg-panel);border-bottom:1px solid var(--border-dim);overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
 .party-bar-wrap.collapsed{max-height:32px}
-.party-bar-wrap.expanded{max-height:380px}
+.party-bar-wrap.expanded{max-height:420px}
 .party-bar-toggle{display:none}
 .party-bar-toggle-lbl,.party-bar-toggle-arr{display:none}
 /* two-section split inside the party bar — Active Settings LEFT (2fr), Party RIGHT (1fr).
@@ -339,8 +339,8 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .party-bar-body{display:none}
 .pb-effects-col{display:none}
 .pb-effects-hdr{display:none}
-.pb-effects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
-.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:10px 12px 10px 18px;display:flex;flex-direction:column;gap:2px;overflow:hidden;transition:border-color var(--ease),transform var(--ease);min-height:88px}
+.pb-effects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px}
+.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:12px 14px 12px 20px;display:flex;flex-direction:column;gap:3px;overflow:hidden;transition:border-color var(--ease),transform var(--ease);min-height:120px}
 .pb-stat-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent-amber);opacity:.75}
 .pb-stat-card.good::before{background:var(--accent-green)}
 .pb-stat-card.bad::before{background:var(--accent-red)}
@@ -349,25 +349,31 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .pb-stat-card:hover{border-color:var(--accent-gold-dim)}
 .pb-stat-lbl{display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
 .pb-stat-lbl .pb-stat-icon{font-size:11px;line-height:1}
-.pb-stat-val{font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--accent-gold);line-height:1.1;margin-top:1px;letter-spacing:.01em}
+.pb-stat-val{font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:var(--accent-gold);line-height:1.15;margin-top:2px;letter-spacing:.01em}
 .pb-stat-card.good .pb-stat-val{color:var(--accent-green)}
 .pb-stat-card.bad .pb-stat-val{color:var(--accent-red)}
 .pb-stat-card.mild .pb-stat-val{color:var(--accent-teal)}
 .pb-stat-card.neutral .pb-stat-val{color:var(--accent-amber)}
-.pb-stat-val-sm{font-size:13px;font-weight:600}
+.pb-stat-val-sm{font-size:15px;font-weight:700}
 .pb-stat-arrow{display:inline-block;margin-right:2px;font-size:11px;vertical-align:middle}
 .pb-stat-sub{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--text-dim);line-height:1.35;margin-top:3px;font-weight:400;letter-spacing:.02em}
 .pb-stat-sub b{color:var(--text-secondary);font-weight:600}
 .pb-effects-tip{font-family:'Crimson Pro',serif;font-style:italic;font-size:11px;color:var(--text-dim);line-height:1.35;padding:6px 0 0;opacity:.85}
 .pb-effects-tip b{color:var(--accent-gold-dim);font-style:normal;font-weight:600}
 .pb-right-col{display:none}
-/* Rarity card: embedded settlement dropdown */
-.pb-stat-card.rarity-card{padding-bottom:8px}
-.pb-inline-selector{margin-top:6px;display:flex;gap:4px;align-items:center;flex-wrap:wrap}
-.pb-inline-selector label{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em}
-.pb-inline-selector select{background:var(--bg-input);border:1px solid var(--border-dim);color:var(--text-secondary);font-family:'Crimson Pro',serif;font-size:11px;padding:2px 16px 2px 6px;border-radius:2px;cursor:pointer;outline:none;min-width:0;flex:1}
-.pb-inline-selector select:hover{border-color:var(--accent-gold-dim)}
-.pb-inline-selector select:focus{border-color:var(--accent-gold)}
+/* Rarity card: embedded settlement dropdown — mandatory, prominent */
+.pb-stat-card.rarity-card{padding-bottom:10px}
+.pb-inline-selector{margin-top:auto;padding-top:10px;display:flex;flex-direction:column;gap:4px}
+.pb-inline-selector label{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--accent-gold-dim);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+.pb-inline-selector label::before{content:"▸";color:var(--accent-gold-dim);font-size:9px}
+.pb-inline-selector select{background:var(--bg-input);border:1px solid var(--accent-gold-dim);color:var(--accent-gold);font-family:'Cinzel',serif;font-size:13px;font-weight:700;letter-spacing:.03em;padding:6px 22px 6px 10px;border-radius:3px;cursor:pointer;outline:none;min-width:0;width:100%;transition:all var(--ease);box-shadow:0 0 0 0 rgba(201,168,76,0)}
+.pb-inline-selector select:hover{border-color:var(--accent-gold);background:rgba(201,168,76,.06)}
+.pb-inline-selector select:focus{border-color:var(--accent-gold);box-shadow:0 0 0 2px rgba(201,168,76,.2)}
+/* Amber pulse + label change when settlement isn't picked yet */
+.pb-stat-card.rarity-card.req-settlement .pb-inline-selector select{border-color:var(--accent-amber);color:var(--accent-amber);background:rgba(201,144,48,.06);animation:pbPulse 2.4s ease-in-out infinite}
+.pb-stat-card.rarity-card.req-settlement .pb-inline-selector label{color:var(--accent-amber)}
+.pb-stat-card.rarity-card.req-settlement .pb-inline-selector label::before{content:"⚠";color:var(--accent-amber);font-size:10px}
+@keyframes pbPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,144,48,.35)}50%{box-shadow:0 0 0 4px rgba(201,144,48,0)}}
 /* Generate button inside effects section */
 .pb-gen-btn{margin-top:2px;width:100%}
 .pb-not-set-warn{grid-column:1/-1;display:flex;align-items:center;gap:8px;padding:8px 12px;background:linear-gradient(90deg,rgba(201,144,48,.12),transparent);border:1px dashed rgba(201,144,48,.4);border-radius:3px;font-family:'Crimson Pro',serif;font-size:11.5px;color:var(--accent-amber);line-height:1.3}
@@ -2297,14 +2303,15 @@ function renderEffectsPanel(){
   // ─── Rarity card ───
   const rarCls=RARITY_LOCKED?'locked':(tierCapping?'mild':'neutral');
   setCls(rCard,rarCls);
+  rCard.classList.toggle('req-settlement',!sRaw&&!RARITY_LOCKED);
   document.getElementById('pbValRarity').innerHTML=
     `${RNAMES[mn]}<span style="color:var(--text-dim);font-weight:400"> → </span>${RNAMES[mx]}`;
   const rarWhy=RARITY_LOCKED?
     '<b>🔒 locked</b> · click the lock to let settings drive it':
-    (!sRaw?'<b>Pick a settlement</b> below to tighten the range':
+    (!sRaw?'driven by the <b>settlement ↓</b> below + wealth':
       (tierCapping?
-        `<b>Tier ${tier}</b> caps max at <b>${RNAMES[tierCap]}</b><br>settlement · <b>${s}</b> + wealth · <b>${w}</b>`:
-        `settlement · <b>${s}</b> + wealth · <b>${w}</b>`));
+        `<b>Tier ${tier}</b> caps max at <b>${RNAMES[tierCap]}</b> · wealth · <b>${w}</b>`:
+        `wealth · <b>${w}</b> · party tier <b>T${tier}</b>`));
   document.getElementById('pbSubRarity').innerHTML=rarWhy;
 
   // Merchant-details-not-set state (shrewdness / mood unset)
