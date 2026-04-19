@@ -352,10 +352,11 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .pb-effects-hdr{display:none}
 /* 3 columns: Rarity spans 2 (row 1 = Rarity + Party Pays), Shop Pays + Haggle + Item Count fill row 2 */
 .pb-effects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:14px 16px 14px 22px;display:flex;flex-direction:column;gap:5px;overflow:hidden;transition:border-color var(--ease),transform var(--ease);height:230px}
+.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:12px 14px 12px 20px;display:flex;flex-direction:column;gap:4px;overflow:hidden;transition:border-color var(--ease),transform var(--ease);min-height:170px}
 .pb-effects-grid{align-items:stretch}
-/* Rarity card spans 2 columns since it now holds the slider + settlement */
-.pb-stat-card.wide-card{grid-column:span 2}
+/* Rarity card spans 2 columns since it now holds the slider + settlement.
+   Taller min-height to accommodate the slider + settlement dropdown. */
+.pb-stat-card.wide-card{grid-column:span 2;min-height:220px}
 /* Controls at bottom of a card (item-count toggle / manual input) */
 .pb-card-controls{margin-top:auto;padding-top:8px;display:flex;flex-direction:column;gap:6px}
 .pb-card-controls .ctog{display:flex;gap:4px}
@@ -379,8 +380,12 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .pb-stat-card.neutral .pb-stat-val{color:var(--accent-amber)}
 .pb-stat-val-sm{font-size:22px;font-weight:700}
 .pb-stat-arrow{display:inline-block;margin-right:4px;font-size:16px;vertical-align:middle}
-.pb-stat-sub{font-family:'Crimson Pro',serif;font-size:12px;color:var(--text-dim);line-height:1.4;margin-top:4px;font-weight:400}
+.pb-stat-sub{font-family:'Crimson Pro',serif;font-size:12px;color:var(--text-dim);line-height:1.5;margin-top:6px;font-weight:400;display:flex;flex-direction:column;gap:4px}
 .pb-stat-sub b{color:var(--text-secondary);font-weight:600}
+.pb-stat-example{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent-gold);background:rgba(201,168,76,.06);border-left:2px solid var(--accent-gold-dim);padding:3px 8px;border-radius:0 2px 2px 0;letter-spacing:.02em}
+.pb-stat-example b{color:var(--accent-gold);font-weight:700}
+.pb-stat-drivers{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:.02em;margin-top:auto;padding-top:4px;border-top:1px dashed rgba(255,255,255,.05)}
+.pb-stat-drivers b{color:var(--text-secondary);font-weight:600}
 .pb-effects-tip{font-family:'Crimson Pro',serif;font-style:italic;font-size:11px;color:var(--text-dim);line-height:1.35;padding:6px 0 0;opacity:.85}
 .pb-effects-tip b{color:var(--accent-gold-dim);font-style:normal;font-weight:600}
 .pb-right-col{display:none}
@@ -2359,12 +2364,16 @@ function renderEffectsPanel(){
   if(merchantUnset){
     setCls(payCard,'mild');
     document.getElementById('pbValPay').innerHTML=`<span style="color:var(--text-dim);font-family:'Crimson Pro',serif;font-size:13px;font-style:italic;font-weight:500">not set yet</span>`;
-    document.getElementById('pbSubPay').innerHTML=`roll or pick <b>Shrewdness</b> and <b>Mood</b> to see pricing`;
+    document.getElementById('pbSubPay').innerHTML=`<span>roll or pick <b>Shrewdness</b> and <b>Mood</b> to see live pricing</span>`;
   } else {
     setCls(payCard,sellClass(sellMult));
     const sellArrow=sellMult>1.02?'▲':sellMult<0.98?'▼':'●';
     document.getElementById('pbValPay').innerHTML=`<span class="pb-stat-arrow">${sellArrow}</span>${pctStr(sellMult)}`;
-    document.getElementById('pbSubPay').innerHTML=`what the shop charges your party<br>shrewd <b>${shr}</b> · mood <b>${mood}</b>`;
+    const ex100=Math.round(100*sellMult);
+    document.getElementById('pbSubPay').innerHTML=
+      `<span>the shop charges your party this much over item base cost</span>`+
+      `<span class="pb-stat-example">100 gp item  →  <b>${ex100} gp</b></span>`+
+      `<span class="pb-stat-drivers">shrewd <b>${shr}</b> · mood <b>${mood}</b></span>`;
   }
 
   // ─── Shop Pays Party card (buyback rate) ───
@@ -2373,12 +2382,16 @@ function renderEffectsPanel(){
   if(merchantUnset){
     setCls(getCard,'mild');
     document.getElementById('pbValGet').innerHTML=`<span style="color:var(--text-dim);font-family:'Crimson Pro',serif;font-size:13px;font-style:italic;font-weight:500">not set yet</span>`;
-    document.getElementById('pbSubGet').innerHTML=`roll or pick <b>Shrewdness</b> and <b>Mood</b> to see buyback`;
+    document.getElementById('pbSubGet').innerHTML=`<span>roll or pick <b>Shrewdness</b> and <b>Mood</b> to see buyback</span>`;
   } else {
     setCls(getCard,buyClass(buyMult));
     const buyArrow=buyMult>1.02?'▲':buyMult<0.98?'▼':'●';
     document.getElementById('pbValGet').innerHTML=`<span class="pb-stat-arrow">${buyArrow}</span>${Math.round(buyMult*100)}%`;
-    document.getElementById('pbSubGet').innerHTML=`what shop offers when party sells items back`;
+    const ex100buy=Math.round(100*buyMult);
+    document.getElementById('pbSubGet').innerHTML=
+      `<span>what the shop pays when your party sells items back</span>`+
+      `<span class="pb-stat-example">100 gp item  →  <b>${ex100buy} gp</b></span>`+
+      `<span class="pb-stat-drivers">shrewd <b>${shr}</b> · wealth <b>${w}</b></span>`;
   }
 
   // ─── Haggle DC card ───
@@ -2386,11 +2399,17 @@ function renderEffectsPanel(){
   if(merchantUnset){
     setCls(dcCard,'mild');
     document.getElementById('pbValDC').innerHTML=`<span style="color:var(--text-dim);font-family:'Crimson Pro',serif;font-size:13px;font-style:italic;font-weight:500">not set yet</span>`;
-    document.getElementById('pbSubDC').innerHTML=`roll or pick <b>Shrewdness</b> and <b>Mood</b>`;
+    document.getElementById('pbSubDC').innerHTML=`<span>roll or pick <b>Shrewdness</b> and <b>Mood</b> to see DC</span>`;
   } else {
     setCls(dcCard,haggleDC>=25?'bad':haggleDC<=12?'good':'mild');
     document.getElementById('pbValDC').textContent=haggleDC;
-    document.getElementById('pbSubDC').innerHTML=`base <b>${BASE_DC[shr]}</b> · T${tier} <b>${TIER_DC[tier]>=0?'+':''}${TIER_DC[tier]}</b> · mood <b>${MOOD_DC[mood]>=0?'+':''}${MOOD_DC[mood]}</b>`;
+    // Rough success chance for a +5 Cha persuasion roll (20th percentile bonus)
+    const successPct=Math.max(0,Math.min(100,Math.round((21-(haggleDC-5))/20*100)));
+    const difficulty=haggleDC<=13?'easy':haggleDC<=17?'moderate':haggleDC<=22?'hard':'brutal';
+    document.getElementById('pbSubDC').innerHTML=
+      `<span>roll to beat to haggle — <b>${difficulty}</b></span>`+
+      `<span class="pb-stat-example">+5 Cha  →  ~${successPct}% success</span>`+
+      `<span class="pb-stat-drivers">base <b>${BASE_DC[shr]}</b> · T${tier} <b>${TIER_DC[tier]>=0?'+':''}${TIER_DC[tier]}</b> · mood <b>${MOOD_DC[mood]>=0?'+':''}${MOOD_DC[mood]}</b></span>`;
   }
 
   // ─── Item Count card ───
@@ -2400,19 +2419,21 @@ function renderEffectsPanel(){
     let countVal,countSub;
     if(isManual){
       countVal=+document.getElementById('manualN').value||12;
-      countSub=`manual override`;
+      countSub=`<span>manual override — ignores wealth &amp; settlement</span>`;
       setCls(countCard,'neutral');
     } else if(!sRaw){
       countVal=`—`;
-      countSub=`pick a <b>settlement</b> to compute`;
+      countSub=`<span>pick a <b>settlement</b> to compute count</span>`;
       setCls(countCard,'mild');
     } else {
       const counts=STOCK_N[w]||[0,0,0,0,0];
       const settlMult=SETTLEMENT_STOCK_MULT[s]||1.0;
       let total=0;
       for(let ri=mn;ri<=mx;ri++)total+=(counts[ri]||0);
-      countVal=`~${Math.max(5,Math.floor(total*0.45*settlMult))}`;
-      countSub=`wealth · <b>${w}</b> × settlement · <b>${s}</b>`;
+      const n=Math.max(5,Math.floor(total*0.45*settlMult));
+      countVal=`~${n}`;
+      countSub=`<span>how many items appear in stock</span>`+
+        `<span class="pb-stat-drivers">wealth <b>${w}</b> × settlement <b>${s}</b></span>`;
       setCls(countCard,'neutral');
     }
     document.getElementById('pbValCount').innerHTML=countVal;
