@@ -1,0 +1,22 @@
+# Backups (local only)
+*.bak
+*.bak-*
+items_final.json.bak*
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Sample/generated shops stay out of the repo
+Quilm_Cindervast_shop.html
+
+# Archived versions — kept locally only
+Old Versions/
