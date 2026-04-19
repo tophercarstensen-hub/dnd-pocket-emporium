@@ -44,7 +44,7 @@ body{background:var(--bg-void);color:var(--text-primary);font-family:'Crimson Pr
 
 /* SHOP TYPE BUTTONS */
 .shop-types{padding:10px 10px 6px;border-bottom:1px solid var(--border-dim);flex-shrink:0}
-.shop-types-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}.sidebar-toolbar{display:flex;gap:6px;padding:8px 10px 0;flex-shrink:0}.toolbar-btn{flex:1;padding:5px 8px;background:var(--bg-card);border:1px solid var(--border-dim);border-radius:3px;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.05em;cursor:pointer;transition:all var(--ease)}.toolbar-btn:hover{color:var(--accent-gold);border-color:var(--accent-gold-dim);background:var(--bg-hover)}.cat-toolbar{display:flex;gap:6px;margin-bottom:8px}.cat-toolbar .toolbar-btn{font-size:9px;padding:4px 7px}.sec-hdr-btn{margin-right:8px;padding:3px 10px;background:rgba(112,96,160,.15);border:1px solid var(--accent-purple);border-radius:3px;color:#b0a0d5;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:all var(--ease);text-transform:uppercase}.sec-hdr-btn:hover{background:rgba(112,96,160,.3);color:#d0c0f0;border-color:#a090d0}.sec-hdr-btn:active{transform:scale(.96)}
+.shop-types-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}.sidebar-toolbar{display:flex;gap:6px;padding:8px 10px 0;flex-shrink:0}.toolbar-btn{flex:1;padding:5px 8px;background:var(--bg-card);border:1px solid var(--border-dim);border-radius:3px;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.05em;cursor:pointer;transition:all var(--ease)}.toolbar-btn:hover{color:var(--accent-gold);border-color:var(--accent-gold-dim);background:var(--bg-hover)}.cat-toolbar{display:flex;gap:6px;margin-bottom:8px}.cat-toolbar .toolbar-btn{font-size:9px;padding:4px 7px}.sec-hdr-btn{margin-right:8px;padding:3px 10px;background:transparent;border:1px solid var(--border-dim);border-radius:3px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:all var(--ease);text-transform:uppercase}.sec-hdr-btn:hover{background:rgba(112,96,160,.15);color:#b0a0d5;border-color:var(--accent-purple)}.sec-hdr-btn:active{transform:scale(.96)}.sec-hdr-btn.active{background:rgba(112,96,160,.15);border-color:var(--accent-purple);color:#b0a0d5}.sec-hdr-btn.active:hover{background:rgba(112,96,160,.3);color:#d0c0f0;border-color:#a090d0}
 .shop-btn-grid{column-count:2;column-gap:10px}.shop-btn-group{display:flex;flex-wrap:wrap;gap:3px;padding:3px 0 5px;margin-bottom:5px;break-inside:avoid-column;-webkit-column-break-inside:avoid;page-break-inside:avoid}.shop-btn-group-lbl{width:100%;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent-amber);letter-spacing:.14em;text-transform:uppercase;margin:2px 0 3px;font-weight:700;padding:2px 6px;background:rgba(232,160,48,.08);border-left:2px solid var(--accent-gold);border-radius:0 2px 2px 0}
 .shop-btn{padding:4px 8px;background:var(--bg-input);border:1px solid var(--border-dim);border-radius:3px;color:var(--text-secondary);font-family:'Cinzel',serif;font-size:9px;font-weight:600;letter-spacing:.06em;cursor:pointer;transition:all var(--ease);white-space:nowrap}
 .shop-btn:hover{color:var(--accent-gold);border-color:var(--accent-gold-dim);background:var(--bg-hover)}
@@ -662,7 +662,7 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
       <div class="section" id="sec-presets">
         <div class="sec-hdr" onclick="toggleSec('sec-presets')">
           <span class="sec-icon">⚜</span><span class="sec-lbl">Shop Type Preset</span>
-          <button class="sec-hdr-btn" data-type="random" onclick="event.stopPropagation();applyShopPreset('random');document.querySelectorAll('.shop-btn').forEach(b=>b.classList.remove('active'));" title="Randomize preset without expanding the section">🎲 Random</button>
+          <button class="sec-hdr-btn active" data-type="random" onclick="event.stopPropagation();applyShopPreset('random');document.querySelectorAll('.shop-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');" title="Randomize preset without expanding the section">🎲 Random</button>
           <span class="sec-arr">▶</span>
         </div>
         <div class="sec-body">
@@ -2068,7 +2068,10 @@ function loadDatabase(file){
   document.getElementById('shopBtnGrid').addEventListener('click',e=>{
     const btn=e.target.closest('.shop-btn');if(!btn)return;
     document.querySelectorAll('.shop-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');applyShopPreset(btn.dataset.type);
+    btn.classList.add('active');
+    // Picking a specific preset un-highlights Random
+    document.querySelectorAll('.sec-hdr-btn[data-type="random"]').forEach(b=>b.classList.remove('active'));
+    applyShopPreset(btn.dataset.type);
   });
   updateRarity();
   setPartyBarTier(3);
