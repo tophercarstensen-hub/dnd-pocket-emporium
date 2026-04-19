@@ -97,8 +97,14 @@ input[type="range"]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;b
 .rarity-track input[type="range"]{position:absolute;width:100%;pointer-events:none;background:transparent}
 .rarity-track input[type="range"]::-webkit-slider-thumb{pointer-events:all}
 .rarity-track input[type="range"]::-moz-range-thumb{pointer-events:all}
-.rarity-labels{display:flex;justify-content:space-between;margin-top:3px}
-.rarity-labels span{font-family:'JetBrains Mono',monospace;font-size:9px}
+.rarity-labels{display:flex;justify-content:space-between;margin-top:5px}
+.rarity-labels span{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600}
+/* Larger slider inside the Rarity card */
+.pb-stat-card .rarity-track{height:26px}
+.pb-stat-card .rarity-bar{height:6px}
+.pb-stat-card .rarity-fill{height:6px}
+.pb-stat-card .rarity-labels{margin-top:7px}
+.pb-stat-card .rarity-labels span{font-size:11px}
 .rarity-disp{font-family:'Crimson Pro',serif;font-size:13px;color:var(--text-secondary);margin-top:3px;text-align:center}
 .rarity-disp span{color:var(--accent-gold)}
 .rarity-auto-note{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent-teal);margin-top:2px;text-align:center}
@@ -314,7 +320,7 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 /* ══ PARTY BAR ══ */
 .party-bar-wrap{flex-shrink:0;background:var(--bg-panel);border-bottom:1px solid var(--border-dim);overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
 .party-bar-wrap.collapsed{max-height:34px}
-.party-bar-wrap.expanded{max-height:420px}
+.party-bar-wrap.expanded{max-height:480px}
 .party-bar-toggle{display:none}
 .party-bar-toggle-lbl,.party-bar-toggle-arr{display:none}
 /* Single master header spans the full width; clicking it collapses both sections together */
@@ -344,9 +350,12 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .party-bar-body{display:none}
 .pb-effects-col{display:none}
 .pb-effects-hdr{display:none}
-.pb-effects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px}
-.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:12px 14px 12px 20px;display:flex;flex-direction:column;gap:3px;overflow:hidden;transition:border-color var(--ease),transform var(--ease);height:180px}
+/* 3 columns: Rarity spans 2 (row 1 = Rarity + Party Pays), Shop Pays + Haggle + Item Count fill row 2 */
+.pb-effects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pb-stat-card{position:relative;background:linear-gradient(145deg,rgba(24,24,31,.85),rgba(15,15,19,.9));border:1px solid var(--border-dim);border-radius:4px;padding:14px 16px 14px 22px;display:flex;flex-direction:column;gap:5px;overflow:hidden;transition:border-color var(--ease),transform var(--ease);height:230px}
 .pb-effects-grid{align-items:stretch}
+/* Rarity card spans 2 columns since it now holds the slider + settlement */
+.pb-stat-card.wide-card{grid-column:span 2}
 /* Controls at bottom of a card (item-count toggle / manual input) */
 .pb-card-controls{margin-top:auto;padding-top:8px;display:flex;flex-direction:column;gap:6px}
 .pb-card-controls .ctog{display:flex;gap:4px}
@@ -361,16 +370,16 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .pb-stat-card.mild::before{background:var(--accent-teal)}
 .pb-stat-card.locked::before{background:var(--accent-gold);opacity:1}
 .pb-stat-card:hover{border-color:var(--accent-gold-dim)}
-.pb-stat-lbl{display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
-.pb-stat-lbl .pb-stat-icon{font-size:11px;line-height:1}
-.pb-stat-val{font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:var(--accent-gold);line-height:1.15;margin-top:2px;letter-spacing:.01em}
+.pb-stat-lbl{display:flex;align-items:center;gap:7px;font-family:'Cinzel',serif;font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.15em;font-weight:700}
+.pb-stat-lbl .pb-stat-icon{font-size:15px;line-height:1;color:var(--accent-gold-dim)}
+.pb-stat-val{font-family:'Cinzel',serif;font-size:28px;font-weight:700;color:var(--accent-gold);line-height:1.1;margin-top:4px;letter-spacing:.01em}
 .pb-stat-card.good .pb-stat-val{color:var(--accent-green)}
 .pb-stat-card.bad .pb-stat-val{color:var(--accent-red)}
 .pb-stat-card.mild .pb-stat-val{color:var(--accent-teal)}
 .pb-stat-card.neutral .pb-stat-val{color:var(--accent-amber)}
-.pb-stat-val-sm{font-size:15px;font-weight:700}
-.pb-stat-arrow{display:inline-block;margin-right:2px;font-size:11px;vertical-align:middle}
-.pb-stat-sub{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--text-dim);line-height:1.35;margin-top:3px;font-weight:400;letter-spacing:.02em}
+.pb-stat-val-sm{font-size:22px;font-weight:700}
+.pb-stat-arrow{display:inline-block;margin-right:4px;font-size:16px;vertical-align:middle}
+.pb-stat-sub{font-family:'Crimson Pro',serif;font-size:12px;color:var(--text-dim);line-height:1.4;margin-top:4px;font-weight:400}
 .pb-stat-sub b{color:var(--text-secondary);font-weight:600}
 .pb-effects-tip{font-family:'Crimson Pro',serif;font-style:italic;font-size:11px;color:var(--text-dim);line-height:1.35;padding:6px 0 0;opacity:.85}
 .pb-effects-tip b{color:var(--accent-gold-dim);font-style:normal;font-weight:600}
@@ -378,9 +387,9 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 /* Rarity card: embedded settlement dropdown — mandatory, prominent */
 .pb-stat-card.rarity-card{padding-bottom:10px}
 .pb-inline-selector{margin-top:auto;padding-top:10px;display:flex;flex-direction:column;gap:4px}
-.pb-inline-selector label{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--accent-gold-dim);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
-.pb-inline-selector label::before{content:"▸";color:var(--accent-gold-dim);font-size:9px}
-.pb-inline-selector select{background:var(--bg-input);border:1px solid var(--accent-gold-dim);color:var(--accent-gold);font-family:'Cinzel',serif;font-size:13px;font-weight:700;letter-spacing:.03em;padding:6px 22px 6px 10px;border-radius:3px;cursor:pointer;outline:none;min-width:0;width:100%;transition:all var(--ease);box-shadow:0 0 0 0 rgba(201,168,76,0)}
+.pb-inline-selector label{display:flex;align-items:center;gap:6px;font-family:'Cinzel',serif;font-size:11px;color:var(--accent-gold-dim);text-transform:uppercase;letter-spacing:.14em;font-weight:700}
+.pb-inline-selector label::before{content:"▸";color:var(--accent-gold-dim);font-size:10px}
+.pb-inline-selector select{background:var(--bg-input);border:1px solid var(--accent-gold-dim);color:var(--accent-gold);font-family:'Cinzel',serif;font-size:14px;font-weight:700;letter-spacing:.03em;padding:8px 24px 8px 12px;border-radius:3px;cursor:pointer;outline:none;min-width:0;width:100%;transition:all var(--ease);box-shadow:0 0 0 0 rgba(201,168,76,0)}
 .pb-inline-selector select:hover{border-color:var(--accent-gold);background:rgba(201,168,76,.06)}
 .pb-inline-selector select:focus{border-color:var(--accent-gold);box-shadow:0 0 0 2px rgba(201,168,76,.2)}
 /* Amber pulse + label change when settlement isn't picked yet */
@@ -935,28 +944,7 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
           <span class="sec-icon">📦</span><span class="sec-lbl">Stock</span><span class="sec-arr">▶</span>
         </div>
         <div class="sec-body">
-          <label class="flbl">Rarity Range</label>
-          <div class="rarity-wrap">
-            <div class="rarity-track">
-              <div class="rarity-bar"></div>
-              <div class="rarity-fill" id="rFill"></div>
-              <input type="range" id="rMin" min="0" max="4" value="0" oninput="onRaritySlider()">
-              <input type="range" id="rMax" min="0" max="4" value="4" oninput="onRaritySlider()">
-            </div>
-            <div class="rarity-labels">
-              <span style="color:var(--r-common)">Common</span>
-              <span style="color:var(--r-uncommon)">Uncommon</span>
-              <span style="color:var(--r-rare)">Rare</span>
-              <span style="color:var(--r-vrare)">V.Rare</span>
-              <span style="color:var(--r-legendary)">Legend</span>
-            </div>
-            <div class="rarity-disp" id="rDisp"><span>Common</span> → <span>Legendary</span></div>
-            <div class="rarity-note-row">
-              <span class="rarity-auto-note" id="rAutoNote">↑ auto-set from settlement + wealth</span>
-              <button class="rarity-lock-btn" id="rLockBtn" onclick="toggleRarityLock()" title="Lock rarity so settlement / wealth / tier changes don't override it">🔓</button>
-            </div>
-          </div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);font-style:italic;padding:4px 0;margin-top:6px">Item Count → moved to the Active Settings panel (top bar) next to the Generate button.</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);font-style:italic;padding:4px 0">Rarity range + Item Count → moved to the Active Settings panel (top bar) where they live in the Rarity and Item Count cards.</div>
           <label class="flbl" style="margin-top:10px">Item Categories <button class="pb-rep-reset" style="margin-left:6px" onclick="resetAllCategories()">Reset All</button></label>
 
           <div class="cat-toolbar"><button class="toolbar-btn" onclick="catToggleAll(true)" title="Expand all item category groups">⮟ Expand All</button><button class="toolbar-btn" onclick="catToggleAll(false)" title="Collapse all item category groups">⮝ Collapse All</button></div>
@@ -1058,9 +1046,27 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
         </div>
         <div class="pb-sec-body">
           <div class="pb-effects-grid" id="pbEffects">
-            <div class="pb-stat-card rarity-card neutral" id="pbCardRarity">
-              <div class="pb-stat-lbl"><span class="pb-stat-icon">💎</span>Rarity</div>
+            <div class="pb-stat-card rarity-card wide-card neutral" id="pbCardRarity">
+              <div class="pb-stat-lbl"><span class="pb-stat-icon">💎</span>Rarity Range
+                <button class="rarity-lock-btn" id="rLockBtn" onclick="toggleRarityLock()" title="Lock rarity so settlement / wealth / tier changes don't override it" style="margin-left:auto">🔓</button>
+              </div>
               <div class="pb-stat-val pb-stat-val-sm" id="pbValRarity">—</div>
+              <!-- Rarity slider moved from sidebar -->
+              <div class="rarity-wrap" style="margin-top:4px">
+                <div class="rarity-track">
+                  <div class="rarity-bar"></div>
+                  <div class="rarity-fill" id="rFill"></div>
+                  <input type="range" id="rMin" min="0" max="4" value="0" oninput="onRaritySlider()">
+                  <input type="range" id="rMax" min="0" max="4" value="4" oninput="onRaritySlider()">
+                </div>
+                <div class="rarity-labels">
+                  <span style="color:var(--r-common)">Common</span>
+                  <span style="color:var(--r-uncommon)">Uncommon</span>
+                  <span style="color:var(--r-rare)">Rare</span>
+                  <span style="color:var(--r-vrare)">V.Rare</span>
+                  <span style="color:var(--r-legendary)">Legend</span>
+                </div>
+              </div>
               <div class="pb-stat-sub" id="pbSubRarity">—</div>
               <div class="pb-inline-selector">
                 <label>Settlement</label>
@@ -2449,7 +2455,9 @@ function updateRarityUI(){
   const mn=parseInt(document.getElementById('rMin').value),mx=parseInt(document.getElementById('rMax').value);
   document.getElementById('rFill').style.left=(mn*25)+'%';
   document.getElementById('rFill').style.right=((4-mx)*25)+'%';
-  document.getElementById('rDisp').innerHTML=`<span>${RNAMES[mn]}</span> → <span>${RNAMES[mx]}</span>`;
+  // rDisp used to live in sidebar — rarity value now rendered inside pbValRarity by renderEffectsPanel.
+  const disp=document.getElementById('rDisp');
+  if(disp)disp.innerHTML=`<span>${RNAMES[mn]}</span> → <span>${RNAMES[mx]}</span>`;
 }
 function updateRarity(){autoRarityFromSettings();}
 
