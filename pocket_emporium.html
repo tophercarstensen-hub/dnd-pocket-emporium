@@ -2295,7 +2295,8 @@ function autoRarityFromSettings(){
   document.getElementById('rMin').value=finalMin;
   document.getElementById('rMax').value=finalMax;
   const tierNote=settlementMax>tierCap?` · capped by T${tier}`:'';
-  document.getElementById('rAutoNote').textContent='↑ auto-set from settlement + wealth'+tierNote;
+  const note=document.getElementById('rAutoNote');
+  if(note)note.textContent='↑ auto-set from settlement + wealth'+tierNote;
   updateRarityUI();
   if(typeof renderEffectsPanel==='function')renderEffectsPanel();
 }
@@ -2458,7 +2459,8 @@ function onRaritySlider(){
   RARITY_LOCKED=true;
   const lockBtn=document.getElementById('rLockBtn');
   if(lockBtn)lockBtn.classList.add('locked');
-  document.getElementById('rAutoNote').textContent='🔒 manually set (locked)';
+  const note2=document.getElementById('rAutoNote');
+  if(note2)note2.textContent='🔒 manually set (locked)';
   updateRarityUI();
   if(typeof renderEffectsPanel==='function')renderEffectsPanel();
 }
@@ -3526,7 +3528,8 @@ function applyRandomPreset() {
   const rMax = rMin + 1 + Math.floor(Math.random()*(4-rMin)); // at least 1 above min
   document.getElementById('rMin').value = rMin;
   document.getElementById('rMax').value = Math.min(4,rMax);
-  document.getElementById('rAutoNote').textContent = '↑ randomly set';
+  const note3=document.getElementById('rAutoNote');
+  if(note3)note3.textContent='↑ randomly set';
   updateRarityUI();
 }
 
@@ -3539,7 +3542,6 @@ function generateShop() {
     if(sel){sel.focus();sel.scrollIntoView({behavior:'smooth',block:'center'});}
     return;
   }
-  warn.style.display='none';
   sel.style.borderColor='';
   // Always fully clear and reroll merchant fields
   clearAllMerchant();
