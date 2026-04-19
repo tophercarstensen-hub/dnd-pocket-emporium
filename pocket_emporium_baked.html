@@ -314,11 +314,13 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 /* ══ PARTY BAR ══ */
 .party-bar-wrap{flex-shrink:0;background:var(--bg-panel);border-bottom:1px solid var(--border-dim);overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
 .party-bar-wrap.collapsed{max-height:32px}
-.party-bar-wrap.expanded{max-height:420px}
+.party-bar-wrap.expanded{max-height:380px}
 .party-bar-toggle{display:none}
 .party-bar-toggle-lbl,.party-bar-toggle-arr{display:none}
-/* two-section split inside the party bar */
-.pb-sections{display:grid;grid-template-columns:1fr 2fr;gap:1px;background:var(--border-dim);height:100%}
+/* two-section split inside the party bar — Active Settings LEFT (2fr), Party RIGHT (1fr).
+   align-items:start lets each section size to its own content so a shorter Party panel
+   doesn't leave half the box empty. */
+.pb-sections{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:var(--border-dim);align-items:start}
 .pb-section{background:var(--bg-panel);display:flex;flex-direction:column;overflow:hidden;min-width:0}
 .pb-sec-hdr{display:flex;align-items:center;gap:8px;padding:7px 14px;cursor:pointer;user-select:none;border-bottom:1px solid var(--border-dim);transition:background var(--ease);flex-shrink:0}
 .pb-sec-hdr:hover{background:var(--bg-hover)}
@@ -328,7 +330,12 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .pb-section.collapsed .pb-sec-hdr{border-bottom:none}
 .pb-section.collapsed .pb-sec-arr{transform:rotate(180deg)}
 .pb-section.collapsed .pb-sec-body{display:none}
-.pb-sec-body{padding:10px 14px 12px;display:flex;flex-direction:column;gap:12px;overflow-y:auto;flex:1;min-height:0}
+.pb-sec-body{padding:10px 14px 12px;display:flex;flex-direction:column;gap:12px;overflow-y:auto;min-height:0}
+/* Party section is shorter by content — compact its internal gaps + saved-parties controls */
+#pbPartySection .pb-sec-body{gap:8px}
+#pbPartySection .pb-lbl{margin-top:0}
+#pbPartySection .pb-rep-row{padding:1px 0}
+#pbPartySection .pb-party-row{margin-top:2px}
 .party-bar-body{display:none}
 .pb-effects-col{display:none}
 .pb-effects-hdr{display:none}
@@ -1021,49 +1028,7 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
   <div class="party-bar-wrap expanded" id="partyBarWrap">
     <div class="pb-sections">
 
-      <!-- ─── LEFT: Party (1/3 width) — tier on top, rep, saved parties at bottom ─── -->
-      <section class="pb-section expanded" id="pbPartySection">
-        <div class="pb-sec-hdr" onclick="togglePbSection('pbPartySection')">
-          <span class="pb-sec-icon">⚔</span>
-          <span class="pb-sec-lbl">Party</span>
-          <span id="partyBarSummary" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);font-weight:400;text-transform:none;letter-spacing:0"></span>
-          <span class="pb-sec-arr">▲</span>
-        </div>
-        <div class="pb-sec-body">
-          <div class="pb-tier-wrap">
-            <div class="pb-lbl">Party Tier</div>
-            <div class="pb-tier-tog">
-              <div class="pb-tier-opt" id="pb-tier1" onclick="setPartyBarTier(1)">Tier 1<span class="pb-tier-range">Lv 1–4</span></div>
-              <div class="pb-tier-opt" id="pb-tier2" onclick="setPartyBarTier(2)">Tier 2<span class="pb-tier-range">Lv 5–10</span></div>
-              <div class="pb-tier-opt active" id="pb-tier3" onclick="setPartyBarTier(3)">Tier 3<span class="pb-tier-range">Lv 11–14</span></div>
-              <div class="pb-tier-opt" id="pb-tier4" onclick="setPartyBarTier(4)">Tier 4<span class="pb-tier-range">Lv 15–20</span></div>
-            </div>
-          </div>
-          <div class="pb-rep-wrap">
-            <div class="pb-lbl">Party Reputation <button class="pb-rep-reset" onclick="resetPartyBarRep()">Reset to 0</button></div>
-            <div class="pb-rep-row"><span class="pb-rep-lbl">Heroes / Saviors</span><input type="range" id="pb-n0" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv0">0</span></div>
-            <div class="pb-rep-row"><span class="pb-rep-lbl">Feared / Violent</span><input type="range" id="pb-n1" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv1">0</span></div>
-            <div class="pb-rep-row"><span class="pb-rep-lbl">Rich / Powerful</span><input type="range" id="pb-n2" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv2">0</span></div>
-            <div class="pb-rep-row"><span class="pb-rep-lbl">Outlaws / Criminals</span><input type="range" id="pb-n3" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv3">0</span></div>
-          </div>
-          <div class="pb-parties-wrap">
-            <div class="pb-lbl">Saved Parties</div>
-            <div class="pb-party-row">
-              <input type="text" class="pb-party-input" id="partyNameInput" placeholder="Party name…">
-              <button class="pb-party-btn primary" onclick="saveParty()">Save</button>
-            </div>
-            <div class="pb-party-row">
-              <select class="pb-party-select" id="partySavedSelect">
-                <option value="">— Saved parties —</option>
-              </select>
-              <button class="pb-party-btn" onclick="loadParty()">Load</button>
-              <button class="pb-party-btn danger" onclick="deleteParty()">Del</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── RIGHT: Active Settings (2/3 width) — stat cards + Generate button ─── -->
+      <!-- ─── LEFT: Active Settings (2/3 width) — stat cards + Generate button ─── -->
       <section class="pb-section expanded" id="pbEffectsSection">
         <div class="pb-sec-hdr" onclick="togglePbSection('pbEffectsSection')">
           <span class="pb-sec-icon">⚙</span>
@@ -1108,6 +1073,48 @@ body.page-generator .shop-tab-bar.has-tabs{display:flex}
           </div>
           <div class="pb-effects-tip" id="pbEffectsTip">Settings combine automatically — <b>drag the rarity slider</b> or click <b>🔓</b> to override with your own range.</div>
           <button class="gen-btn pb-gen-btn" onclick="generateShop()">⚜ Generate Shop</button>
+        </div>
+      </section>
+
+      <!-- ─── RIGHT: Party (1/3 width) — tier on top, rep, saved parties at bottom ─── -->
+      <section class="pb-section expanded" id="pbPartySection">
+        <div class="pb-sec-hdr" onclick="togglePbSection('pbPartySection')">
+          <span class="pb-sec-icon">⚔</span>
+          <span class="pb-sec-lbl">Party</span>
+          <span id="partyBarSummary" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);font-weight:400;text-transform:none;letter-spacing:0"></span>
+          <span class="pb-sec-arr">▲</span>
+        </div>
+        <div class="pb-sec-body">
+          <div class="pb-tier-wrap">
+            <div class="pb-lbl">Party Tier</div>
+            <div class="pb-tier-tog">
+              <div class="pb-tier-opt" id="pb-tier1" onclick="setPartyBarTier(1)">Tier 1<span class="pb-tier-range">Lv 1–4</span></div>
+              <div class="pb-tier-opt" id="pb-tier2" onclick="setPartyBarTier(2)">Tier 2<span class="pb-tier-range">Lv 5–10</span></div>
+              <div class="pb-tier-opt active" id="pb-tier3" onclick="setPartyBarTier(3)">Tier 3<span class="pb-tier-range">Lv 11–14</span></div>
+              <div class="pb-tier-opt" id="pb-tier4" onclick="setPartyBarTier(4)">Tier 4<span class="pb-tier-range">Lv 15–20</span></div>
+            </div>
+          </div>
+          <div class="pb-rep-wrap">
+            <div class="pb-lbl">Party Reputation <button class="pb-rep-reset" onclick="resetPartyBarRep()">Reset to 0</button></div>
+            <div class="pb-rep-row"><span class="pb-rep-lbl">Heroes / Saviors</span><input type="range" id="pb-n0" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv0">0</span></div>
+            <div class="pb-rep-row"><span class="pb-rep-lbl">Feared / Violent</span><input type="range" id="pb-n1" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv1">0</span></div>
+            <div class="pb-rep-row"><span class="pb-rep-lbl">Rich / Powerful</span><input type="range" id="pb-n2" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv2">0</span></div>
+            <div class="pb-rep-row"><span class="pb-rep-lbl">Outlaws / Criminals</span><input type="range" id="pb-n3" min="0" max="5" value="0" oninput="onPartyBarRep()"><span class="pb-rep-val" id="pb-nv3">0</span></div>
+          </div>
+          <div class="pb-parties-wrap">
+            <div class="pb-lbl">Saved Parties</div>
+            <div class="pb-party-row">
+              <input type="text" class="pb-party-input" id="partyNameInput" placeholder="Party name…">
+              <button class="pb-party-btn primary" onclick="saveParty()">Save</button>
+            </div>
+            <div class="pb-party-row">
+              <select class="pb-party-select" id="partySavedSelect">
+                <option value="">— Saved parties —</option>
+              </select>
+              <button class="pb-party-btn" onclick="loadParty()">Load</button>
+              <button class="pb-party-btn danger" onclick="deleteParty()">Del</button>
+            </div>
+          </div>
         </div>
       </section>
 
