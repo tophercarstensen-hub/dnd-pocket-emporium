@@ -21,6 +21,25 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg-void);color:var(--text-primary);font-family:'Crimson Pro',Georgia,serif;font-size:16px;line-height:1.5;height:100vh;overflow:hidden;display:flex;flex-direction:column}
 
+/* Fading toast — top-center, used for transient warnings */
+.pe-toast{
+  position:fixed;top:64px;left:50%;
+  transform:translate(-50%,-18px);
+  background:linear-gradient(180deg, rgba(201,144,48,.22), rgba(201,144,48,.12));
+  border:1px solid var(--accent-amber);
+  border-radius:4px;
+  color:var(--accent-amber);
+  padding:12px 22px;
+  font-family:'Cinzel',serif;
+  font-size:13px;letter-spacing:.08em;font-weight:700;
+  box-shadow:0 10px 36px rgba(0,0,0,.55), 0 0 28px rgba(201,144,48,.18);
+  z-index:10000;pointer-events:none;
+  opacity:0;transition:opacity .28s ease, transform .28s cubic-bezier(.4,0,.2,1);
+  white-space:nowrap;
+}
+.pe-toast.show{opacity:1;transform:translate(-50%,0)}
+.pe-toast .pe-toast-icon{font-size:16px;margin-right:8px;vertical-align:-1px}
+
 /* TOPBAR */
 .topbar{height:48px;background:var(--bg-panel);border-bottom:1px solid var(--border-dim);display:flex;align-items:center;padding:0 16px;gap:10px;flex-shrink:0}
 .topbar-title{font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--accent-gold);letter-spacing:.08em}
@@ -3598,12 +3617,33 @@ function applyRandomPreset() {
   if(typeof autoRarityFromSettings==='function')autoRarityFromSettings();
 }
 
+function showToast(msg, durationMs=2800){
+  let t=document.getElementById('peToast');
+  if(!t){
+    t=document.createElement('div');
+    t.id='peToast';
+    t.className='pe-toast';
+    document.body.appendChild(t);
+  }
+  t.innerHTML=msg;
+  requestAnimationFrame(()=>t.classList.add('show'));
+  clearTimeout(t._toastTimer);
+  t._toastTimer=setTimeout(()=>t.classList.remove('show'),durationMs);
+}
+
 function generateShop() {
   const sel=document.getElementById('settlement');
   const settl=sel?sel.value:'';
   if(!settl){
-    // The Rarity card in the top bar already pulses amber when settlement is
-    // unset (via .req-settlement class). Just focus it and scroll into view.
+    // Fire the top-center toast + expand the bar if collapsed + focus & pulse
+    // the settlement dropdown (the Rarity card's .req-settlement class is
+    // already handling the visual pulse).
+    showToast('<span class="pe-toast-icon">⚠</span>Pick a settlement size before generating a shop');
+    const wrap=document.getElementById('partyBarWrap');
+    if(wrap&&wrap.classList.contains('collapsed')){
+      wrap.classList.remove('collapsed');
+      wrap.classList.add('expanded');
+    }
     if(sel){sel.focus();sel.scrollIntoView({behavior:'smooth',block:'center'});}
     return;
   }
