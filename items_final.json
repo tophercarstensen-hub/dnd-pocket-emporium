@@ -84,48 +84,6 @@
     "imageUrl": "https://5e.tools/img/items/FRHoF/Adventurer's Ring.webp"
   },
   {
-    "name": "Ahu-Nixta Cataphract",
-    "rarity": 0,
-    "attune": "No",
-    "source": "KP-ToB2",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "> *At the core of its clockwork armor, the creature is a shapeless horror from beyond the stars.* Weak and easy prey in their natural state, the ahu-nixta long ago mastered the art of clockwork design, building armor that could carry them through the voids between stars and bolster their physical…",
-    "flavor": "> *At the core of its clockwork armor, the creature is a shapeless horror from beyond the stars.*…",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "KP-ToB2",
-    "entries": [
-      "> *At the core of its clockwork armor, the creature is a shapeless horror from beyond the stars.*",
-      "Weak and easy prey in their natural state, the ahu-nixta long ago mastered the art of clockwork design, building armor that could carry them through the voids between stars and bolster their physical abilities. After mastering clockwork design, the ahu-nixta turned to enhancing themselves to better utilize greater and greater clockwork creations.",
-      "**Evolved Terrors.** As ahu-nixta age and prove themselves against their people’s enemies, they are forcibly evolved in eugenic chambers and given new armor. The ahunixta are comprised of **[drudges](Ahu-Nixta%20Drudge)**, rank-and-file ahunixta and cataphracts. The drudges are the least evolved and lowest form of ahunixta, evolving into standard citizens after years of meeting rigorous physical and mental demands from their superiors.",
-      "**Boundless Potential.** The bodies of ahu-nixta are highly responsive to forced evolution, leaving the creatures with seemingly endless potential for advancement. Scholars speculate that undiscovered stages of ahu-nixta evolution exist, hidden by the leaders of the ahu-nixta until called upon to serve the wishes of their evil gods."
-    ]
-  },
-  {
-    "name": "Ahu-Nixta Drudge",
-    "rarity": 0,
-    "attune": "No",
-    "source": "KP-ToB2",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "> *At the core of its clockwork armor, the creature is a shapeless horror from beyond the stars.* Weak and easy prey in their natural state, the ahu-nixta long ago mastered the art of clockwork design, building armor that could carry them through the voids between stars and bolster their physical…",
-    "flavor": "> *At the core of its clockwork armor, the creature is a shapeless horror from beyond the stars.*…",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "KP-ToB2",
-    "entries": [
-      "> *At the core of its clockwork armor, the creature is a shapeless horror from beyond the stars.*",
-      "Weak and easy prey in their natural state, the ahu-nixta long ago mastered the art of clockwork design, building armor that could carry them through the voids between stars and bolster their physical abilities. After mastering clockwork design, the ahu-nixta turned to enhancing themselves to better utilize greater and greater clockwork creations.",
-      "**Evolved Terrors.** As ahu-nixta age and prove themselves against their people’s enemies, they are forcibly evolved in eugenic chambers and given new armor. The ahunixta are comprised of drudges, rank-and-file ahunixta and **[cataphracts](Ahu-Nixta%20Cataphract)**. The drudges are the least evolved and lowest form of ahunixta, evolving into standard citizens after years of meeting rigorous physical and mental demands from their superiors.",
-      "**Boundless Potential.** The bodies of ahu-nixta are highly responsive to forced evolution, leaving the creatures with seemingly endless potential for advancement. Scholars speculate that undiscovered stages of ahu-nixta evolution exist, hidden by the leaders of the ahu-nixta until called upon to serve the wishes of their evil gods."
-    ]
-  },
-  {
     "name": "Airship",
     "rarity": 0,
     "attune": "No",
@@ -192,45 +150,6 @@
       "An Amulet can be worn or held."
     ],
     "weight": 1.0
-  },
-  {
-    "name": "Ancient Guardian Naga",
-    "rarity": 0,
-    "attune": "No",
-    "source": "3P-MME",
-    "basePrice": 75,
-    "cats": [
-      "weapons-any"
-    ],
-    "stats": "![](_images/c77208cb1554.png)Ancient nagas are older, wiser, larger, and more powerful versions of the bone, spirit, and guardian nagas. They measure over 50 feet long and are 5-feet thick. They are also extremely rare, numbering only a handful per type. Most live secluded in secret, long-forgotten…",
-    "flavor": "![](_images/c77208cb1554.png)Ancient nagas are older, wiser, larger, and more powerful versions of the bone, spirit, and guardian nagas.",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "3P-MME",
-    "entries": [
-      "![](_images/c77208cb1554.png)Ancient nagas are older, wiser, larger, and more powerful versions of the bone, spirit, and guardian nagas. They measure over 50 feet long and are 5-feet thick. They are also extremely rare, numbering only a handful per type. Most live secluded in secret, long-forgotten ruins. A few are viewed as gods and possibly attended to and protected by members of a religious cult.",
-      "### Traits",
-      "***Legendary Resistance (3/Day).*** If the naga fails a saving throw, it can choose to succeed instead.",
-      "***Magic Resistance.*** The naga has advantage on saving throws against spells and other magical effects.",
-      "***Rejuvenation***. If it dies, the naga returns to life in 1d6 days and regains all its hit points. Only a *wish* spell can prevent this trait from functioning.",
-      "***Spell Penetration.*** When the naga casts a spell and is interrupted by an enemy's *counterspell*, treat the spell's level as 3 levels higher.",
-      "### Actions",
-      "***Multiattack.*** The naga makes two attacks: one with its Bite and one with its Tail. Alternatively, it can use its Spit Poison and make one Tail attack.",
-      "***Bite.** Melee Weapon Attack:* +12 to hit, reach 15 ft., one target. *Hit:* 15 (2d8 + 6) piercing damage, and the target must make a DC 19 Constitution saving throw, taking 49 (11d8) poison damage on a failed save, or half as much damage on a successful one.",
-      "***Spit Poison.** Ranged Weapon Attack:* +12 to hit, reach 20 ft./40 ft., one target. *Hit:* The target must make a DC 19 Constitution saving throw, taking 49 (11d8) poison damage on a failed save, or half as much damage on a successful one.",
-      "***Tail.** Melee Weapon Attack:* +12 to hit, reach 15 ft., one target. *Hit:* 15 (2d8 + 6) bludgeoning damage.",
-      "***Divine Flame (2/Day).*** A 10-foot radius, 40-foot-high column of divine fire sprouts in an area up to 120 feet away from the naga. Each creature in the column must make a DC 19 Dexterity saving throw, taking 14 (4d6) fire damage and 14 (4d6) radiant damage on a failed save, or half as much damage on a successful one.",
-      "***Spellcasting.*** The naga casts one of the following spells using Wisdom as the spellcasting ability (spell save DC 19, +11 to hit with spell attacks) and it needs only verbal components to cast its spells:",
-      "At will: *mending, sacred flame* (4d8), *thaumaturgy*  \n2/day each: *cure wounds, dispel magic, zone of truth*  \n1/day each: *banishment, freedom of movement, geas, heal, holy aura, resurrection* (as an action), *true seeing*",
-      "### Bonus Actions",
-      "***Divine Word (1/Day).*** The naga casts divine word using Wisdom as the spellcasting ability (spell save DC 19).",
-      "### Legendary Actions",
-      "The naga can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The naga regains spent legendary actions at the start of its turn.",
-      "**Tail.** The naga makes a Tail attack.",
-      "**Bite (Costs 2 Actions).** The naga makes a Bite attack.",
-      "**Spit Poison (Costs 2 Actions).** The naga uses Spit Poison.",
-      "**Cast a Spell (Costs 2 Actions).** The naga uses Spellcasting."
-    ]
   },
   {
     "name": "Angel, Mead Archon",
@@ -355,29 +274,6 @@
     "5etoolsSource": "XPHB",
     "entries": [
       "As a Bonus Action, you can drink a vial of Antitoxin to gain Advantage on saving throws to avoid or end the Poisoned condition for 1 hour."
-    ]
-  },
-  {
-    "name": "Arcane Guardian",
-    "rarity": 0,
-    "attune": "No",
-    "source": "KP-ToB",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "**Worn Finery.** Composed of faintly glowing green vapor, the spectral guardian is a skeletal being encased in ancient armor or noble’s finery. The cloth is worn and tattered, spiraling away into mist at the edges, and the creature glides with the faintest whisper of sound like a mournful moan from…",
-    "flavor": "**Worn Finery.** Composed of faintly glowing green vapor, the spectral guardian is a skeletal being encased in ancient armor or noble’s finery.",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "KP-ToB",
-    "entries": [
-      "**Worn Finery.** Composed of faintly glowing green vapor, the spectral guardian is a skeletal being encased in ancient armor or noble’s finery. The cloth is worn and tattered, spiraling away into mist at the edges, and the creature glides with the faintest whisper of sound like a mournful moan from far away.   \n  \n**Eternal Disgrace.** The spectral guardian is the spirit of an ancient warrior or noble, bound to serve in death as it failed to do in life. A broken oath, an act of cowardice, or a curse laid down by the gods for a terrible betrayal leaves an indelible mark on a soul. After the cursed creature’s death, its spirit rises, unquiet, in a place closely related to its disgrace. Compelled by the crushing weight of its deeds, the spectral guardian knows no rest or peace, and viciously snuffs out all life that intrudes upon its haunt.   \n  \n**Undead Nature.** A spectral guardian doesn’t require air, food, drink, or sleep.",
-      "## Traits",
-      "**Incorporeal Movement:** The spectral guardian can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object.  \n  \n**Tomb Bound:** The spectral guardian is bound to the area it defends. It can’t move more than 100 feet from the place it is bound to protect.  \n  \n**Withering Miasma:** A creature that starts its turn in the spectral guardian’s space must make a successful DC 15 Constitution saving throw or take 18 (4d8) necrotic damage and its hit point maximum is reduced by an amount equal to the necrotic damage taken. This reduction lasts until the creature finishes a long rest.  \n  \n**Spellcasting:** The arcane guardian is a 9th level spellcaster. Its spellcasting ability is Charisma (spell save DC 15, +7 to hit with spell attacks). The guardian knows the following sorcerer spells, which do not require material components:",
-      "* Cantrips (at will): acid splash, chill touch, dancing lights, minor illusion, ray of frost\n* 1st level (4 slots): mage armor, ray of sickness\n* 2nd level (3 slots): darkness, scorching ray\n* 3rd level (3 slots): fear, slow, stinking cloud\n* 4th level (3 slots): blight, ice storm\n* 5th level (1 slot): cone of cold",
-      "## Actions",
-      "**Multiattack:** The Arcane Guardian makes two stinger attacks.  \n  \n**Spectral Rend:** *Melee Weapon Attack*: +7 to hit, reach 5 ft., one target. *Hit*: 13 (2d8 + 4) Necrotic damage. If the target is a creature, it must succeed on a DC 14 Wisdom saving throw or be frightened and have its speed reduced to 0; both effects last until the end of its next turn."
     ]
   },
   {
@@ -2855,28 +2751,6 @@
     "5etoolsPage": 137
   },
   {
-    "name": "Clockwork Huntsman",
-    "rarity": 0,
-    "attune": "No",
-    "source": "KP-ToB",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "**Slave Hunters.** These metal huntsmen were once the province of corrupt aristocrats, running down escaped slaves and tracking prey in hunting expeditions. Their masters may vary, but the clockwork huntsmen still perform when called upon. In some places they operate only on the command of the…",
-    "flavor": "**Slave Hunters.** These metal huntsmen were once the province of corrupt aristocrats, running down escaped slaves and tracking prey in hunting expeditions.",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "KP-ToB",
-    "entries": [
-      "**Slave Hunters.** These metal huntsmen were once the province of corrupt aristocrats, running down escaped slaves and tracking prey in hunting expeditions. Their masters may vary, but the clockwork huntsmen still perform when called upon. In some places they operate only on the command of the secret police, hunting down persons of interest wanted for questioning.  \n  \n Huntsmen may operate alone, but usually they seek their quarry as a small group of two or three. Because they are unsleeping and tireless, few can hide from them for long without magical assistance.  \n  \n**Despised Machines.** Clockwork huntsmen are painted matte black with mithral trim, and occasionally outfitted with armor or a black steel blade for added intimidation. Common folk detest them; all but their keepers and commanders shun them.   \n  \n**Obedient to Orders.** Bound with specific instructions, clockwork huntsmen patrol, stand sentry, or remain unmoving as ordered, always paying attention, always alert to their surroundings. Clockwork huntsmen are unrelenting and single-minded in their missions, focusing on particular targets—priests, spellcasters, or heavily armored intruders, as directed. Oblivious to injury, clockwork huntsmen attack until destroyed or ordered to stand down.  \n  \nClockwork huntsmen stand nearly six feet tall and weigh 400 lb.  \n  \n**Constructed Nature.** A clockwork huntsman doesn’t require air, food, drink, or sleep.",
-      "## Traits",
-      "**Immutable Form:** The clockwork huntsman is immune to any spell or effect that would alter its form.  \n  \n**Magic Resistance:** The clockwork huntsman has advantage on saving throws against spells and other magical effects.",
-      "## Actions",
-      "**Longsword:** *Melee Weapon Attack*: +5 to hit, range 5 ft. , One target. *Hit*: 7 (1d8 + 3) slashing damage.  \n  \n**Slam:** *Melee Weapon Attack*: +5 to hit, reach 5 ft., One target. *Hit*: 6 (1d6 + 3) bludgeoning damage.  \n  \n**Net Cannon:** the target is restrained. A mechanism within the clockwork huntsman’s chest can fire a net with a 20-foot trailing cable anchored within the huntsman’s chest. A creature can free itself (or another creature) from the net by using its action to make a successful DC 10 Strength check or by dealing 5 slashing damage to the net. The huntsman can fire up to four nets before it must be reloaded.  \n  \n**Explosive Core:** The mechanism that powers the huntsman explodes when the construct is destroyed, projecting superheated steam and shrapnel. Every creature within 5 ft. of the construct takes 10 (3d6) fire damage, or half damage with a successful DC 13 Dexterity saving throw."
-    ]
-  },
-  {
     "name": "Clothes of Mending",
     "rarity": 0,
     "attune": "No",
@@ -2959,42 +2833,6 @@
     ],
     "5etoolsSource": "EGW",
     "5etoolsPage": 266
-  },
-  {
-    "name": "Commander of Horn and Gold",
-    "rarity": 0,
-    "attune": "No",
-    "source": "KP-ToB2",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "> *An imposing figure clad in black plate armor chased with gold embellishment steps out of the shadows, flourishing a claw-tipped black spear.* Kaedrin Blackwing cuts a striking image in his gold and black armor, adorned with the horns, teeth, and claws of elder shadow drakes. He is a tall,…",
-    "flavor": "",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "KP-ToB2",
-    "entries": [
-      "> *An imposing figure clad in black plate armor chased with gold embellishment steps out of the shadows, flourishing a claw-tipped black spear.*",
-      "Kaedrin Blackwing cuts a striking image in his gold and black armor, adorned with the horns, teeth, and claws of elder shadow drakes. He is a tall, purple-skinned fey with a pair of curling ram’s horns, and he moves with military precision. His voice is hollow, and his expression borders on cruel at the calmest of moments.",
-      "He is the Commander of Horn and Gold, and he oversees a watchtower that perches on a black mountain crag in the Plane of Shadow, where thick gray ashes drift from the leaden sky like grimy snow. The Tower of Horn and Gold is inhabited by a cadre of shadow fey knights and a contingent of goblin retainers and miners.",
-      "**Master of Drakes.** A network of lightless tunnels and caverns inhabited by a host of **[shadow drakes](Drake,%20Elder%20Shadow)** fills the black mountain beneath the tower. The commander and his knights have forged an alliance with the drakes, exchanging access to the tunnels—and the drakes’ service as fearsome mounts—for protection, food, and treasure.",
-      "**Guardian of Wealth and Power.** Besides the power the shadow drakes themselves represent, the tunnels beneath the tower brim with riches. Veins of shadow gold run through the rock, and the goblins and shadow fey diligently mine the precious substance.",
-      "## The Commander’s Lair",
-      "The commander’s lair is the Tower of Horn and Gold in the Plane of Shadow, as well as the dark mountain ridge on which the tower sits and the shadow drake tunnels in the rock beneath the tower.",
-      "When encountered in his lair, the commander has a challenge rating of 16 (15,000 XP)",
-      "### Lair Actions",
-      "On initiative count 20 (losing initiative ties), the commander takes a lair action to cause one of the following effects; the commander can’t use the same effect two rounds in arow: \\* The commander draws upon the wellspring of shadowy power in his lair, bolstering his prowess. Until initiative count 20 on the following round, the commander’s speed increases to 80 feet, he regains 5 hp whenever he hits a creature with an attack during his turn, and while in dim light or darkness he can take the Hide action as a bonus action. \\* Magical darkness gathers in a 15-foot radius sphere centered on a point the commander can see within 60 feet of him. The darkness spreads around corners. It lasts until the commander dismisses it as an action, he uses this lair action again, or until he dies. A creature with darkvision can’t see through this darkness, and nonmagical light can’t illuminate it. If any of the effect’s area overlaps with an area of light created by a spell of 2nd level or lower, the spell that created the light is dispelled. \\* The bloodcurdling cries of drakes on the hunt echo throughout the lair, coalescing around the commander. Each enemy of the commander within 100 feet of him and that can hear the cries must succeed on a DC 15 Wisdom saving throw or be frightened until initiative count 20 on the following round.",
-      "## Regional Effects",
-      "The region containing the commander’s lair is warped by his magic, which creates one or more of the following effects: \\* Elder shadow drakes are attracted to hunt and nest in the area within 10 miles of the lair. \\* Gold and silver that remain within 5 miles of the lair for at least 1 day become tarnished with inky patches of darkness. \\* Lighting conditions become dim and gloomy. The bright and dim light radiuses of nonmagical light are halved while within 3 miles of the lair.",
-      "If the commander dies, these effects fade in 1d10 days.",
-      "## The Commander in Midgard",
-      "The Tower of Horn and Gold stands atop the Mistcall Mountains in the Shadow Realm, to the relative west of the Courts of the Shadow Fey. The commander holds this western border and defends the shadow gold mines, as well as a shadow road and powerful ley line nexus deep in the drake caverns.",
-      "Shadow gold resembles standard gold, but it is infused with the essence of the Shadow Ream. When the metal is molten, scratched, or bent, the damage to the metal is pitch black, revealing its true nature. Shadow fey mint coins and other trinkets from shadow gold, and shower it liberally upon mortals, buying their services, loyalty, and some say enslaving their souls, one coin at a time.",
-      "For more information on the shadow fey, see the ***Midgard Worldbook***.",
-      "## Touch of Iron",
-      "Lords and ladies of the fey courts are timeless creatures, inured to many of the world’s threats. A universal exception to this is weapons of cold-wrought iron. This metal undoes the very fabric of a fey creature’s life as it blights their ageless flesh. A cold iron weapon is treated as magical when used against any fey creature, and is the only weapon with any hope of harming the most powerful fey lords and ladies. However, cold iron weapons are difficult to construct. The skill and material required to produce such a weapon doubles its price or adds 100 gp to the cost, whichever is more. Finding a smith with the skill to make a durable weapon without the aid of fire is always difficult—and finding one with the courage to anger the fey courts may be even harder."
-    ]
   },
   {
     "name": "Common Glamerweave",
@@ -3176,28 +3014,6 @@
     "wondrous": true
   },
   {
-    "name": "Cult Fanatic",
-    "rarity": 0,
-    "attune": "No",
-    "source": "MM",
-    "basePrice": 75,
-    "cats": [
-      "weapons-any"
-    ],
-    "stats": "**Fanatics** are often part of a cult’s leadership, using their charisma and dogma to influence and prey on those of weak will. Most are interested in personal power above all else. ## Traits",
-    "flavor": "**Fanatics** are often part of a cult’s leadership, using their charisma and dogma to influence and prey on those of weak will.",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "MM",
-    "entries": [
-      "**Fanatics** are often part of a cult’s leadership, using their charisma and dogma to influence and prey on those of weak will. Most are interested in personal power above all else.",
-      "## Traits",
-      "**Dark Devotion**: The fanatic has advantage on saving throws against being charmed or frightened.  \n  \n**Spellcasting**: The fanatic is a 4th-level spellcaster. Its spell casting ability is Wisdom (spell save DC 11, +3 to hit with spell attacks). The fanatic has the following cleric spells prepared:   \n  \n• Cantrips (at will): *light, sacred flame, thaumaturgy*  \n• 1st level (4 slots): *command, inflict wounds, shield of faith*  \n• 2nd level (3 slots): *hold person, spiritual weapon*",
-      "## Actions",
-      "**Multiattack**: The fanatic makes two melee attacks.  \n  \n**Dagger (Melee)**: *Melee Weapon Attack:* +4 to hit, reach 5 ft., one creature. *Hit:* 4 (1d4 + 2) piercing damage.  \n  \n**Dagger (Ranged)**: *Ranged Weapon Attack:* +4 to hit, range 20/60 ft., one creature. *Hit:* 4 (1d4 + 2) piercing damage."
-    ]
-  },
-  {
     "name": "Dagger",
     "rarity": 0,
     "attune": "No",
@@ -3377,33 +3193,6 @@
     "weight": 39.0
   },
   {
-    "name": "Dire Werewolf",
-    "rarity": 0,
-    "attune": "No",
-    "source": "3P-MME",
-    "basePrice": 75,
-    "cats": [
-      "weapons-any"
-    ],
-    "stats": "### Dire Lycanthropes A few lycanthropes can shapechange into primeval beast forms or dire beasts. They appear to have been blessed by Malar (if they are neutral or evil) or Mielikki (neutral or good). They are more powerful and dangerous than the normal lycanthropes, as their primeval forms are…",
-    "flavor": "### Dire Lycanthropes…",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "3P-MME",
-    "entries": [
-      "### Dire Lycanthropes",
-      "A few lycanthropes can shapechange into primeval beast forms or dire beasts. They appear to have been blessed by Malar (if they are neutral or evil) or Mielikki (neutral or good). They are more powerful and dangerous than the normal lycanthropes, as their primeval forms are larger and stronger. They tend to become the champions, if not the main leaders, of their respective packs.",
-      "### Traits",
-      "***Keen Hearing and Smell.*** The dire werewolf has advantage on Wisdom (Perception) checks that rely on hearing and smell.",
-      "### Actions",
-      "***Multiattack.*** In hybrid form, the dire werewolf makes one Bite attack and two Claw attacks. In humanoid form, it makes three Scimitar attacks.",
-      "***Bite (Dire Wolf or Hybrid Form Only).** Melee Weapon Attack:* +7 to hit, reach 5 ft., one target. *Hit:* 9 (1d10 + 4) piercing damage. lf the target is a humanoid, it must succeed on a DC 15 Constitution saving throw or be cursed with dire werewolf lycanthropy.",
-      "***Claw (Dire Wolf or Hybrid Form Only).** Melee Weapon Attack:* +7 to hit, reach 5 ft., one target. *Hit:* 11 (2d6 + 4) slashing damage.",
-      "***Scimitar.** Melee Weapon Attack:* +7 to hit, reach 5 ft., one target. *Hit:* 7 (1d6 + 4) slashing damage.",
-      "***Change Shape.*** The dire werewolf magically transforms into a Large dire wolf-humanoid hybrid or into a Large dire wolf or back into its true form (humanoid), while retaining its game statistics (other than its size). This transformation ends if the dire werewolf is reduced to 0 hit points or uses a bonus action to end it."
-    ]
-  },
-  {
     "name": "Disguise Kit",
     "rarity": 0,
     "attune": "No",
@@ -3418,32 +3207,6 @@
     "entries": [
       "*Tool*",
       "**Ability:** Charisma **Weight:** 3 lb. **Cost:** 25 GP  \n**Utilize:** Apply makeup (DC 10)  \n**Craft:** Costume"
-    ]
-  },
-  {
-    "name": "Diviner",
-    "rarity": 0,
-    "attune": "No",
-    "source": "VGM",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "![](_images/35ed066e8411.png)Diviners are specialist wizards who know that knowledge is power. They might act aloof and mysterious, hinting at omens and secrets, or they might be know-it-alls, spilling secrets and insights to advance their own status or reputation. ## Variant: Familiars",
-    "flavor": "![](_images/35ed066e8411.png)Diviners are specialist wizards who know that knowledge is power.",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "VGM",
-    "entries": [
-      "![](_images/35ed066e8411.png)Diviners are specialist wizards who know that knowledge is power. They might act aloof and mysterious, hinting at omens and secrets, or they might be know-it-alls, spilling secrets and insights to advance their own status or reputation.",
-      "## Variant: Familiars",
-      "Any spellcaster that can cast the find familiar spell (such as an apprentice, warlock, or wizard) is likely to have a familiar. The familiar can be one of the creatures described in the spell (see the *Player’s Handbook*) or some other Tiny monster, such as a cranium rat, a crawling claw, a gazer, an imp, a pseudodragon, or a quasit.",
-      "## Traits",
-      "**Spellcasting**: The diviner is a 15th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 15, +7 to hit with spell attacks). The diviner has the following wizard spells prepared:  \n  \n• Cantrips (at will): *fire bolt*, *light*, *mage hand*, *message*, *true strike*  \n• 1st level (4 slots): *detect magic*,^ *feather fall*, *mage armor*  \n• 2nd level (3 slots): *detect thoughts*,^ *locate object*,^ *scorching ray*  \n• 3rd level (3 slots): *clairvoyance*,^ *fly*, *fireball*  \n• 4th level (3 slots): *arcane eye*,^ *ice storm*, *stoneskin*  \n• 5th level (2 slots): *Rary’s telepathic bond*,^ *scrying*^  \n• 6th level (1 slot): *mass suggestion*, *true seeing*^  \n• 7th level (1 slot): *delayed blast fireball*, *teleport*  \n• 8th level (1 slot): *maze*",
-      "^Divination spell of 1st level or higher",
-      "**Portent (Recharges after the Diviner Casts a Divination Spell of 1st Level or Higher)**: When the diviner or a creature it can see makes an attack roll, a saving throw, or an ability check, the diviner can roll a d20 and choose to use this roll in place of the attack roll, saving throw, or ability check.",
-      "## Actions",
-      "**Fire Bolt**: *Ranged Spell Attack:* +7 to hit, range 120 ft., one target. *Hit:* 16 (3d10) fire damage. A flammable object hit by this spell ignites if it isn't being carried or worn.  \n  \n**Quarterstaff (One-Handed)**: *Melee Weapon Attack:* +2 to hit, reach 5 ft., one target. *Hit:* 2 (1d6 - 1) bludgeoning damage.  \n  \n**Quarterstaff (Two-Handed)**: *Melee Weapon Attack:* +2 to hit, reach 5 ft., one target. *Hit:* 3 (1d8 - 1) bludgeoning damage.  \n  \n**Scorching Ray**: *Ranged Spell Attack:* +7 to hit, range 120 ft., one target. *Hit:* 7 (2d6) fire damage. The diviner creates three rays when it casts this spell and it can hurl them at one or several targets in range."
     ]
   },
   {
@@ -4112,29 +3875,6 @@
     ]
   },
   {
-    "name": "Forest Marauder",
-    "rarity": 0,
-    "attune": "No",
-    "source": "KP-ToB",
-    "basePrice": 75,
-    "cats": [
-      "weapons-any"
-    ],
-    "stats": "*A primitive and relatively diminutive form of giant, forest marauders claim the wilderness areas farthest from civilization when they can.* **Painted Skin.** Roughly the size and shape of an ogre, this brutish thing is covered in paint or colored mud. An exaggerated brow ridge juts out over…",
-    "flavor": "",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "KP-ToB",
-    "entries": [
-      "*A primitive and relatively diminutive form of giant, forest marauders claim the wilderness areas farthest from civilization when they can.*",
-      "**Painted Skin.** Roughly the size and shape of an ogre, this brutish thing is covered in paint or colored mud. An exaggerated brow ridge juts out over piggish, close-set eyes, and corded muscle stands out all over the creature.   \n  \n**Keep to the Wilderness.** Cruel and savage when encountered, their demeanor has worked against them and they have nearly been driven to extinction in places where they can be easily tracked. They have since learned to raid far from their hidden homes, leading to sightings in unexpected places.   \n  \n**Orc Friends.** Forest marauders get along well with orcs and goblins, who appreciate their brute strength and their skill at night raids.",
-      "## Traits",
-      "**Light Sensitivity:** While in sunlight, the forest marauder has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.",
-      "## Actions",
-      "**Multiattack:** The forest marauder makes two boar spear attacks.  \n  \n**Boar Spear:** *Melee Weapon Attack*: +7 to hit, reach 10 ft., One target. *Hit*: 16 (2d10 + 5) piercing damage. On hit, the forest marauder can choose to push the target 10 feet away if it fails a DC 16 Strength saving throw.\n  \n  \n**Rock:** *Ranged Weapon Attack*: +5 to hit, range 30/150 ft., One target. *Hit*: 18 (3d8 + 5) bludgeoning damage."
-    ]
-  },
-  {
     "name": "Forgery Kit",
     "rarity": 0,
     "attune": "No",
@@ -4354,32 +4094,6 @@
       "**Harrying Attacks:** If the gnoll attacks two creatures in the same turn, the first target has disadvantage on attack rolls until the end of its next turn.  \n  \n**Lightning Lope:** The gnoll can Dash or Disengage as a bonus action.  \n  \n**Pack Tactics:** The gnoll has advantage on its attack rolls against a target if at least one of the gnoll’s allies is within 5 feet of the target and the ally isn’t incapacitated.",
       "## Actions",
       "**Multiattack:** The gnoll makes one bite attack and two battleaxe attacks.  \n  \n**Battleaxe (one handed):** *Melee Weapon Attack*: +5 to hit, reach 5 ft., One target. *Hit*: 7 (1d8 + 3) Slashing damage.  \n  \n**Battleaxe (Two-handed):** *Melee Weapon Attack*: +5 to hit, reach 5 ft., One target. *Hit*: 8 (1d10 + 3) Slashing damage.  \n  \n**Bite:** *Melee Weapon Attack*: +5 to hit, reach 5 ft., One target. *Hit*: 6 (1d6 + 3) Piercing damage."
-    ]
-  },
-  {
-    "name": "Goblin Blackblade",
-    "rarity": 0,
-    "attune": "No",
-    "source": "3P-MME",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "![](_images/f1a585f515c3.png)On very rare occasions, a goblin shows an affinity for the dark arts and becomes a warlock, usually making a pact with a fiend or dark fey. A few become hexblades. They are commonly called blackblades by their brethren. ### Actions",
-    "flavor": "![](_images/f1a585f515c3.png)On very rare occasions, a goblin shows an affinity for the dark arts and becomes a warlock, usually making a pact with a fiend or dark fey.",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "3P-MME",
-    "entries": [
-      "![](_images/f1a585f515c3.png)On very rare occasions, a goblin shows an affinity for the dark arts and becomes a warlock, usually making a pact with a fiend or dark fey. A few become hexblades. They are commonly called blackblades by their brethren.",
-      "### Actions",
-      "***Scimitar**. Melee Weapon Attack:* +4 to hit, reach 5 ft., one target. *Hit:* 5 (1d6 + 2) slashing damage.",
-      "***Spellcasting.*** The goblin casts one of the following spells using Charisma as the spellcasting ability (spell save DC 12, +4 to hit with spell attacks):",
-      "At will: *eldritch blast, minor illusion, true strike*  \n2/day: (as 2nd-level spells): *armor of Agathys, mirror image*",
-      "### Bonus Actions",
-      "***Nimble Escape.*** The goblin takes the Disengage or Hide action.",
-      "***Hexblade's Curse (Recharges after a Short or Long Rest).*** The goblin targets a creature it can see within 30 feet of it. The target is cursed for 1 minute. The curse ends early if the target dies, the goblin dies, or it is incapacitated. Until the curse ends, the goblin gains the following benefits:",
-      "* It deals an extra 2 damage on damage rolls against the cursed target.\n* Any attack roll it makes against the cursed target is a critical hit on a roll of 19 or 20 on the d20.\n* If the cursed target dies, the goblin regains 5 hit points."
     ]
   },
   {
@@ -4757,28 +4471,6 @@
       "Two-Handed"
     ],
     "mastery": "Push"
-  },
-  {
-    "name": "Herald of Darkness",
-    "rarity": 0,
-    "attune": "No",
-    "source": "KP-ToB",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "Heralds of darkness speak in fluid tones and sing with the voices of angels, but their hearts are foul and treacherous.  \n   \n**Vision of Evil.** Indeed, the heralds of darkness can take on another appearance entirely, disappearing into insubstantial shadows and unveiling an evil majestic form that…",
-    "flavor": "",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "KP-ToB",
-    "entries": [
-      "Heralds of darkness speak in fluid tones and sing with the voices of angels, but their hearts are foul and treacherous.  \n   \n**Vision of Evil.** Indeed, the heralds of darkness can take on another appearance entirely, disappearing into insubstantial shadows and unveiling an evil majestic form that leaves those who see it shaken and weak—and often blind. Speaking of this form is difficult, but poets and bards trying to describe it have said it resembles an apocalyptic horror built of chained souls and the slow death of children carried along in a glacial river, rushing to an inevitable doom.  \n  \n**Sword and Cloak.** The black sword and star-scattered cloak of a herald of darkness are part of its magical substance and cannot be parted from it. Some believe the cloak and blade are true visions of its body; the smiling face and pleasing form are entirely illusory.  \n  \n**Corruptors of the Fey.** The heralds of darkness are companions and sometimes masters to the shadow fey. They seek to draw many others into their orbit with wild promises of great power, debauchery, and other delights. They are rivals to the heralds of blood and bitter foes to all angels of light.",
-      "## Traits",
-      "**Corrupting Touch:** A herald of darkness can destroy any wooden, leather, copper, iron, or paper object by touching it as a bonus action. A mundane item is destroyed automatically; a magical item survives if its owner makes a successful DC 16 Dexterity saving throw.  \n  \n**Gift of Darkness:** A herald of darkness can transform any fey, human, or goblin into one of the shadow fey, if the target willingly accepts this transformation.  \n  \n**Shadow Form:** A herald of darkness can become incorporeal as a shadow as a bonus action. In this form, it has a fly speed of 10 feet; it can enter and occupy spaces occupied by other creatures; it gains resistance to all nonmagical damage; it has advantage on physical saving throws; it can pass through any gap or opening; it can’t attack, interact with physical objects, or speak. It can return to its corporeal form also as a bonus action.",
-      "## Actions",
-      "**Multiattack:** The herald of darkness uses Majesty of the Abyss, if it is available, and makes one melee attack.  \n  \n**Embrace Darkness:** *Melee Weapon Attack*: +8 to hit, reach 5 ft., All creatures in reach. *Hit*: 6 (1d12) Necrotic damage. On hit, targets are paralyzed until the start of the herald’s next turn. Making a DC 17 Constitution saving throw negates the paralysis.\n  \n  \n**Majesty of the Abyss (Recharge 4-6):** The herald of darkness emits a sinister burst of infernal power. All creatures within 30 feet and in direct line of sight of the herald take 19 (3d12) necrotic damage and must make a DC 17 Constitution saving throw. Those who fail the saving throw are blinded for 2 rounds; those who succeed are frightened for 2 rounds.  \n  \n**Shadow Sword:** *Melee Weapon Attack*: +8 to hit, reach 10 ft., One target. *Hit*: 18 (2d12 + 5) Slashing damage."
-    ]
   },
   {
     "name": "Herbalism Kit",
@@ -5876,30 +5568,6 @@
     "mastery": "Sap"
   },
   {
-    "name": "Mage",
-    "rarity": 0,
-    "attune": "No",
-    "source": "MM",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "**Mages** spend their lives in the study and practice of magic. Good-aligned mages offer counsel to nobles and others in power, while evil mages dwell in isolated sites to perform unspeakable experiments without interference. ## Variant: Familiars",
-    "flavor": "**Mages** spend their lives in the study and practice of magic.",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "MM",
-    "entries": [
-      "**Mages** spend their lives in the study and practice of magic. Good-aligned mages offer counsel to nobles and others in power, while evil mages dwell in isolated sites to perform unspeakable experiments without interference.",
-      "## Variant: Familiars",
-      "Any spellcaster that can cast the find familiar spell (such as an archmage or mage) is likely to have a familiar. The familiar can be one of the creatures described in the spell (see the Player’s Handbook) or some other Tiny monster, such as a crawling claw, imp, pseudodragon, or quasit.",
-      "## Traits",
-      "**Spellcasting**: The mage is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The mage has the following wizard spells prepared:   \n  \n• Cantrips (at will): *fire bolt, light, mage hand, prestidigitation*  \n• 1st level (4 slots): *detect magic, mage armor, magic missile, shield*  \n• 2nd level (3 slots): *misty step, suggestion*  \n• 3rd level (3 slots): *counterspell, fireball, fly*  \n• 4th level (3 slots): *greater invisibility, ice storm*  \n• 5th level (1 slot): *cone of cold*",
-      "## Actions",
-      "**Dagger (Melee)**: *Melee Weapon Attack:* +5 to hit, reach 5 ft., one target. *Hit:* 4 (1d4 + 2) piercing damage.  \n  \n**Dagger (Ranged)**: *Ranged Weapon Attack:* +5 to hit, range 20/60 ft., one target. *Hit:* 4 (1d4 + 2) piercing damage.  \n  \n**Fire Bolt**: *Ranged Spell Attack:* +6 to hit, range 120 ft., one target. *Hit:* 10 (2d10) fire damage. A flammable object hit by this spell ignites if it isn't being worn or carried."
-    ]
-  },
-  {
     "name": "Magnifying Glass",
     "rarity": 0,
     "attune": "No",
@@ -6646,28 +6314,6 @@
     "weight": 1.0
   },
   {
-    "name": "Monolith Footman",
-    "rarity": 0,
-    "attune": "No",
-    "source": "KP-ToB",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "**Beautiful Construct.** Like the monolith champion, a monolith footman is an esthetic triumph in the construct‑builder’s craft. If anything, form takes a higher priority in the footman than function, since their function is largely to look fine as they stand ready to perform servant’s duties for…",
-    "flavor": "**Beautiful Construct.** Like the monolith champion, a monolith footman is an esthetic triumph in the construct‑builder’s craft.",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "KP-ToB",
-    "entries": [
-      "**Beautiful Construct.** Like the monolith champion, a monolith footman is an esthetic triumph in the construct‑builder’s craft. If anything, form takes a higher priority in the footman than function, since their function is largely to look fine as they stand ready to perform servant’s duties for their shadow fey masters.   \n  \n**More Servant than Warrior.** Because it’s fashioned as grand armor, the footman looks more ferocious than it is. Its fighting ability is nothing to dismiss, but fighting is not its primary function. It’s a combination of household servant and watchdog with imposing martial flair. Like the champion, a monolith footman’s most alarming power is its ability to replace an opponent with a shadow double. This threat should be taken seriously by strangers to shadow as they weigh the risks of causing trouble in the fey courts.   \n  \n**Perfect Loyalty.** Monolith footmen follow orders to the letter and are unswerving in their loyalty.  \n   \n**Constructed Nature.** A monolith footman   \ndoesn’t require air, food, drink, or sleep.",
-      "## Traits",
-      "**Blatant Dismissal:** While in the courts or castles of the fey, a monolith footman that scores a successful hit with its longsword can try to force the substitution of the target with a shadow double. The target must succeed at a DC 10 Charisma saving throw or become invisible, silent, and paralyzed, while an illusory version of itself remains visible and audible—and under the monolith footman’s control, shouting for a retreat or the like. Outside fey locales, this ability does not function.  \n  \n**Fey Flame:** The ritual powering a monolith footman grants it an inner flame that it can use to enhance its weapon or its fists with additional fire or cold damage, depending on the construct’s needs.  \n  \n**Simple Construction:** Monolith footmen are designed with a delicate fey construction. They burst into pieces and are destroyed when they receive a critical hit.",
-      "## Actions",
-      "**Longsword:** *Melee Weapon Attack*: +6 to hit, reach 5 ft., One target. *Hit*: 11 (2d6 + 4) Slashing damage plus 9 (2d8) cold or fire damage.  \n  \n**Slam:** *Melee Weapon Attack*: +6 to hit, reach 5 ft., One target. *Hit*: 8 (1d8 + 4) Bludgeoning damage plus 9 (2d8) cold or fire damage."
-    ]
-  },
-  {
     "name": "Moodmark Paint",
     "rarity": 0,
     "attune": "No",
@@ -6871,30 +6517,6 @@
     ]
   },
   {
-    "name": "Necromancer",
-    "rarity": 0,
-    "attune": "No",
-    "source": "VGM",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "Necromancers are specialist wizards who study the interaction of life, death, and undeath. Some like to dig up corpses to create undead slaves. A few use their powers for good, becoming hunters of the undead and risking their lives to save others. ## Variant: Familiars",
-    "flavor": "",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "VGM",
-    "entries": [
-      "Necromancers are specialist wizards who study the interaction of life, death, and undeath. Some like to dig up corpses to create undead slaves. A few use their powers for good, becoming hunters of the undead and risking their lives to save others.",
-      "## Variant: Familiars",
-      "Any spellcaster that can cast the find familiar spell (such as an apprentice, warlock, or wizard) is likely to have a familiar. The familiar can be one of the creatures described in the spell (see the *Player’s Handbook*) or some other Tiny monster, such as a Cranium Rat, a crawling claw, a gazer, an imp, a pseudodragon, or a quasit.",
-      "## Traits",
-      "**Spellcasting**: The necromancer is a 12th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 15, +7 to hit with spell attacks). The necromancer has the following wizard spells prepared:  \n  \n• Cantrips (at will): *chill touch, dancing lights, mage hand, mending*  \n• 1st level (4 slots): *false life,^ mage armor, ray of sickness^*  \n• 2nd level (3 slots): *blindness/deafness,^ ray of enfeeblement,^ web*  \n• 3rd level (3 slots): *animate dead,^ bestow curse,^ vampiric touch^*  \n• 4th level (3 slots): *blight,^ dimension door, stoneskin*  \n• 5th level (2 slots): *Bigby’s hand, cloudkill*  \n• 6th level (1 slot): *circle of death^*  \n^Necromancy spell of 1st level or higher  \n  \n**Grim Harvest (1/Turn)**: When necromancer kills a creature that is neither a construct nor undead with a spell of 1st level or higher, the necromancer regains hit points equal to twice the spell’s level, or three times if it is a necromancy spell.",
-      "## Actions",
-      "**Chill Touch**: *Ranged Spell Attack:* +7 to hit, range 120 ft., one creature. *Hit:* 13 (3d8) necrotic damage and the target can't regain hit points until the start of the necromancer's next turn.  \n  \n**Ray of Enfeeblement**: *Ranged Spell Attack:* +7 to hit, range 60 ft., one creature. *Hit:* 0(1d0) spell damage, and the target deals only half damage with weapon attacks that use Strength until the spell ends. At the end of each of the target's turns, it can make a Constitution saving throw against the spell. On a success, the spell ends.  \n  \n**Ray of Sickness**: *Ranged Spell Attack:* +7 to hit, range 60 ft., one creature. *Hit:* 9 (2d8) poison damage, and the target must succeed on a DC 15 Constitution saving throw or it is poisoned until the end of the necromancer's next turn.  \n  \n**Withering Touch**: *Melee Spell Attack:* +7 to hit, reach 5 ft., one creature. *Hit:* 5 (2d4) necrotic damage.  \n  \n**Vampiric Touch**: *Melee Spell Attack:* +7 to hit, reach 5 ft., one creature. *Hit:* 10 (3d6) necrotic damage, and the necromancer regains hit points equal to half the amount of necrotic damage dealt. Until the spell ends, the necromancer can make the attack again on each of its turns as an action."
-    ]
-  },
-  {
     "name": "Needler Pistol",
     "rarity": 0,
     "attune": "No",
@@ -6989,31 +6611,6 @@
       "To activate the nimblewright detector, a character must hold down its trigger. When the activated device comes within 500 feet of a nimblewright other than Nim, the umbrella begins to spin, whir, and click. The spinning, whirring, and clicking accelerates as the distance to the target lessens, reaching maximum velocity and volume when a nimblewright other than Nim is within 30 feet of the device."
     ],
     "type": "OTH"
-  },
-  {
-    "name": "Noctiny",
-    "rarity": 0,
-    "attune": "No",
-    "source": "KP-ToB",
-    "basePrice": 75,
-    "cats": [
-      "staffs"
-    ],
-    "stats": "Noctiny are wretched humanoids corrupted by fell power. Their skin is sallow and gaunt even before they smear it with ash, bone dust, and worse materials to wash all living color from their bodies. The noctiny embrace all manner of blasphemous and taboo behaviors to please their masters.  \n …",
-    "flavor": "",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "KP-ToB",
-    "entries": [
-      "Noctiny are wretched humanoids corrupted by fell power. Their skin is sallow and gaunt even before they smear it with ash, bone dust, and worse materials to wash all living color from their bodies. The noctiny embrace all manner of blasphemous and taboo behaviors to please their masters.  \n  \n**Pyramid of Power.** The noctiny’s lust for power drives them away from decency and reason. They are initiates who form the lowest rung of fext society. They swear themselves into service to the undead fext as thugs, servants, acolytes, and cannon fodder, and in exchange draw a trickle of power for themselves.  \n  \n**A Race Apart.** Though they arise from any humanoid stock, the noctiny are corrupted by the powers they serve. Noctiny retain the cosmetic traits that identify their original race if one looks hard enough, but any connection they once had to their fellows is overpowered by their transformation into noctiny.",
-      "## Traits",
-      "**Magic Resistance:** The noctiny has advantage on saving throws against spells and other magical effects.  \n  \n**Pact Wrath:** One of the noctiny’s weapons is infused with power. Its attacks with this weapon count as magical, and it adds its Charisma bonus to the weapon’s damage (included below).  \n  \n**Spellcasting:** The noctiny is a 3rd-level spellcaster. Its spellcasting ability score is Charisma (save DC 13, +5 to hit with spell attacks). It knows the following warlock spells.",
-      "* Cantrips (at will): chill touch, eldritch blast, poison spray",
-      "* 1st level (4 slots): armor of agathys, charm person, hellish rebuke, hex",
-      "* 2nd level (2 slots): crown of madness, misty step",
-      "## Actions",
-      "**Multiattack:** The noctiny makes two melee attacks.  \n  \n**Pact Staff (One-handed):** *Melee Weapon Attack*: +3 to hit, reach 5 ft., One target. *Hit*: 7 (1d6 + 4) Bludgeoning damage.  \n  \n**Pact Staff (Two-handed):** *Melee Weapon Attack*: +3 to hit, reach 5 ft., One target. *Hit*: 8 (1d8 + 4) Bludgeoning damage."
-    ]
   },
   {
     "name": "Obsidian Flint Dragon Plate",
@@ -7209,35 +6806,6 @@
     "tier": "minor",
     "5etoolsSource": "XGE",
     "5etoolsPage": 138
-  },
-  {
-    "name": "Orc Witchblade",
-    "rarity": 0,
-    "attune": "No",
-    "source": "3P-MME",
-    "basePrice": 75,
-    "cats": [
-      "weapons-any"
-    ],
-    "stats": "![](_images/ad18715d7643.png)The orc witchblade is a warlock hexblade. It usually serves its tribe as a guardian from supernatural attacks and creatures. Despite the value it provides to its tribe, its brethren shun the witchblade, making it live like a recluse, only to be summoned when needed. ###…",
-    "flavor": "![](_images/ad18715d7643.png)The orc witchblade is a warlock hexblade.",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "3P-MME",
-    "entries": [
-      "![](_images/ad18715d7643.png)The orc witchblade is a warlock hexblade. It usually serves its tribe as a guardian from supernatural attacks and creatures. Despite the value it provides to its tribe, its brethren shun the witchblade, making it live like a recluse, only to be summoned when needed.",
-      "### Actions",
-      "***Scimitar.** Melee Weapon Attack:* +5 to hit, reach 5 ft., one target. *Hit:* 6 (1d6 + 3) slashing damage plus 7 (2d6) necrotic damage.",
-      "***Javelin.** Melee or Ranged Weapon Attack:* +5 to hit, reach 5 ft. or range 30/120 ft., one target. *Hit:* 6 (1d6 + 3) piercing damage.",
-      "***Spellcasting.*** The orc casts one of the following spells using Charisma as the spellcasting ability (spell save DC 13, +5 to hit with spell attacks):",
-      "At will: *eldritch blast* (2 beams), *mage hand, minor illusion*  \n2/day (as 4th-level spells): *blur, dimension door, dispel magic, elemental weapon, phantasmal killer*",
-      "### Bonus Actions",
-      "***Aggressive.*** As a bonus action, the orc can move up to its speed toward a hostile creature it can see.",
-      "***Hexblade's Curse (Recharges after a Short or Long Rest).*** As a bonus action, the orc targets a creature it can see within 30 feet of it. The target is cursed for 1 minute. The curse ends early if the target dies, the orc dies, or it is incapacitated. Until the curse ends, the orc gains the following benefits:",
-      "* It deals an extra 3 damage on damage rolls against the cursed target.\n* Any attack roll it makes against the cursed target is a critical hit on a roll of 19 or 20 on the d20.\n* If the cursed target dies, the orc regains 14 hit points.",
-      "### Reactions",
-      "***Armor of Hexes.*** When hit by an attack roll by a creature cursed by the orc's Hexblade's Curse, roll a d6. On a roll of 4 or higher, the attack instead misses the orc, regardless of its roll."
-    ]
   },
   {
     "name": "Othovir",
@@ -9415,28 +8983,6 @@
     "mastery": "Sap"
   },
   {
-    "name": "Spectral Guardian",
-    "rarity": 0,
-    "attune": "No",
-    "source": "KP-ToB",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "**Worn Finery.** Composed of faintly glowing green vapor, the spectral guardian is a skeletal being encased in ancient armor or noble’s finery. The cloth is worn and tattered, spiraling away into mist at the edges, and the creature glides with the faintest whisper of sound like a mournful moan from…",
-    "flavor": "**Worn Finery.** Composed of faintly glowing green vapor, the spectral guardian is a skeletal being encased in ancient armor or noble’s finery.",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "KP-ToB",
-    "entries": [
-      "**Worn Finery.** Composed of faintly glowing green vapor, the spectral guardian is a skeletal being encased in ancient armor or noble’s finery. The cloth is worn and tattered, spiraling away into mist at the edges, and the creature glides with the faintest whisper of sound like a mournful moan from far away.   \n  \n**Eternal Disgrace.** The spectral guardian is the spirit of an ancient warrior or noble, bound to serve in death as it failed to do in life. A broken oath, an act of cowardice, or a curse laid down by the gods for a terrible betrayal leaves an indelible mark on a soul. After the cursed creature’s death, its spirit rises, unquiet, in a place closely related to its disgrace. Compelled by the crushing weight of its deeds, the spectral guardian knows no rest or peace, and viciously snuffs out all life that intrudes upon its haunt.   \n  \n**Undead Nature.** A spectral guardian doesn’t require air, food, drink, or sleep.",
-      "## Traits",
-      "**Incorporeal Movement:** The spectral guardian can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object.  \n  \n**Tomb Bound:** The spectral guardian is bound to the area it defends. It can’t move more than 100 feet from the place it is bound to protect.  \n  \n**Withering Miasma:** A creature that starts its turn in the spectral guardian’s space must make a successful DC 15 Constitution saving throw or take 18 (4d8) necrotic damage and its hit point maximum is reduced by an amount equal to the necrotic damage taken. This reduction lasts until the creature finishes a long rest.",
-      "## Actions",
-      "**Multiattack:** The spectral guardian makes two spectral rend attacks.  \n  \n**Spectral Rend:** *Melee Weapon Attack*: +7 to hit, reach 5 ft., one target. *Hit*: 13 (2d8 + 4) Necrotic damage. If the target is a creature, it must succeed on a DC 14 Wisdom saving throw or be frightened and have its speed reduced to 0; both effects last until the end of its next turn."
-    ]
-  },
-  {
     "name": "Spell Scroll",
     "rarity": 0,
     "attune": "No",
@@ -10322,28 +9868,6 @@
     ]
   },
   {
-    "name": "Tophet",
-    "rarity": 0,
-    "attune": "No",
-    "source": "KP-ToB",
-    "basePrice": 100,
-    "cats": [
-      "rings"
-    ],
-    "stats": "Tophets are used by worshipers of fire gods, who toss sacrifices into their flaming maws to incinerate them. A tophet has a large opening in the front where the flames can be seen; sometimes this is an enormous mouth, and at other times it is a large hole in the tophet’s belly. Horns and…",
-    "flavor": "",
-    "verified": false,
-    "priceSource": "algorithm",
-    "5etoolsSource": "KP-ToB",
-    "entries": [
-      "Tophets are used by worshipers of fire gods, who toss sacrifices into their flaming maws to incinerate them. A tophet has a large opening in the front where the flames can be seen; sometimes this is an enormous mouth, and at other times it is a large hole in the tophet’s belly. Horns and expressions of anger or wide‑mouthed laughter are common.   \n  \n**Eager for Sacrifices.** Among fire cultists, it’s widely known that when a tophet’s hands are raised above its mouth, it is demanding a sacrifice to roll down its palms and into its fiery maw.   \n  \n**Heed Musical Commands.** Flutes and drums can (sometimes) be used to control the actions of a tophet during sacrifices. They have the fortunate side effect of drowning out the cries and screams of living sacrifices.   \n  \n**Magical Fires.** The fires within a tophet’s bronze body are largely magical and fueled by sacrifices. They don’t require more than a symbolic amount of wood or coal to keep burning, but they do require sacrifices of food, cloth, and (eventually) living creatures to keep them under control. A tophet that is not granted a sacrifice when it demands one might go on a fiery rampage, burning down buildings, granaries, or barns until its hunger is satisfied.   \n  \n**Constructed Nature.** A tophet doesn’t require air, food, drink, or sleep.",
-      "## Traits",
-      "**Fiery Heart:** A tophet’s inner fire can be ignited or doused at will. Its heat is such that all creatures have resistance to cold damage while within 30 feet of the tophet.  \n  \n**Burning Belly:** Creatures inside a tophet’s burning core take 21 (6d6) fire damage at the start of each of the tophet’s turns. Escaping from a tophet’s belly takes 10 feet of movement and a successful DC 16 Dexterity (Acrobatics) check.",
-      "## Actions",
-      "**Multiattack:** A tophet makes two attacks, no more than one of which can be a gout of flame.  \n  \n**Slam:** *Melee Weapon Attack*: +10 to hit, reach 5 ft., one target. *Hit*: 12 (1d10 + 7) bludgeoning damage. On hit, the target is also knocked inside the tophet’s burning belly if the attack scores a critical hit.  \n  \n**Gout of Flame:** The tophet targets a point within 100 feet of itself that it can see. All targets within 10 feet of that point take 22 (4d10) fire damage, or half damage with a successful DC 16 Dexterity saving throw."
-    ]
-  },
-  {
     "name": "Torch",
     "rarity": 0,
     "attune": "No",
@@ -10402,30 +9926,6 @@
       "## Actions",
       "***Quarterstaff (One-handed).** Melee Weapon Attack:*\n+2 to hit, reach 5 ft., one target.\n*Hit:* (1d6-1) bludgeoning damage.",
       "***Quarterstaff (Two-handed).** Melee Weapon Attack:*\n+2 to hit, reach 5 ft., one target.\n*Hit:* (1d8-1) bludgeoning damage."
-    ]
-  },
-  {
-    "name": "Transmuter",
-    "rarity": 0,
-    "attune": "No",
-    "source": "VGM",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "![Transmuter's Staff](_images/89f4b1238ced.png)Transmuters are specialist wizards who embrace change, rail against the status quo, and view magical transmutation as a path to riches, enlightenment, or apotheosis. ## Variant: Familiars",
-    "flavor": "![Transmuter's Staff](_images/89f4b1238ced.png)Transmuters are specialist wizards who embrace change, rail against the status quo, and view magical transmutation as a path to riches, enlightenment, or…",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "VGM",
-    "entries": [
-      "![Transmuter's Staff](_images/89f4b1238ced.png)Transmuters are specialist wizards who embrace change, rail against the status quo, and view magical transmutation as a path to riches, enlightenment, or apotheosis.",
-      "## Variant: Familiars",
-      "Any spellcaster that can cast the find familiar spell (such as an apprentice, warlock, or wizard) is likely to have a familiar. The familiar can be one of the creatures described in the spell (see the *Player’s Handbook*) or some other Tiny monster, such as a Cranium Rat, a crawling claw, a gazer, an imp, a pseudodragon, or a quasit.",
-      "## Traits",
-      "**Spellcasting**: The transmuter is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The transmuter has the following wizard spells prepared:  \n  \n• Cantrips (at will): *light, mending, prestidigitation, ray of frost*  \n• 1st level (4 slots): *chromatic orb, expeditious retreat^, mage armor*  \n• 2nd level (3 slots): *alter self^,hold person, knock^*  \n• 3rd level (3 slots): *blink^, fireball, slow^*  \n• 4th level (3 slots): *polymorph^, stoneskin*  \n• 5th level (1 slot): *telekinesis^*  \n^ Transmutation spell of 1st level or higher  \n  \n**Transmuter’s Stone**: The transmuter carries a magic stone it crafted that grants its bearer one of the following effects:  \n  \n• Darkvision out to a range of 60 feet  \n• An extra 10 feet of speed while the bearer is unencumbered  \n• Proficiency with Constitution saving throws  \n• Resistance to acid, cold, fire, lightning, or thunder damage (transmuter’s choice whenever the transmuter chooses this benefit)  \n• If the transmuter has the stone and casts a transmutation spell of 1st level or higher, it can change the effect of the stone.",
-      "## Actions",
-      "**Chromatic Orb**: *Ranged Spell Attack:* +6 to hit, range 90 ft., one creature. *Hit:* 13 (3d8) acid, cold, fire, lightning, poison, or thunder chosen by the transmuter when the spell is cast.  \n  \n**Quarterstaff (One-Handed)**: *Melee Weapon Attack:* +2 to hit, reach 5 ft., one target. *Hit:* 2 (1d6 - 1) bludgeoning damage.  \n  \n**Quarterstaff (Two-Handed)**: *Melee Weapon Attack:* +2 to hit, reach 5 ft., one target. *Hit:* 3 (1d8 - 1) bludgeoning damage if used with two hands.  \n  \n**Ray of Frost**: *Ranged Spell Attack:* +6 to hit, range 60 ft., one creature. *Hit:* 9 (2d8) cold damage and the target's speed is reduced by 10 feet until the start of the transmuter's next turn."
     ]
   },
   {
@@ -11134,30 +10634,6 @@
     "mastery": "Sap"
   },
   {
-    "name": "War Priest",
-    "rarity": 0,
-    "attune": "No",
-    "source": "VGM",
-    "basePrice": 75,
-    "cats": [
-      "weapons-any"
-    ],
-    "stats": "War priests worship deities of war and combat. They plan tactics, lead soldiers into battle, confront enemy spellcasters, and tend to casualties. A war priest might command an army or serve as a warlord’s right hand on the battlefield. ## Traits",
-    "flavor": "",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "VGM",
-    "entries": [
-      "War priests worship deities of war and combat. They plan tactics, lead soldiers into battle, confront enemy spellcasters, and tend to casualties. A war priest might command an army or serve as a warlord’s right hand on the battlefield.",
-      "## Traits",
-      "**Spellcasting**: The priest is a 9th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 15, +7 to hit with spell attacks). It has the following cleric spells prepared:  \n  \n• Cantrips (at will): *light, mending, sacred flame, spare the dying*  \n• 1st level (4 slots): *divine favor, guiding bolt, healing word, shield of faith*  \n• 2nd level (3 slots): *lesser restoration, magic weapon, prayer of healing, silence, spiritual weapon*  \n• 3rd level (3 slots): *beacon of hope, crusader’s mantle, dispel magic, revivify, spirit guardians, water walk*  \n• 4th level (3 slots): *banishment, freedom of movement, guardian of faith, stoneskin*  \n• 5th level (1 slot): *flame strike, mass cure wounds, hold monster*",
-      "## Actions",
-      "**Multiattack**: The priest makes two melee attacks.  \n  \n**Maul**: *Melee Weapon Attack:* +7 to hit, reach 5 ft., one target. *Hit:* 10 (2d6 + 3) bludgeoning damage.  \n  \n**Guiding Bolt**: *Ranged Spell Attack:* +4 to hit, range 120 ft., one creature. *Hit:* 14 (4d6) radiant damage and the next attack roll made against the target before the end of the war priest's next turn has advantage, thanks to the mystical dim light glittering on the target until then.",
-      "## Reactions",
-      "**Guided Strike (Recharges after a Short or Long Rest)**: The priest grants a +10 bonus to an attack roll made by itself or another creature within 30 feet of it. The priest can make this choice after the roll is made but before it hits or misses."
-    ]
-  },
-  {
     "name": "Warhammer",
     "rarity": 0,
     "attune": "No",
@@ -11179,32 +10655,6 @@
       "Versatile (1d10)"
     ],
     "mastery": "Push"
-  },
-  {
-    "name": "Warlock of the Archfey",
-    "rarity": 0,
-    "attune": "No",
-    "source": "VGM",
-    "basePrice": 75,
-    "cats": [
-      "armor"
-    ],
-    "stats": "Warlocks of the archfey gain their powers through magical pacts forged with lords of the Feywild. These warlocks commonly associate with lesser fey creatures such as boggles, quicklings, redcaps, satyrs, and sprites. ## Variant: Familiars",
-    "flavor": "",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "VGM",
-    "entries": [
-      "Warlocks of the archfey gain their powers through magical pacts forged with lords of the Feywild. These warlocks commonly associate with lesser fey creatures such as boggles, quicklings, redcaps, satyrs, and sprites.",
-      "## Variant: Familiars",
-      "Any spellcaster that can cast the find familiar spell (such as an apprentice, warlock, or wizard) is likely to have a familiar. The familiar can be one of the creatures described in the spell (see the *Player’s Handbook*) or some other Tiny monster, such as a Cranium Rat, a crawling claw, a gazer, an imp, a pseudodragon, or a quasit.",
-      "## Traits",
-      "**Innate Spellcasting**: The warlock’s innate spellcasting ability is Charisma. It can innately cast the following spells (spell save DC 15), requiring no material components:  \n  \n• At will: *disguise self, mage armor (self only), silent image, speak with animals*  \n• 1/day: *conjure fey*  \n  \n**Spellcasting**: The warlock is a 11th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:  \n  \n• Cantrips (at will): *dancing lights, eldritch blast, friends, mage hand, minor illusion, prestidigitation, vicious mockery*  \n• 1st–5th level (3 5th-level slots): *blink, charm person, dimension door, dominate beast, faerie fire, fear, hold monster, misty step, phantasmal force, seeming, sleep*",
-      "## Actions",
-      "**Dagger (Melee)**: *Melee Weapon Attack:* +3 to hit, reach 5 ft., one target. *Hit:* 4 (1d4 + 2) piercing damage.  \n  \n**Dagger (Ranged)**: *Ranged Weapon Attack:* +3 to hit, range 20/60 ft., one target. *Hit:* 4 (1d4 + 2) piercing damage.  \n  \n**Eldritch Blast**: *Ranged Spell Attack:* +6 to hit, range 120 ft., one creature. *Hit:* 5 (1d10) force damage. When the warlock casts this spell, it creates three beams. It can direct the beams at the same target or at different ones. It makes a separate attack roll for each beam.",
-      "## Reactions",
-      "**Misty Escape (Recharges after a Short or Long Rest)**: In response to taking damage, the warlock turns invisible and teleports up to 60 feet to an unoccupied space it can see. It remains invisible until the start of its next turn or until it attacks, makes a damage roll, or casts a spell."
-    ]
   },
   {
     "name": "Warship",
@@ -11381,75 +10831,6 @@
     ]
   },
   {
-    "name": "Xvart",
-    "rarity": 0,
-    "attune": "No",
-    "source": "VGM",
-    "basePrice": 75,
-    "cats": [],
-    "stats": "> *When things go badly for them, they kidnap whoever’s handy and sacrifice them to their craven god. Hmm. I guess they’re not so different from a lot of humans, after all.*  \n> —Volo > *If you say the name Raxivort three times while gazing at your reflection in a mirror, xvarts will visit you in…",
-    "flavor": "",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "VGM",
-    "entries": [
-      "> *When things go badly for them, they kidnap whoever’s handy and sacrifice them to their craven god. Hmm. I guess they’re not so different from a lot of humans, after all.*  \n> —Volo",
-      "> *If you say the name Raxivort three times while gazing at your reflection in a mirror, xvarts will visit you in the dead of night and steal a cherished trinket.*  \n> —Volo",
-      "> *If ye believe what Volo tells ye, ye deserve no less.*  \n> —Elminster",
-      "Xvarts are cruel, cowardly humanoids spawned by a cowardly, renegade demigod. They have blue skin, vivid orange eyes, and receding hairlines, mirroring their creator’s appearance. They stand about 3 feet tall.  \n  \nXvarts live in remote hills, forests, and caves. Each tribe is led by a speaker, who is usually the brightest one among them. The speaker serves as the tribe’s ambassador, and often dons short wooden stilts and heavy robes to look taller and more imperious. The rest of the tribe hunts for food, plundering crops and livestock from nearby farms if the hunt goes poorly. Xvarts aren’t much of a threat to civilized locations because they are somewhat fearful of humans, dwarves, and elves.  \n  \n***Raxivort’s Betrayal.*** All xvarts are the degenerate offspring of an entity named Raxivort, who once served Graz’zt the Dark Prince as treasurer. Raxivort spent long centuries watching over the treasury, and in time he grew to lust after his master’s riches. In one bold move, he plundered a treasure vault and fled to the Material Plane. One of the treasures he stole was the Infinity Spindle, a crystalline shard from the early days of the multiverse that could transform even a creature as low as Raxivort into a demigod.  \n  \nAfter he ascended to godhood, Raxivort forged a realm called the Black Sewers, within Pandesmos, the topmost layer of Pandemonium. He enjoyed his divine ascension only briefly, though, before Graz’zt unleashed his vengeance. The demon prince had no need to regain the Infinity Spindle, since he already possessed power greater than what it could grant. Instead, he dispatched agents far and wide to spread news of what the spindle could do and the puny, pathetic creature that claimed its ownership. Soon enough, Raxivort was pursued by a variety of enemies, all eager to claim the Spindle as their own.  \n  \nIn the face of his imminent destruction, Raxivort hatched a plan. Fleeing to the Material Plane, he wandered across a variety of worlds and spawned creatures that were his exact duplicate. These are the xvarts, creatures that not only look identical to Raxivort in appearance but also foil any magic used to track him down. Spells, rituals, and other effects that could reveal Raxivort’s location instead point to the nearest xvart.  \n  \nAlthough the initial rush of enemies against him has subsided, Raxivort knows that the planar powers are patient. He remains in hiding, a wretch of a demigod who does little more than wander the planes, spawning ever more xvarts to ensure his continued safety.  \n  \n***Greedy Thugs.*** Xvarts have all of their creator’s flaws and few redeeming qualities. They lack the physical equipment to reproduce, as well as the inclination to do so. They are greedy, conniving, and obsessed with the acquisition of valuables—the more ornate or bizarre, the better. They know they are flawed, and this minor amount of self-awareness only magnifies their other deficiencies. They hate almost any creature they perceive as better than they are, which includes almost anyone, but they lack the courage or wherewithal to act on their hatred most of the time. Their fear has led them to dwell either in gloomy places on the far fringes of civilized lands or in areas neglected or forgotten by mightier creatures. In other words, xvarts usually live in places where normal vermin might flourish.  \n  \nDespite their muddled nature, all xvarts have an unshakable devotion to Raxivort. The desire to please Raxivort weighs heavily on all their decisions. When things aren’t going well for them, xvarts naturally assume that Raxivort is angry. To appease their troubled lord, they stage kidnappings. They fashion nets to capture their enemies, which are dragged back to the lair and sacrificed on a makeshift altar. Raxivort can hear their supplications, but he’s too afraid to come out of hiding most of the time. Occasionally, he does appear before a tribe of worshipers as a 9-foot-tall xvart carrying an empty sack. In every such instance, Raxivort takes all of the treasure that the tribe has accumulated, stuffs it in his sack, and disappears, leaving nothing behind as compensation.  \n  \n***Vermin Masters.*** Rats and bats (including giant-sized specimens) are naturally attracted to xvarts, and xvarts domesticate such beasts for food and battle. Xvarts also form alliances with wererats, although the lycanthropes are dominant in any such arrangement. This relationship traces back to Raxivort’s divine nature. Even though the xvarts inherited Raxivort’s greed and cowardice, they also gained his ability to form bonds with such creatures.  \n  \n***Xvart Warlocks.*** A xvart can forge a pact with Raxivort by stealing an item of such great value that the demigod himself appears before the xvart to claim it. After surrendering the item to Raxivort, the xvart asks for magical power so that it can find and deliver more great treasures into Raxivort’s custody. If the demigod feels so inclined, he imbues the xvart with greater wisdom and charisma and grants it the spellcasting abilities of a warlock before returning to the howling chaos of Pandemonium. Raxivort’s warlocks are respected and feared in xvart society, but they have little interest in political power. They scour the wilderness, old ruins, and dungeons for treasures, often with a handful of xvart sycophants and giant rat bodyguards in tow.  \n  \n**Xvart Speakers**A xvart tribe has one speaker that serves as its leader. Refer to the Xvart Speaker entry for details and stats.",
-      "## Traits",
-      "**Low Cunning**: The xvart can take the Disengage action as a bonus action on each of its turns.  \n  \n**Overbearing Pack**: The xvart has advantage on Strength (Athletics) checks to shove a creature if at least one of the xvart’s allies is within 5 feet of the target and the ally isn’t incapacitated.  \n  \n**Raxivort’s Tongue**: The xvart can communicate with ordinary bats and rats, as well as giant bats and giant rats.",
-      "## Actions",
-      "**Shortsword**: *Melee Weapon Attack:* +4 to hit, reach 5 ft., one target. *Hit:* 5 (1d6 + 2) piercing damage.  \n  \n**Sling**: *Ranged Weapon Attack:* +4 to hit, range 30/120 ft., one target. *Hit:* 4 (1d4 + 2) bludgeoning damage."
-    ]
-  },
-  {
-    "name": "Xvart Speaker",
-    "rarity": 0,
-    "attune": "No",
-    "source": "VGM",
-    "basePrice": 75,
-    "cats": [],
-    "stats": "> *When things go badly for them, they kidnap whoever’s handy and sacrifice them to their craven god. Hmm. I guess they’re not so different from a lot of humans, after all.*  \n> —Volo > *If you say the name Raxivort three times while gazing at your reflection in a mirror, xvarts will visit you in…",
-    "flavor": "",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "VGM",
-    "entries": [
-      "> *When things go badly for them, they kidnap whoever’s handy and sacrifice them to their craven god. Hmm. I guess they’re not so different from a lot of humans, after all.*  \n> —Volo",
-      "> *If you say the name Raxivort three times while gazing at your reflection in a mirror, xvarts will visit you in the dead of night and steal a cherished trinket.*  \n> —Volo",
-      "> *If ye believe what Volo tells ye, ye deserve no less.*  \n> —Elminster",
-      "Xvarts are cruel, cowardly humanoids spawned by a cowardly, renegade demigod. They have blue skin, vivid orange eyes, and receding hairlines, mirroring their creator’s appearance. They stand about 3 feet tall.  \n  \nXvarts live in remote hills, forests, and caves. Each tribe is led by a speaker, who is usually the brightest one among them. The speaker serves as the tribe’s ambassador, and often dons short wooden stilts and heavy robes to look taller and more imperious. The rest of the tribe hunts for food, plundering crops and livestock from nearby farms if the hunt goes poorly. Xvarts aren’t much of a threat to civilized locations because they are somewhat fearful of humans, dwarves, and elves.  \n  \n***Raxivort’s Betrayal.*** All xvarts are the degenerate offspring of an entity named Raxivort, who once served Graz’zt the Dark Prince as treasurer. Raxivort spent long centuries watching over the treasury, and in time he grew to lust after his master’s riches. In one bold move, he plundered a treasure vault and fled to the Material Plane. One of the treasures he stole was the Infinity Spindle, a crystalline shard from the early days of the multiverse that could transform even a creature as low as Raxivort into a demigod.  \n  \nAfter he ascended to godhood, Raxivort forged a realm called the Black Sewers, within Pandesmos, the topmost layer of Pandemonium. He enjoyed his divine ascension only briefly, though, before Graz’zt unleashed his vengeance. The demon prince had no need to regain the Infinity Spindle, since he already possessed power greater than what it could grant. Instead, he dispatched agents far and wide to spread news of what the spindle could do and the puny, pathetic creature that claimed its ownership. Soon enough, Raxivort was pursued by a variety of enemies, all eager to claim the Spindle as their own.  \n  \nIn the face of his imminent destruction, Raxivort hatched a plan. Fleeing to the Material Plane, he wandered across a variety of worlds and spawned creatures that were his exact duplicate. These are the xvarts, creatures that not only look identical to Raxivort in appearance but also foil any magic used to track him down. Spells, rituals, and other effects that could reveal Raxivort’s location instead point to the nearest xvart.  \n  \nAlthough the initial rush of enemies against him has subsided, Raxivort knows that the planar powers are patient. He remains in hiding, a wretch of a demigod who does little more than wander the planes, spawning ever more xvarts to ensure his continued safety.  \n  \n***Greedy Thugs.*** Xvarts have all of their creator’s flaws and few redeeming qualities. They lack the physical equipment to reproduce, as well as the inclination to do so. They are greedy, conniving, and obsessed with the acquisition of valuables—the more ornate or bizarre, the better. They know they are flawed, and this minor amount of self-awareness only magnifies their other deficiencies. They hate almost any creature they perceive as better than they are, which includes almost anyone, but they lack the courage or wherewithal to act on their hatred most of the time. Their fear has led them to dwell either in gloomy places on the far fringes of civilized lands or in areas neglected or forgotten by mightier creatures. In other words, xvarts usually live in places where normal vermin might flourish.  \n  \nDespite their muddled nature, all xvarts have an unshakable devotion to Raxivort. The desire to please Raxivort weighs heavily on all their decisions. When things aren’t going well for them, xvarts naturally assume that Raxivort is angry. To appease their troubled lord, they stage kidnappings. They fashion nets to capture their enemies, which are dragged back to the lair and sacrificed on a makeshift altar. Raxivort can hear their supplications, but he’s too afraid to come out of hiding most of the time. Occasionally, he does appear before a tribe of worshipers as a 9-foot-tall xvart carrying an empty sack. In every such instance, Raxivort takes all of the treasure that the tribe has accumulated, stuffs it in his sack, and disappears, leaving nothing behind as compensation.  \n  \n***Vermin Masters.*** Rats and bats (including giant-sized specimens) are naturally attracted to xvarts, and xvarts domesticate such beasts for food and battle. Xvarts also form alliances with wererats, although the lycanthropes are dominant in any such arrangement. This relationship traces back to Raxivort’s divine nature. Even though the xvarts inherited Raxivort’s greed and cowardice, they also gained his ability to form bonds with such creatures.  \n  \n***Xvart Warlocks.*** A xvart can forge a pact with Raxivort by stealing an item of such great value that the demigod himself appears before the xvart to claim it. After surrendering the item to Raxivort, the xvart asks for magical power so that it can find and deliver more great treasures into Raxivort’s custody. If the demigod feels so inclined, he imbues the xvart with greater wisdom and charisma and grants it the spellcasting abilities of a warlock before returning to the howling chaos of Pandemonium. Raxivort’s warlocks are respected and feared in xvart society, but they have little interest in political power. They scour the wilderness, old ruins, and dungeons for treasures, often with a handful of xvart sycophants and giant rat bodyguards in tow.  \n  \n***Xvart Speakers.*** A xvart tribe has one speaker that serves as its leader. The speaker has the statistics of a normal xvart, except that it has an Intelligence of 13 (+1) and knows one additional language (usually Common or Goblin).",
-      "## Traits",
-      "**Low Cunning**: The xvart can take the Disengage action as a bonus action on each of its turns.  \n  \n**Overbearing Pack**: The xvart has advantage on Strength (Athletics) checks to shove a creature if at least one of the xvart’s allies is within 5 feet of the target and the ally isn’t incapacitated.  \n  \n**Raxivort’s Tongue**: The xvart can communicate with ordinary bats and rats, as well as giant bats and giant rats.",
-      "## Actions",
-      "**Shortsword**: *Melee Weapon Attack:* +4 to hit, reach 5 ft., one target. *Hit:* 5 (1d6 + 2) piercing damage.  \n  \n**Sling**: *Ranged Weapon Attack:* +4 to hit, range 30/120 ft., one target. *Hit:* 4 (1d4 + 2) bludgeoning damage."
-    ]
-  },
-  {
-    "name": "Xvart Warlock of Raxivort",
-    "rarity": 0,
-    "attune": "No",
-    "source": "VGM",
-    "basePrice": 75,
-    "cats": [],
-    "stats": "> *When things go badly for them, they kidnap whoever’s handy and sacrifice them to their craven god. Hmm. I guess they’re not so different from a lot of humans, after all.*  \n> —Volo > *If you say the name Raxivort three times while gazing at your reflection in a mirror, xvarts will visit you in…",
-    "flavor": "",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "VGM",
-    "entries": [
-      "> *When things go badly for them, they kidnap whoever’s handy and sacrifice them to their craven god. Hmm. I guess they’re not so different from a lot of humans, after all.*  \n> —Volo",
-      "> *If you say the name Raxivort three times while gazing at your reflection in a mirror, xvarts will visit you in the dead of night and steal a cherished trinket.*  \n> —Volo",
-      "> *If ye believe what Volo tells ye, ye deserve no less.*  \n> —Elminster",
-      "Xvarts are cruel, cowardly humanoids spawned by a cowardly, renegade demigod. They have blue skin, vivid orange eyes, and receding hairlines, mirroring their creator’s appearance. They stand about 3 feet tall.  \n  \nXvarts live in remote hills, forests, and caves. Each tribe is led by a speaker, who is usually the brightest one among them. The speaker serves as the tribe’s ambassador, and often dons short wooden stilts and heavy robes to look taller and more imperious. The rest of the tribe hunts for food, plundering crops and livestock from nearby farms if the hunt goes poorly. Xvarts aren’t much of a threat to civilized locations because they are somewhat fearful of humans, dwarves, and elves.  \n  \n***Raxivort’s Betrayal.*** All xvarts are the degenerate offspring of an entity named Raxivort, who once served Graz’zt the Dark Prince as treasurer. Raxivort spent long centuries watching over the treasury, and in time he grew to lust after his master’s riches. In one bold move, he plundered a treasure vault and fled to the Material Plane. One of the treasures he stole was the Infinity Spindle, a crystalline shard from the early days of the multiverse that could transform even a creature as low as Raxivort into a demigod.  \n  \nAfter he ascended to godhood, Raxivort forged a realm called the Black Sewers, within Pandesmos, the topmost layer of Pandemonium. He enjoyed his divine ascension only briefly, though, before Graz’zt unleashed his vengeance. The demon prince had no need to regain the Infinity Spindle, since he already possessed power greater than what it could grant. Instead, he dispatched agents far and wide to spread news of what the spindle could do and the puny, pathetic creature that claimed its ownership. Soon enough, Raxivort was pursued by a variety of enemies, all eager to claim the Spindle as their own.  \n  \nIn the face of his imminent destruction, Raxivort hatched a plan. Fleeing to the Material Plane, he wandered across a variety of worlds and spawned creatures that were his exact duplicate. These are the xvarts, creatures that not only look identical to Raxivort in appearance but also foil any magic used to track him down. Spells, rituals, and other effects that could reveal Raxivort’s location instead point to the nearest xvart.  \n  \nAlthough the initial rush of enemies against him has subsided, Raxivort knows that the planar powers are patient. He remains in hiding, a wretch of a demigod who does little more than wander the planes, spawning ever more xvarts to ensure his continued safety.  \n  \n***Greedy Thugs.*** Xvarts have all of their creator’s flaws and few redeeming qualities. They lack the physical equipment to reproduce, as well as the inclination to do so. They are greedy, conniving, and obsessed with the acquisition of valuables—the more ornate or bizarre, the better. They know they are flawed, and this minor amount of self-awareness only magnifies their other deficiencies. They hate almost any creature they perceive as better than they are, which includes almost anyone, but they lack the courage or wherewithal to act on their hatred most of the time. Their fear has led them to dwell either in gloomy places on the far fringes of civilized lands or in areas neglected or forgotten by mightier creatures. In other words, xvarts usually live in places where normal vermin might flourish.  \n  \nDespite their muddled nature, all xvarts have an unshakable devotion to Raxivort. The desire to please Raxivort weighs heavily on all their decisions. When things aren’t going well for them, xvarts naturally assume that Raxivort is angry. To appease their troubled lord, they stage kidnappings. They fashion nets to capture their enemies, which are dragged back to the lair and sacrificed on a makeshift altar. Raxivort can hear their supplications, but he’s too afraid to come out of hiding most of the time. Occasionally, he does appear before a tribe of worshipers as a 9-foot-tall xvart carrying an empty sack. In every such instance, Raxivort takes all of the treasure that the tribe has accumulated, stuffs it in his sack, and disappears, leaving nothing behind as compensation.  \n  \n***Vermin Masters.*** Rats and bats (including giant-sized specimens) are naturally attracted to xvarts, and xvarts domesticate such beasts for food and battle. Xvarts also form alliances with wererats, although the lycanthropes are dominant in any such arrangement. This relationship traces back to Raxivort’s divine nature. Even though the xvarts inherited Raxivort’s greed and cowardice, they also gained his ability to form bonds with such creatures.  \n  \n***Xvart Warlocks.*** A xvart can forge a pact with Raxivort by stealing an item of such great value that the demigod himself appears before the xvart to claim it. After surrendering the item to Raxivort, the xvart asks for magical power so that it can find and deliver more great treasures into Raxivort’s custody. If the demigod feels so inclined, he imbues the xvart with greater wisdom and charisma and grants it the spellcasting abilities of a warlock before returning to the howling chaos of Pandemonium. Raxivort’s warlocks are respected and feared in xvart society, but they have little interest in political power. They scour the wilderness, old ruins, and dungeons for treasures, often with a handful of xvart sycophants and giant rat bodyguards in tow.  \n  \n**Xvart Speakers**A xvart tribe has one speaker that serves as its leader. Refer to the Xvart Speaker entry for details and stats.",
-      "## Traits",
-      "**Innate Spellcasting**: The xvart’s innate spellcasting ability is Charisma. It can innately cast the following spells, requiring no material components:  \n  \n• At will: *detect magic, mage armor (self only)*  \n**Spellcasting**: The xvart is a 3rd-level spellcaster. Its spellcasting ability is Charisma (spell save DC 11, +3 to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:  \n  \n• Cantrips (at will): *eldritch blast, mage hand, minor illusion, poison spray, prestidigitation*  \n• 1st–2nd level (2 2nd-level slots): *burning hands, expeditious retreat, invisibility, scorching ray*  \n**Low Cunning**: The xvart can take the Disengage action as a bonus action on each of its turns.  \n  \n**Raxivort’s Blessing**: When the xvart reduces an enemy to 0 hit points, the xvart gains 4 temporary hit points.  \n  \n**Raxivort’s Tongue**: The xvart can communicate with ordinary bats and rats, as well as giant bats and giant rats.",
-      "## Actions",
-      "**Eldritch Blast**: *Ranged Spell Attack:* +3 to hit, range 120 ft., one creature. *Hit:* 5 (1d10) force damage.  \n  \n**Scimitar**: *Melee Weapon Attack:* +4 to hit, reach 5 ft., one target. *Hit:* 5 (1d6 + 2) slashing damage.  \n  \n**Scorching Ray**: *Ranged Spell Attack:* +3 to hit, range 120 ft., one target. *Hit:* 7 (2d6) fire damage. The xvart creates three rays when it casts this spell and it can hurl them at one or several targets in range."
-    ]
-  },
-  {
     "name": "Yew Wand",
     "rarity": 0,
     "attune": "No",
@@ -11482,28 +10863,6 @@
     "5etoolsSource": "KP-TCH",
     "entries": [
       "This witch finger is unique and if you are the victim of this\nparticular witch finger then you get +1 to your spell DCs or\n+1 to your spell attack rolls. This decision is made when\nthe finger is created. It cannot be changed. This unique\nbonus is in addition to the bonuses associated with a living\nwitch finger."
-    ]
-  },
-  {
-    "name": "Yskarakta, Lord of the Satarre",
-    "rarity": 0,
-    "attune": "No",
-    "source": "KP-ToB2",
-    "basePrice": 75,
-    "cats": [
-      "staffs"
-    ],
-    "stats": "> *The wiry reptilian creature carries itself with a regal bearing. Glowing rings float above its head, their light glinting off its glossy flesh. It wields a long, axe-headed staff crowned with rings.* Yskarakta is a confidante of Nidhoggr, the dragon at the roots of Yggdrasil. He is an intimate…",
-    "flavor": "",
-    "verified": false,
-    "priceSource": "algorithm-fallback",
-    "5etoolsSource": "KP-ToB2",
-    "entries": [
-      "> *The wiry reptilian creature carries itself with a regal bearing. Glowing rings float above its head, their light glinting off its glossy flesh. It wields a long, axe-headed staff crowned with rings.*",
-      "Yskarakta is a confidante of Nidhoggr, the dragon at the roots of Yggdrasil. He is an intimate friend of the void cults, blood cults, and night-bringers of all stripes. Yskarakta commands legions of satarre destroyers and mystics with equal glee, and, unlike demons, he can plot and plan and scheme. He portends the end of existence that all satarre long to hasten.",
-      "**True Void Believer.** Yskarakta exhorts and encourages his followers, void cultists, and others to pursue paths of destruction, death, and decay. At all times he knows the end times draw near, and he seeks omens, prophecies, and lore related to hastening doomsday.",
-      "**Wise and Cunning.** The Lord of the Satarre weaves plans within plans, and uncovers the weaknesses of foes to better destroy them. He almost always knows a shameful secret, a hidden vulnerability, or a weakness of any person or place he seeks to destroy. Sometimes, Yskarakta manifests these secrets in glyphs that appear above his head.",
-      "**Walker of the World Tree.** Yskarakta can open shadow roads and planar pathways with ease, and he is often found wandering the planar highways. He occasionally wears a cloak and pretends to be a god of wisdom, or he claims to be a messenger sent directly from some higher power. Yskarakta finds it that much sweeter to sow destruction and confusion when his enemies’ guard is lowered."
     ]
   },
   {
