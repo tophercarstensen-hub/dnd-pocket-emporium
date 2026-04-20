@@ -320,7 +320,7 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 /* ══ PARTY BAR ══ */
 .party-bar-wrap{flex-shrink:0;background:var(--bg-panel);border-bottom:1px solid var(--border-dim);overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
 .party-bar-wrap.collapsed{max-height:34px}
-.party-bar-wrap.expanded{max-height:432px}
+.party-bar-wrap.expanded{max-height:520px}
 .party-bar-toggle{display:none}
 .party-bar-toggle-lbl,.party-bar-toggle-arr{display:none}
 /* Single master header spans the full width; clicking it collapses both sections together */
@@ -2347,11 +2347,11 @@ function renderEffectsPanel(){
   document.getElementById('pbValRarity').innerHTML=
     `${RNAMES[mn]}<span style="color:var(--text-dim);font-weight:400"> → </span>${RNAMES[mx]}`;
   const rarWhy=RARITY_LOCKED?
-    '<b>🔒 locked</b> · click the lock to let settings drive it':
-    (!sRaw?'driven by the <b>settlement ↓</b> below + wealth':
+    '<b>🔒 locked</b> · click the lock icon to let settings drive it':
+    (!sRaw?'pick a <b>settlement</b> below to compute the range':
       (tierCapping?
-        `<b>Tier ${tier}</b> caps max at <b>${RNAMES[tierCap]}</b> · wealth · <b>${w}</b>`:
-        `wealth · <b>${w}</b> · party tier <b>T${tier}</b>`));
+        `<b>T${tier}</b> caps max at <b>${RNAMES[tierCap]}</b> · wealth <b>${w}</b>`:
+        `wealth <b>${w}</b> · party <b>T${tier}</b>`));
   document.getElementById('pbSubRarity').innerHTML=rarWhy;
 
   // Merchant-details-not-set state (shrewdness / mood unset)
@@ -2440,16 +2440,11 @@ function renderEffectsPanel(){
     document.getElementById('pbSubCount').innerHTML=countSub;
   }
 
-  // ─── Warning banner for missing merchant details ───
+  // ─── Warning banner kept in DOM but always hidden — the cards themselves
+  // now say 'not set yet' so the extra banner would just duplicate the message
+  // and eat vertical space that the grid needs. ───
   const warn=document.getElementById('pbNotSetWarn');
-  if(warn){
-    if(merchantUnset){
-      warn.style.display='';
-      warn.innerHTML=`<span><b>Merchant details not set yet.</b> Pricing and haggle DC will use sensible defaults (shrewd · <i>average</i>, mood · <i>neutral</i>) until you roll or choose them in the sidebar.</span>`;
-    } else {
-      warn.style.display='none';
-    }
-  }
+  if(warn)warn.style.display='none';
 }
 
 function toggleRarityLock(){
