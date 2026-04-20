@@ -79,8 +79,24 @@ body{background:var(--bg-void);color:var(--text-primary);font-family:'Crimson Pr
 
 /* SECTIONS */
 .section{border-bottom:1px solid var(--border-dim);overflow:hidden}
-.sec-hdr{display:flex;align-items:center;gap:8px;padding:9px 12px;cursor:pointer;user-select:none;transition:background var(--ease)}
-.sec-hdr:hover{background:var(--bg-hover)}
+.sec-hdr{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 12px;cursor:pointer;user-select:none;
+  transition:background var(--ease), border-color var(--ease);
+  background:linear-gradient(180deg, rgba(201,168,76,.08) 0%, rgba(201,168,76,.03) 100%);
+  border-top:1px solid rgba(201,168,76,.14);
+  border-bottom:1px solid rgba(201,168,76,.10);
+  position:relative;
+}
+.sec-hdr::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent-gold-dim) 40%,var(--accent-gold-dim) 60%,transparent);
+  opacity:.35;
+}
+.sec-hdr:hover{background:linear-gradient(180deg, rgba(201,168,76,.16) 0%, rgba(201,168,76,.06) 100%)}
+.sec-hdr .sec-icon{color:var(--accent-gold)}
+.sec-hdr .sec-lbl{color:var(--accent-gold)}
+.sec-hdr .sec-arr{color:var(--accent-gold);font-size:11px}
 .sec-icon{font-size:12px;width:15px;text-align:center;opacity:.7}
 .sec-lbl{font-family:'Cinzel',serif;font-size:10px;font-weight:600;letter-spacing:.12em;color:var(--text-secondary);text-transform:uppercase;flex:1}
 .sec-arr{color:var(--text-dim);font-size:10px;transition:transform var(--ease)}
@@ -337,7 +353,11 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .act-btn.save-mem.is-saved{border-color:var(--accent-teal);background:rgba(58,138,122,.15)}
 
 /* ══ PARTY BAR ══ */
-.party-bar-wrap{flex-shrink:0;background:var(--bg-panel);border-bottom:1px solid var(--border-dim);overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
+.party-bar-wrap{flex-shrink:0;background:var(--bg-panel);border-bottom:1px solid var(--border-dim);overflow:hidden}
+/* When class-flipped (manual toggle or initial state), animate via CSS.
+   When JS sets inline max-height directly (scroll interpolation), the
+   inline value wins and there's no transition fight. */
+.party-bar-wrap:not([style*="max-height"]){transition:max-height .35s cubic-bezier(.4,0,.2,1)}
 .party-bar-wrap.collapsed{max-height:34px}
 .party-bar-wrap.expanded{max-height:580px}
 .party-bar-toggle{display:none}
@@ -669,9 +689,30 @@ body.page-ieditor .shop-tab-bar { display:none !important; }
 .shop-tab-bar::-webkit-scrollbar-thumb{background:var(--border-mid)}
 .shop-tab-bar.has-tabs{display:flex}
 body.page-generator .shop-tab-bar.has-tabs{display:flex}
-.shop-tab{display:flex;align-items:center;gap:5px;padding:0 10px;border-right:1px solid var(--border-dim);cursor:pointer;font-family:'Cinzel',serif;font-size:9px;font-weight:600;letter-spacing:.06em;color:var(--text-dim);transition:color var(--ease),background var(--ease);white-space:nowrap;flex-shrink:0;position:relative;min-width:80px;max-width:150px}
-.shop-tab:hover{color:var(--text-secondary);background:var(--bg-hover)}
-.shop-tab.active{color:var(--accent-gold);background:var(--bg-void);border-bottom:2px solid var(--accent-gold);margin-bottom:-1px}
+.shop-tab{
+  display:flex;align-items:center;gap:6px;
+  padding:0 18px;
+  border-right:1px solid var(--border-dim);
+  cursor:pointer;
+  font-family:'Cinzel',serif;font-size:10px;font-weight:600;letter-spacing:.09em;
+  color:var(--text-secondary);
+  background:linear-gradient(180deg, rgba(201,168,76,.06) 0%, transparent 100%);
+  transition:color var(--ease), background var(--ease), border-color var(--ease);
+  white-space:nowrap;flex-shrink:0;position:relative;min-width:110px;max-width:180px;
+  text-transform:uppercase;
+}
+.shop-tab:hover{
+  color:var(--accent-gold);
+  background:linear-gradient(180deg, rgba(201,168,76,.16) 0%, rgba(201,168,76,.04) 100%);
+}
+.shop-tab.active{
+  color:var(--accent-gold);
+  background:linear-gradient(180deg, rgba(201,168,76,.22) 0%, rgba(201,168,76,.06) 100%);
+  border-bottom:2px solid var(--accent-gold);
+  margin-bottom:-1px;
+  box-shadow:inset 0 1px 0 rgba(201,168,76,.3);
+  text-shadow:0 0 12px rgba(201,168,76,.25);
+}
 .shop-tab .tab-icon{font-size:11px;opacity:.7}
 .shop-tab .tab-label{flex:1;overflow:hidden;text-overflow:ellipsis}
 .shop-tab .tab-close{width:14px;height:14px;display:flex;align-items:center;justify-content:center;border-radius:2px;color:var(--text-dim);font-size:11px;flex-shrink:0;transition:color var(--ease)}
@@ -2032,48 +2073,65 @@ function togglePartyBar() {
 function togglePbSection(){togglePartyBar();}
 
 // Smooth scroll-driven collapse of the top party bar.
-// ─ Gradually shrinks the bar's max-height from 520 -> 36 as the shop-panel
-//   scrolls from 40 to 280 (a "~1/3 of page" feel). Past 280 the class
-//   flips to .collapsed so the master header arrow rotates + summary shows.
-// ─ Also forwards wheel events that happen over the top bar to whatever
-//   shop-panel-scroll is currently visible, so scrolling with the cursor
-//   parked on the party bar actually scrolls the page.
+// Uses rAF-based linear interpolation toward a target height so rapid
+// wheel events don't cause the CSS transition to reset-and-restart, which
+// produced a jumpy feel. Wheel over the party bar is forwarded to the
+// active shop-panel-scroll so the settings bar itself is scroll-through.
 (function setupSmoothScrollCollapse(){
   const H_EXPANDED = 580;
   const H_COLLAPSED = 38;
   const SCROLL_START = 40;
-  const SCROLL_END = 280;
-  let userManualOverride = false;   // briefly true after a manual toggle click
+  const SCROLL_END = 320;          // longer range = smoother feel
+  const LERP = 0.18;               // per-frame easing toward target (higher = snappier)
+  let currentH = H_EXPANDED;       // actively-animated max-height
+  let targetH = H_EXPANDED;        // wanted max-height based on scroll
+  let rafId = null;
+  let userManualOverride = false;  // briefly true after manual toggle click
 
   function findActiveScroller(){
     const all = document.querySelectorAll('.shop-panel-scroll');
-    for (const el of all) {
-      // offsetParent null means display:none; skip those
-      if (el.offsetParent !== null) return el;
-    }
+    for (const el of all) if (el.offsetParent !== null) return el;
     return null;
+  }
+
+  function tick(){
+    rafId = null;
+    const wrap = document.getElementById('partyBarWrap');
+    if (!wrap) return;
+    const diff = targetH - currentH;
+    // Snap to target when close enough
+    if (Math.abs(diff) < 0.5) {
+      currentH = targetH;
+      wrap.style.maxHeight = currentH + 'px';
+      return;
+    }
+    currentH += diff * LERP;
+    wrap.style.maxHeight = currentH + 'px';
+    // Class state tracks target, not interpolated currentH — so summary text
+    // flips as soon as we commit to collapse direction, not after animation.
+    const collapsed = targetH < (H_EXPANDED + H_COLLAPSED) / 2;
+    wrap.classList.toggle('collapsed', collapsed);
+    wrap.classList.toggle('expanded', !collapsed);
+    if (typeof updatePartyBarSummary === 'function') updatePartyBarSummary();
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function kick(){
+    if (rafId == null) rafId = requestAnimationFrame(tick);
   }
 
   function updateFromScroll(scrollTop){
     if (userManualOverride) return;
-    const wrap = document.getElementById('partyBarWrap');
-    if (!wrap) return;
     const st = Math.max(0, scrollTop);
-    let h, collapsed;
-    if (st <= SCROLL_START) { h = H_EXPANDED; collapsed = false; }
-    else if (st >= SCROLL_END) { h = H_COLLAPSED; collapsed = true; }
+    if (st <= SCROLL_START) targetH = H_EXPANDED;
+    else if (st >= SCROLL_END) targetH = H_COLLAPSED;
     else {
       const ratio = (st - SCROLL_START) / (SCROLL_END - SCROLL_START);
-      h = H_EXPANDED - (H_EXPANDED - H_COLLAPSED) * ratio;
-      collapsed = ratio > 0.88;
+      targetH = H_EXPANDED - (H_EXPANDED - H_COLLAPSED) * ratio;
     }
-    wrap.style.maxHeight = h + 'px';
-    wrap.classList.toggle('collapsed', collapsed);
-    wrap.classList.toggle('expanded', !collapsed);
-    if (typeof updatePartyBarSummary === 'function') updatePartyBarSummary();
+    kick();
   }
 
-  // Scroll listener on any shop-panel-scroll
   document.addEventListener('scroll', (e) => {
     const t = e.target;
     if (!(t instanceof HTMLElement)) return;
@@ -2081,8 +2139,8 @@ function togglePbSection(){togglePartyBar();}
     updateFromScroll(t.scrollTop);
   }, true);
 
-  // Wheel events over the party bar forward to the active shop panel
-  // (so the cursor sitting on the settings can still scroll the shop).
+  // Wheel events over the party bar forward to the active shop panel so
+  // the settings are scroll-through — cursor can sit anywhere.
   document.addEventListener('DOMContentLoaded', () => {
     const wrap = document.getElementById('partyBarWrap');
     if (!wrap) return;
@@ -2094,15 +2152,16 @@ function togglePbSection(){togglePartyBar();}
     }, {passive: false});
   });
 
-  // Manual toggle temporarily suspends auto-tracking so the click actually
-  // "sticks" — reset after a short grace period.
+  // Manual toggle temporarily suspends auto-tracking so the click "sticks".
   const _oldToggle = window.togglePartyBar;
   window.togglePartyBar = function(){
     userManualOverride = true;
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
     const wrap = document.getElementById('partyBarWrap');
-    if (wrap) wrap.style.maxHeight = '';  // drop any JS-driven inline height
+    if (wrap) wrap.style.maxHeight = '';  // release JS-driven inline height
+    currentH = wrap && wrap.classList.contains('collapsed') ? H_EXPANDED : H_COLLAPSED;
     if (typeof _oldToggle === 'function') _oldToggle();
-    setTimeout(() => { userManualOverride = false; }, 1200);
+    setTimeout(() => { userManualOverride = false; }, 1500);
   };
 })();
 function updatePartyBarSummary() {
@@ -4419,10 +4478,27 @@ function buildStatPanelHTML(item, showEditBtn){
   const rname = RARITY_NAMES[r];
 
   let entriesHtml = '';
+  let entriesFullLen = 0;
   if(item.entries && item.entries.length){
     const texts = flattenEntries(item.entries);
+    entriesFullLen = texts.reduce((a,t)=>a+(t||'').length,0);
     entriesHtml = `<div class="sp-entries">${texts.map(t=>`<p>${esc(t)}</p>`).join('')}</div>`;
   }
+  // If entries is substantive, stats/flavor are usually AI-shortened
+  // restatements of the same text. Hide them to stop the triple-repeat.
+  const hasRealEntries = entriesFullLen >= 80;
+  const statsText = (hasRealEntries ? '' : (item.stats || ''));
+  const flavorText = (() => {
+    const f = (item.flavor || '').trim();
+    if (!f) return '';
+    if (hasRealEntries) {
+      // Hide flavor if it's a substring of entries (duplicate), keep if truly
+      // a distinct quote/tagline.
+      const entriesLower = flattenEntries(item.entries || []).join(' ').toLowerCase();
+      if (entriesLower.includes(f.slice(0, Math.min(60, f.length)).toLowerCase())) return '';
+    }
+    return f;
+  })();
 
   const chips = [];
   if(item.weight)          chips.push({cls:'',     txt:`${item.weight} lb`});
@@ -4454,9 +4530,9 @@ function buildStatPanelHTML(item, showEditBtn){
       ${item.wondrous?'<span>Wondrous</span>':''}
       ${item.dmg1?`<span>${item.dmg1}${item.dmg2?' / '+item.dmg2:''} ${item.dmgType||''}</span>`:''}
     </div>
-    ${item.stats?`<div class="sp-stats">${esc(item.stats)}</div>`:''}
+    ${statsText?`<div class="sp-stats">${esc(statsText)}</div>`:''}
     ${entriesHtml}
-    ${item.flavor?`<div class="sp-flavor">"${esc(item.flavor)}"</div>`:''}
+    ${flavorText?`<div class="sp-flavor">"${esc(flavorText)}"</div>`:''}
     ${chipsHtml}
     <div class="sp-stat-row">${statRows.join('')}</div>
     ${showEditBtn?`<button class="sp-edit-btn" onclick="openIeditorWithItem('${slugItem(item.name)}')">✏ Edit in Item Editor</button>`:''}
