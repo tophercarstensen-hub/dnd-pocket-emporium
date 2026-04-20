@@ -324,13 +324,33 @@ table.stock{width:100%;border-collapse:collapse;font-family:'Crimson Pro',serif;
 .party-bar-toggle{display:none}
 .party-bar-toggle-lbl,.party-bar-toggle-arr{display:none}
 /* Single master header spans the full width; clicking it collapses both sections together */
-.pb-master-hdr{display:flex;align-items:center;gap:12px;padding:7px 14px;cursor:pointer;user-select:none;border-bottom:1px solid var(--border-dim);background:var(--bg-panel);transition:background var(--ease)}
-.pb-master-hdr:hover{background:var(--bg-hover)}
+.pb-master-hdr{
+  display:flex;align-items:center;gap:12px;
+  padding:8px 16px;cursor:pointer;user-select:none;
+  border-bottom:1px solid var(--border-gold);
+  background:linear-gradient(180deg, rgba(201,168,76,.14) 0%, rgba(201,168,76,.06) 100%), var(--bg-card);
+  transition:background var(--ease), border-color var(--ease);
+  position:relative;
+}
+.pb-master-hdr::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent-gold) 30%,var(--accent-gold) 70%,transparent);
+  opacity:.45;
+}
+.pb-master-hdr:hover{background:linear-gradient(180deg, rgba(201,168,76,.22) 0%, rgba(201,168,76,.10) 100%), var(--bg-hover)}
 .pb-master-hdr .pb-m-group{display:flex;align-items:center;gap:8px}
-.pb-master-hdr .pb-m-icon{font-size:12px;color:var(--accent-gold-dim)}
-.pb-master-hdr .pb-m-lbl{font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:.15em;color:var(--accent-gold);text-transform:uppercase}
-.pb-master-hdr .pb-m-divider{flex:1;height:1px;background:linear-gradient(90deg,var(--border-dim),transparent)}
-.pb-master-hdr .pb-m-arr{color:var(--text-dim);font-size:11px;transition:transform var(--ease)}
+.pb-master-hdr .pb-m-icon{font-size:12px;color:var(--accent-gold)}
+.pb-master-hdr .pb-m-lbl{font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--accent-gold);text-transform:uppercase}
+.pb-master-hdr .pb-m-divider{flex:1;height:1px;background:linear-gradient(90deg,var(--accent-gold-dim),transparent);opacity:.35}
+.pb-master-hdr .pb-m-arr{color:var(--accent-gold);font-size:13px;transition:transform var(--ease);margin-left:6px}
+.pb-master-hdr::before{
+  /* small hint text: 'click to collapse' visible on hover only */
+  content:"click to collapse ▲";position:absolute;right:38px;top:50%;transform:translateY(-50%);
+  font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:.06em;
+  opacity:0;transition:opacity var(--ease);pointer-events:none;
+}
+.party-bar-wrap.collapsed .pb-master-hdr::before{content:"click to expand ▼"}
+.pb-master-hdr:hover::before{opacity:.7}
 .party-bar-wrap.collapsed .pb-m-arr{transform:rotate(180deg)}
 /* Two-section split inside the bar — Active Settings LEFT (2fr), Party RIGHT (1fr). */
 .pb-sections{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:var(--border-dim);align-items:stretch}
@@ -1991,6 +2011,33 @@ function togglePartyBar() {
 }
 // Legacy hook retained for any stored onclick references.
 function togglePbSection(){togglePartyBar();}
+
+// Auto-collapse/expand the top party bar as the DM scrolls the shop content.
+// Scroll events don't bubble, so we listen in the capture phase on document
+// and only react to scrolls originating in shop-panel-scroll elements.
+(function setupAutoCollapseOnScroll(){
+  const COLLAPSE_AT = 60;   // scrollTop that triggers collapse
+  const EXPAND_AT   = 10;   // scrollTop that triggers re-expand
+  let lastScrollTop = 0;
+  document.addEventListener('scroll', (e) => {
+    const t = e.target;
+    if (!(t instanceof HTMLElement)) return;
+    if (!t.classList || !t.classList.contains('shop-panel-scroll')) return;
+    const wrap = document.getElementById('partyBarWrap');
+    if (!wrap) return;
+    const st = t.scrollTop;
+    if (st > COLLAPSE_AT && wrap.classList.contains('expanded')) {
+      wrap.classList.remove('expanded');
+      wrap.classList.add('collapsed');
+      if (typeof updatePartyBarSummary === 'function') updatePartyBarSummary();
+    } else if (st < EXPAND_AT && wrap.classList.contains('collapsed')) {
+      wrap.classList.remove('collapsed');
+      wrap.classList.add('expanded');
+      if (typeof updatePartyBarSummary === 'function') updatePartyBarSummary();
+    }
+    lastScrollTop = st;
+  }, true);
+})();
 function updatePartyBarSummary() {
   const el = document.getElementById('partyBarSummary');
   if (!el) return;
@@ -3543,14 +3590,12 @@ function applyRandomPreset() {
     const par = document.getElementById('cb-'+b);
     if(par) par.checked = anySub;
   });
-  // Randomize rarity range
-  const rMin = Math.floor(Math.random()*3); // 0-2
-  const rMax = rMin + 1 + Math.floor(Math.random()*(4-rMin)); // at least 1 above min
-  document.getElementById('rMin').value = rMin;
-  document.getElementById('rMax').value = Math.min(4,rMax);
-  const note3=document.getElementById('rAutoNote');
-  if(note3)note3.textContent='↑ randomly set';
-  updateRarityUI();
+  // Rarity range intentionally NOT randomized — it's driven by settlement
+  // + wealth + party tier (with a lock override). Randomizing here would
+  // fight the user's locked preference or the auto-compute from settings.
+  // If anything, autoRarityFromSettings will fire when the settlement
+  // select changes above.
+  if(typeof autoRarityFromSettings==='function')autoRarityFromSettings();
 }
 
 function generateShop() {
